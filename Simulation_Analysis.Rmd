@@ -1,0 +1,235 @@
+---
+title: "Simulation - Test Analysis"
+output: html_document
+date: "2025-11-11"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+rm(list = ls())
+```
+
+# Load UDF
+```{r}
+# This function generates a normal distribution with modifiable parameters
+Sample_Mean <- function(n, mean = 0, sd = 1, min_val = -Inf, max_val = Inf, int = FALSE){
+  
+  x <- rnorm(n, mean, sd) # sample normal distribution with mean and sd parameters
+  x <- pmin(pmax(x,min_val), max_val) # truncate values to fit mix/max parameters
+  
+  # ---- ROUND SAMPLE TO WHOLE NUMBERS FOR LIKERT-TYPE VARS ----
+  if (int == TRUE) {
+    
+    x <- round(x) # round draws to whole numbers to reflect
+    x <- pmin(pmax(x,min_val), max_val) # Truncate again in case rounding caused range violation
+  }
+  return(x)
+}
+
+
+
+```
+
+# Load libraries
+```{r}
+# install.packages(pacman)
+library(pacman)
+
+p_load(tidyverse,
+       readxl,
+       lme4,
+       nlme,
+       lmerTest,
+       psych,
+       sjPlot) #Add additional packages
+
+
+
+```
+
+# Load data
+```{r, echo = TRUE, results = "hide"}
+setwd("simulations/") # Change WD for loading files
+temp <- list.files(pattern = "\\.RData") # Load all .RData files in folder 
+
+lapply(temp, load, .GlobalEnv)
+
+```
+```{r}
+df_check <- df_PS_1 %>% 
+  mutate(Condition01 = if_else(Condition == 1, 1,0),
+         Contrast01 = if_else(Contrast == 1, 1,0),
+         I = Condition * Contrast,
+         I01 = Condition01 * Contrast01)
+```
+
+# Analysis
+```{r}
+
+model_list <- list()
+
+```
+
+## Model type 1) Perceptions
+[Give model description]
+
+### Smartness
+```{r}
+
+model_list[["S1_Model.1"]] <- nlme::lme(
+  fixed = Y ~ Condition * Contrast,
+  random = ~ 1 + Contrast | Subject,
+  data = df_S_1,
+  method = "ML"
+)
+
+model_list[["S2_Model.1"]] <- nlme::lme(
+  fixed = Y ~ Condition * Contrast,
+  random = ~ 1 + Contrast | Subject,
+  data = df_S_2,
+  method = "ML"
+)
+
+model_list[["S3EXP_Model.1"]] <- nlme::lme(
+  fixed = Y ~ Condition * Contrast,
+  random = ~ 1 + Contrast | Subject,
+  data = df_S_3,
+  method = "ML"
+)
+
+```
+
+### Similarity
+```{r}
+model_list[["Check_Model.1"]] <- nlme::lme(
+  fixed = Y ~ Condition + Contrast + I01,
+  random = ~ 1 + Contrast | Subject,
+  data = df_check,
+  method = "ML"
+)
+
+model_list[["PS1_Model.1"]] <- nlme::lme(
+  fixed = Y ~ Condition * Contrast,
+  random = ~ 1 + Contrast | Subject,
+  data = df_PS_1,
+  method = "ML"
+)
+
+summary(model_list[["PS1_Model.1"]])
+
+model_list[["PS2_Model.1"]] <- nlme::lme(
+  fixed = Y ~ Condition * Contrast,
+  random = ~ 1 + Contrast | Subject,
+  data = df_PS_2,
+  method = "ML"
+)
+
+# model_PS_1 <- lmer(
+#   Y ~ Condition * Contrast + (1 | Subject),
+#   data = df_PS_1,
+#   REML = FALSE
+# )
+# 
+# model_PS_2 <- lmer(
+#   Y ~ Condition * Contrast + (1 | Subject),
+#   data = df_PS_1,
+#   REML = FALSE
+# )
+
+```
+
+### Closeness
+```{r}
+
+model_list[["C_Model.1"]] <- nlme::lme(
+  fixed = Y ~ Condition * Contrast,
+  random = ~ 1 + Contrast | Subject,
+  data = df_C,
+  method = "ML"
+)
+
+```
+
+## Model type 2) Performance comparisons
+[Model description]
+
+## Attributions
+```{r}
+
+model_list[["A1_Model.1"]] <- nlme::lme(
+  fixed = Y ~ Condition * Contrast,
+  random = ~ 1 + Contrast | Subject,
+  data = df_A_1,
+  method = "ML"
+)
+
+model_list[["A2EXP_Model.1"]] <- nlme::lme(
+  fixed = Y ~ Condition * Contrast,
+  random = ~ 1 + Contrast | Subject,
+  data = df_A_2,
+  method = "ML"
+)
+
+model_list[["A3_Model.1"]] <- nlme::lme(
+  fixed = Y ~ Condition * Contrast,
+  random = ~ 1 + Contrast | Subject,
+  data = df_A_3,
+  method = "ML"
+)
+
+```
+
+## Stability
+```{r}
+
+model_list[["Stab1_Model.1"]] <- nlme::lme(
+  fixed = Y ~ Condition * Contrast,
+  random = ~ 1 + Contrast | Subject,
+  data = df_Stab_1,
+  method = "ML"
+)
+
+model_list[["Stab2_Model.1"]] <- nlme::lme(
+  fixed = Y ~ Condition * Contrast,
+  random = ~ 1 + Contrast | Subject,
+  data = df_Stab_2,
+  method = "ML"
+)
+
+model_list[["Stab3_Model.1"]] <- nlme::lme(
+  fixed = Y ~ Condition * Contrast,
+  random = ~ 1 + Contrast | Subject,
+  data = df_Stab_3,
+  method = "ML"
+)
+
+model_list[["Stab4EXP_Model.1"]] <- nlme::lme(
+  fixed = Y ~ Condition * Contrast,
+  random = ~ 1 + Contrast | Subject,
+  data = df_Stab_4,
+  method = "ML"
+)
+
+```
+
+# Results
+## Perceived Similarity
+```{r}
+tab_model(model_list["Check_Model.1"])
+
+tab_model(model_list[str_detect(names(model_list), "PS")],
+          dv.labels = names(model_list[str_detect(names(model_list), "PS")]))
+
+tab_model(model_list[str_detect(names(model_list), "A")],
+          dv.labels = names(model_list[str_detect(names(model_list), "A")]))
+
+```
+
+
+```{r}
+
+```
+

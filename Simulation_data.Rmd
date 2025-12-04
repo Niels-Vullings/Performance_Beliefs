@@ -1,0 +1,313 @@
+---
+title: "Study 1 - Simulation"
+output: html_document
+date: "2025-11-10"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Clear workspace
+```{r}
+rm(list = ls())
+```
+
+# Load UDF
+```{r}
+# This function generates a normal distribution with modifiable parameters
+Sample_Mean <- function(n, mean = 0, sd = 1, min_val = -Inf, max_val = Inf, int = FALSE){
+  
+  x <- rnorm(n, mean, sd) # sample normal distribution with mean and sd parameters
+  x <- pmin(pmax(x,min_val), max_val) # truncate values to fit mix/max parameters
+  
+  # ---- ROUND SAMPLE TO WHOLE NUMBERS FOR LIKERT-TYPE VARS ----
+  if (int == TRUE) {
+    
+    x <- round(x) # round draws to whole numbers to reflect
+    x <- pmin(pmax(x,min_val), max_val) # Truncate again in case rounding caused range violation
+  }
+  return(x)
+}
+
+```
+
+# Load libraries
+```{r}
+# install.packages(pacman)
+library(pacman)
+
+p_load(tidyverse,
+       readxl,
+       lme4,
+       lmertest) #Add additional packages
+
+```
+
+# Load data template
+```{r}
+
+df_temp <- read_excel("Ipsos simulation template.xlsx")
+
+```
+
+# Simulate data 
+
+## Set seed 
+```{r}
+set.seed(23409867)
+```
+
+## Gender, Conditions & Sets
+```{r}
+n <- 400
+
+df_sim <- expand.grid(Subject = (1:n))
+
+df_sim["Gender"] <- sample(c("Male", "Female"), size = n, replace = T)
+df_sim["Condition"] <- sample(c(-1, 1), size = n, replace = T)
+df_sim["Age"] <- Sample_Mean(n = n, mean = 15, sd = 1, min_val = 10, max_val = 18, int = T)
+
+df_sim <- df_sim %>% 
+  mutate(Set = case_when(Gender == "Male" & Condition == -1~ sample(c(1, 2), size = n, replace = T),
+                         Gender == "Male" & Condition == 1 ~ sample(c(5, 6), size = n, replace = T),
+                         Gender == "Female" & Condition == -1 ~ sample(c(3, 4), size = n, replace = T),
+                         Gender == "Female" & Condition == 1 ~ sample(c(7, 8), size = n, replace = T))
+  )
+
+```
+
+## Dependent Variables
+```{r}
+length(which(df_sim$Condition == -1))
+
+# No Grouping - Condition
+df_sim_0 <- df_sim %>% 
+  filter(Condition == -1) %>% 
+  mutate(Perceived_sim1_1 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 3, sd = 1, min_val = 1, max_val = 5, int = T),
+         Perceived_sim1_2 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 3, sd = 1, min_val = 1, max_val = 5, int = T),
+         Perceived_sim2_1 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 3, sd = 1, min_val = 1, max_val = 5, int = T),
+         Perceived_sim2_2 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 3, sd = 1, min_val = 1, max_val = 5, int = T),
+         Attributions_HP_1 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
+         Attributions_HP_2 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
+         Attributions_HP_3 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
+         Attributions_LP_1 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
+         Attributions_LP_2 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
+         Attributions_LP_3 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
+         Smartness_HP = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 3, sd = 1, min_val = 1, max_val = 5, int = T),
+         Smartness_MP_1 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 3, sd = 1, min_val = 1, max_val = 5, int = T),
+         Smartness_MP_2 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 3, sd = 1, min_val = 1, max_val = 5, int = T),
+         Smartness_LP = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 3, sd = 1, min_val = 1, max_val = 5, int = T),
+         Stability_HP_1 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
+         Stability_HP_2 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
+         Stability_HP_3 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
+         Stability_HP_4 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
+         Stability_LP_1 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
+         Stability_LP_2 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
+         Stability_LP_3 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
+         Stability_LP_4 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
+         Closeness_1 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 3, sd = 1, min_val = 1, max_val = 5, int = T),
+         Closeness_2 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 3, sd = 1, min_val = 1, max_val = 5, int = T)
+  )
+
+# Grouping - Condition
+df_sim_1 <- df_sim %>% 
+  filter(Condition == 1) %>% 
+  mutate(Perceived_sim1_1 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 4, sd = 1, min_val = 1, max_val = 5, int = T),
+         Perceived_sim1_2 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 4, sd = 1, min_val = 1, max_val = 5, int = T),
+         Perceived_sim2_1 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 4, sd = 1, min_val = 1, max_val = 5, int = T),
+         Perceived_sim2_2 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 4, sd = 1, min_val = 1, max_val = 5, int = T),
+         Attributions_HP_1 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 5, sd = 1, min_val = 1, max_val = 7, int = T),
+         Attributions_HP_2 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 5, sd = 1, min_val = 1, max_val = 7, int = T),
+         Attributions_HP_3 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 5, sd = 1, min_val = 1, max_val = 7, int = T),
+         Attributions_LP_1 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 5, sd = 1, min_val = 1, max_val = 7, int = T),
+         Attributions_LP_2 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 5, sd = 1, min_val = 1, max_val = 7, int = T),
+         Attributions_LP_3 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 5, sd = 1, min_val = 1, max_val = 7, int = T),
+         Smartness_HP = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 4, sd = 1, min_val = 1, max_val = 5, int = T),
+         Smartness_MP_1 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 4, sd = 1, min_val = 1, max_val = 5, int = T),
+         Smartness_MP_2 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 4, sd = 1, min_val = 1, max_val = 5, int = T),
+         Smartness_LP = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 4, sd = 1, min_val = 1, max_val = 5, int = T),
+         Stability_HP_1 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 5, sd = 1, min_val = 1, max_val = 7, int = T),
+         Stability_HP_2 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 5, sd = 1, min_val = 1, max_val = 7, int = T),
+         Stability_HP_3 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 5, sd = 1, min_val = 1, max_val = 7, int = T),
+         Stability_HP_4 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 5, sd = 1, min_val = 1, max_val = 7, int = T),
+         Stability_LP_1 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 3, sd = 1, min_val = 1, max_val = 7, int = T),
+         Stability_LP_2 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 3, sd = 1, min_val = 1, max_val = 7, int = T),
+         Stability_LP_3 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 3, sd = 1, min_val = 1, max_val = 7, int = T),
+         Stability_LP_4 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 3, sd = 1, min_val = 1, max_val = 7, int = T),
+         Closeness_1 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 4, sd = 1, min_val = 1, max_val = 5, int = T),
+         Closeness_2 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 4, sd = 1, min_val = 1, max_val = 5, int = T)
+  )
+
+# Recombine dfs
+df_sim <- rbind(df_sim_0, df_sim_1) %>% 
+  arrange(Subject)
+
+```
+
+# Create Long-files
+## Perceived Similarity
+```{r}
+
+#---- Similarity ----
+df_PS_1 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, starts_with("Perceived_sim1")) %>% 
+  pivot_longer(cols = starts_with("Perceived"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Perceived_sim1_2", -1, 1))
+
+#---- Commonality ----
+df_PS_2 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, starts_with("Perceived_sim2")) %>% 
+  pivot_longer(cols = starts_with("Perceived"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Perceived_sim2_2", -1, 1))
+
+```
+## Attributions
+### High Performance
+```{r}
+
+#---- ATTRI_1 ----
+df_A_1 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Attributions_HP_1, Attributions_LP_1) %>% 
+  pivot_longer(cols = starts_with("Attributions"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Attributions_LP_1", -1, 1))
+
+#---- ATTRI_2 ----
+df_A_2 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Attributions_HP_2, Attributions_LP_2) %>% 
+  pivot_longer(cols = starts_with("Attributions"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Attributions_LP_2", -1, 1))
+
+#---- ATTRI_3 ----
+df_A_3 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Attributions_HP_3, Attributions_LP_3) %>% 
+  pivot_longer(cols = starts_with("Attributions"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Attributions_LP_3", -1, 1))
+
+```
+
+## Perceived Smartness
+```{r}
+
+df_S_1 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Smartness_HP, Smartness_MP_1) %>% 
+  pivot_longer(cols = starts_with("Smart"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Smartness_HP", -1, 1))
+
+df_S_2 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Smartness_MP_2, Smartness_LP) %>% 
+  pivot_longer(cols = starts_with("Smart"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Smartness_LP", -1, 1))
+
+df_S_3 <- df_sim %>%
+  select(Subject, Gender, Condition, Set, Smartness_MP_1, Smartness_MP_2) %>%
+  pivot_longer(cols = starts_with("Smart"),
+               names_to = "item",
+               values_to = "Y") %>%
+  mutate(Contrast = if_else(item == "Smartness_MP_2", -1, 1))
+
+```
+
+## Stability
+```{r}
+
+#---- Stab_1 ----
+df_Stab_1 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Stability_HP_1, Stability_LP_1) %>% 
+  pivot_longer(cols = starts_with("Stability"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Stability_LP_1", -1, 1))
+
+#---- Stab_2 ----
+df_Stab_2 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Stability_HP_2, Stability_LP_2) %>% 
+  pivot_longer(cols = starts_with("Stability"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Stability_LP_2", -1, 1))
+
+#---- Stab_3 ----
+df_Stab_3 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Stability_HP_3, Stability_LP_3) %>% 
+  pivot_longer(cols = starts_with("Stability"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Stability_LP_3", -1, 1))
+
+#---- Stab_4 ----
+df_Stab_4 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Stability_HP_4, Stability_LP_4) %>% 
+  pivot_longer(cols = starts_with("Stability"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Stability_LP_4", -1, 1))
+
+```
+
+## Perceived Closeness
+```{r}
+
+df_C <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Closeness_1, Closeness_2) %>% 
+  pivot_longer(cols = starts_with("Closeness"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Closeness_2", -1, 1))
+```
+
+# Write outfiles
+## Wide dataset - Main df
+```{r}
+
+save(df_sim, file = "Simulation_data.RData")
+
+```
+
+## Long datasets
+```{r}
+
+#---- Perceived Similarity ----
+save(df_PS_1, file = "simulations/sim_df_PS_1.RData") # Similarity
+save(df_PS_2, file = "simulations/sim_df_PS_2.RData") # Commonality
+
+#---- Perceived Smartness ----
+save(df_S_1, file = "simulations/sim_df_S_1.RData") # HP_MP
+save(df_S_2, file = "simulations/sim_df_S_2.RData") # MP_LP
+save(df_S_3, file = "simulations/sim_df_S_3.RData") # MP_MP - Exploratory
+
+#---- Perceived Closeness ----
+save(df_C, file = "simulations/sim_df_C.RData") # Closeness
+
+#---- Attributions ----
+save(df_A_1, file = "simulations/sim_df_A_1.RData") # Intelligence
+save(df_A_2, file = "simulations/sim_df_A_2.RData") # Hard work - Exploratory
+save(df_A_3, file = "simulations/sim_df_A_3.RData") # Luck
+
+#---- Stability ----
+save(df_Stab_1, file = "simulations/df_Stab_1.RData") # Smart Parents
+save(df_Stab_2, file = "simulations/df_Stab_2.RData") # Early Development
+save(df_Stab_3, file = "simulations/df_Stab_3.RData") # Smart work
+save(df_Stab_4, file = "simulations/df_Stab_4.RData") # Financial succes - Exploratory
+
+```
+
+
+```{r}
+
+```
+
