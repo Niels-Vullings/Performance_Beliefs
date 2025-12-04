@@ -1,0 +1,32 @@
+name: "Social Networks - Lab Journal"
+author: 
+  - 'Niels Vullings'
+output_dir: "docs"
+bibliography: references.bib
+navbar:
+  left:
+    - icon: fa-home
+      href: index.html
+    - text: "Simulations"
+      href: Simulation_data.html
+    - text: "Power Analysis"
+      href: Power_Analysis.html
+    - text: "Simulated Analyses"
+      href: Simulation_Analysis.html
+      
+        # here, other .Rmds can be added
+
+
+  right:
+  - icon: fab fa-github
+    href: https://github.com/Niels-Vullings/Performance_Beliefs
+output:
+  html_document:
+    theme: flatly
+    highlight: kate
+    toc:  true
+    toc_float: true
+    number_sections: false
+    code_download: yes
+    df_print: kable
+    css: tweaks.css
