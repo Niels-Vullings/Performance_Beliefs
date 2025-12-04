@@ -267,6 +267,8 @@ load("Power/Likert_7_20251201-154345")
 
 # Likert 5
 
+Model description
+
 ```{r}
 
 multiplotPower(Power_Likert_5, filename = "Power/powerplot_likert_5.png")

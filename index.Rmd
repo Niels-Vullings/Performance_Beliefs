@@ -1,0 +1,44 @@
+---
+title: "Preregistration - Ability Grouping and Beliefs about Performance"
+author: "by: Niels Vullings"
+bibliography: references.bib
+---
+
+```{r, install remotely, globalsettings, echo=FALSE, warning=FALSE, results='hide'}
+# install.packages("remotes")
+# remotes::install_github("rlesur/klippy")
+```
+
+```{r, globalsettings, echo=FALSE, warning=FALSE, results='hide'}
+library(knitr)
+
+knitr::opts_chunk$set(echo = TRUE)
+opts_chunk$set(tidy.opts=list(width.cutoff=100),tidy=TRUE, warning = FALSE, message = FALSE,comment = "#>", cache=TRUE, class.source=c("test"), class.output=c("test2"))
+options(width = 100)
+rgl::setupKnitr()
+
+
+
+colorize <- function(x, color) {sprintf("<span style='color: %s;'>%s</span>", color, x) }
+
+```
+
+```{r klippy, echo=FALSE, include=TRUE}
+#Klippy offers a copy/paste button for code files
+klippy::klippy(position = c('top', 'right'))
+klippy::klippy(color = 'darkgreen')
+#klippy::klippy(tooltip_message = 'Click to copy', tooltip_success = 'Done')
+```
+
+------------------------------------------------------------------------
+
+::: columns
+::: {.column width="100%"}
+# Introduction
+
+Last compiled on `r format(Sys.time(), '%B, %Y')`
+
+This webpage is part of the preregistration for the study "Does ability grouping influence adolescents' beliefs about school performance". Here you can find the preregistered analytical plan, estimated using simulated data. The data have the same structure as the collected data, but sampled at random using R. Additionally, you can find the code and output of the power analysis for mixed models. [link naar OSF]
+
+------------------------------------------------------------------------
+
