@@ -293,7 +293,7 @@ df_C <- df_sim %>%
 
 ```{r}
 
-save(df_sim, file = "Simulation_data.RData")
+save(df_sim, file = "simulations/Simulation_data.RData")
 
 ```
 

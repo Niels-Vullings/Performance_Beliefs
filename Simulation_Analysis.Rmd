@@ -13,6 +13,7 @@ rm(list = ls())
 ```
 
 # Load libraries
+
 ```{r}
 # install.packages(pacman)
 library(pacman)
@@ -30,6 +31,7 @@ p_load(tidyverse,
 ```
 
 # Load data
+
 ```{r, echo = TRUE, results = "hide"}
 setwd("simulations/") # Change WD for loading files
 temp <- list.files(pattern = "\\.RData") # Load all .RData files in folder 
@@ -38,42 +40,152 @@ lapply(temp, load, .GlobalEnv)
 
 ```
 
-```{r}
-df_check <- df_PS_1 %>% 
-  mutate(Condition01 = if_else(Condition == 1, 1,0),
-         Contrast01 = if_else(Contrast == 1, 1,0),
-         I = Condition * Contrast,
-         I01 = Condition01 * Contrast01)
-```
+# Confirmatory Analyses
 
-# Analysis
 ```{r}
 
-model_list <- list()
+#---- Model list for Confirmatory Analyses ----
+model_list.C <- list()
 
 ```
 
-## Model type 1) Perceptions
-[Give model description]
+## Model type 1) Mixed Models
 
 ### Smartness
+
 ```{r}
 
-model_list[["S1_Model.1"]] <- nlme::lme(
+# ---- Smartness comparison 7.8 & 7.5 ---- 
+model_list.C[["H1_Model.1"]] <- nlme::lme(
   fixed = Y ~ Condition * Contrast,
   random = ~ 1 + Contrast | Subject,
   data = df_S_1,
   method = "ML"
 )
 
-model_list[["S2_Model.1"]] <- nlme::lme(
+# ---- Smartness comparison 6.6 & 6.3 ----
+model_list.C[["H1_Model.2"]] <- nlme::lme(
   fixed = Y ~ Condition * Contrast,
   random = ~ 1 + Contrast | Subject,
   data = df_S_2,
   method = "ML"
 )
 
-model_list[["S3EXP_Model.1"]] <- nlme::lme(
+```
+
+### Perceived Similarity
+
+```{r}
+
+# ---- Similarity ----
+model_list.C[["H2a_Model.1"]] <- nlme::lme(
+  fixed = Y ~ Condition,
+  random = ~ 1 | Subject,
+  data = df_PS_1,
+  method = "ML"
+)
+
+# ---- Commonality ----
+model_list.C[["H2b_Model.1"]] <- nlme::lme(
+  fixed = Y ~ Condition,
+  random = ~ 1 | Subject,
+  data = df_PS_2,
+  method = "ML"
+)
+
+```
+
+### Closeness
+
+```{r}
+
+model_list.C[["H3_Model.1"]] <- nlme::lme(
+  fixed = Y ~ Condition,
+  random = ~ 1 | Subject,
+  data = df_C,
+  method = "ML"
+)
+
+```
+
+## Model type 2) Linear Models
+
+## Attributions - High Performance
+
+```{r}
+# ---- Internal - Smart ----
+model_list.C[["H4a_Model.1"]] <- lm(Attributions_HP_1 ~ Condition, data = df_sim)
+
+# ---- External - Luck ----
+model_list.C[["H4b_Model.1"]] <- lm(Attributions_HP_3 ~ Condition, data = df_sim)
+
+```
+
+## Stability - High Performance
+
+```{r}
+# ---- Smart parents ----
+model_list.C[["H5a_Model.1"]] <- lm(Stability_HP_1 ~ Condition, data = df_sim)
+
+# ---- Early emergence ----
+model_list.C[["H5b_Model.1"]] <- lm(Stability_HP_2 ~ Condition, data = df_sim)
+
+# ---- Smart future job ----
+model_list.C[["H5c_Model.1"]] <- lm(Stability_HP_3 ~ Condition, data = df_sim)
+
+```
+
+## Attributions - Low Performance
+
+```{r}
+# ---- Internal - Smart ----
+model_list.C[["H4a_Model.1"]] <- lm(Attributions_LP_1 ~ Condition, data = df_sim)
+
+# ---- External - Luck ----
+model_list.C[["H4b_Model.1"]] <- lm(Attributions_LP_3 ~ Condition, data = df_sim)
+
+```
+
+## Stability - Low Performance
+
+```{r}
+# ---- Smart parents ----
+model_list.C[["H5a_Model.1"]] <- lm(Stability_LP_1 ~ Condition, data = df_sim)
+
+# ---- Early emergence ----
+model_list.C[["H5b_Model.1"]] <- lm(Stability_LP_2 ~ Condition, data = df_sim)
+
+# ---- Smart future job ----
+model_list.C[["H5c_Model.1"]] <- lm(Stability_LP_3 ~ Condition, data = df_sim)
+
+```
+
+# Exploratory Analyses
+
+In this stage, only the following exploratory analyses are worked out:
+
+-   Exploratory Smartness hypothesis
+
+-   Exploratory Dependent variables (Hard work - attribution & Future financial success)
+
+-   Exploratory random effects
+
+The following exploratory analyses will be worked out as part of the paper:
+
+-   Exploratory Moderation analyses
+
+-   Confirmatory Factor Analysis
+
+```{r}
+#---- Model list for Exploratory Analyses
+model_list.E <- list()
+
+```
+
+## Exploratory Smartness hypothesis
+```{r}
+# ---- Smartness comparison 7.5 & 6.6 ----
+model_list.E[["EH_Model.1"]] <- nlme::lme(
   fixed = Y ~ Condition * Contrast,
   random = ~ 1 + Contrast | Subject,
   data = df_S_3,
@@ -82,49 +194,47 @@ model_list[["S3EXP_Model.1"]] <- nlme::lme(
 
 ```
 
-### Similarity
+## Exploratory Dependent Variables
 ```{r}
-model_list[["Check_Model.1"]] <- nlme::lme(
-  fixed = Y ~ Condition + Contrast + I01,
-  random = ~ 1 + Contrast | Subject,
-  data = df_check,
-  method = "ML"
-)
+# ---- Stability - Future Financial Success ----
+model_list.E[["EDV1_HP_Model.1"]] <- lm(Stability_HP_4 ~ Condition, data = df_sim)
+model_list.E[["EDV1_LP_Model.1"]] <- lm(Stability_LP_4 ~ Condition, data = df_sim)
 
-model_list[["PS1_Model.1"]] <- nlme::lme(
+# ---- External - Hard Work ----
+model_list.E[["EDV2_HP_Model.1"]] <- lm(Attributions_HP_2 ~ Condition, data = df_sim)
+model_list.E[["EDV2_LP_Model.1"]] <- lm(Attributions_LP_2 ~ Condition, data = df_sim)
+
+```
+
+## Exploratory Random Effects
+
+### Perceived Similarity
+
+```{r}
+
+# ---- Similarity ----
+model_list.E[["H2a_Model.1"]] <- nlme::lme(
   fixed = Y ~ Condition * Contrast,
   random = ~ 1 + Contrast | Subject,
   data = df_PS_1,
   method = "ML"
 )
 
-summary(model_list[["PS1_Model.1"]])
-
-model_list[["PS2_Model.1"]] <- nlme::lme(
+# ---- Commonality ----
+model_list.E[["H2b_Model.1"]] <- nlme::lme(
   fixed = Y ~ Condition * Contrast,
   random = ~ 1 + Contrast | Subject,
   data = df_PS_2,
   method = "ML"
 )
 
-# model_PS_1 <- lmer(
-#   Y ~ Condition * Contrast + (1 | Subject),
-#   data = df_PS_1,
-#   REML = FALSE
-# )
-# 
-# model_PS_2 <- lmer(
-#   Y ~ Condition * Contrast + (1 | Subject),
-#   data = df_PS_1,
-#   REML = FALSE
-# )
-
 ```
 
 ### Closeness
+
 ```{r}
 
-model_list[["C_Model.1"]] <- nlme::lme(
+model_list.E[["H3_Model.1"]] <- nlme::lme(
   fixed = Y ~ Condition * Contrast,
   random = ~ 1 + Contrast | Subject,
   data = df_C,
@@ -133,83 +243,16 @@ model_list[["C_Model.1"]] <- nlme::lme(
 
 ```
 
-## Model type 2) Performance comparisons
-[Model description]
 
-## Attributions
+### TO BE EXPANDED???
 ```{r}
 
-model_list[["A1_Model.1"]] <- nlme::lme(
-  fixed = Y ~ Condition * Contrast,
-  random = ~ 1 + Contrast | Subject,
-  data = df_A_1,
-  method = "ML"
-)
-
-model_list[["A2EXP_Model.1"]] <- nlme::lme(
-  fixed = Y ~ Condition * Contrast,
-  random = ~ 1 + Contrast | Subject,
-  data = df_A_2,
-  method = "ML"
-)
-
-model_list[["A3_Model.1"]] <- nlme::lme(
-  fixed = Y ~ Condition * Contrast,
-  random = ~ 1 + Contrast | Subject,
-  data = df_A_3,
-  method = "ML"
-)
-
-```
-
-## Stability
-```{r}
-
-model_list[["Stab1_Model.1"]] <- nlme::lme(
-  fixed = Y ~ Condition * Contrast,
-  random = ~ 1 + Contrast | Subject,
-  data = df_Stab_1,
-  method = "ML"
-)
-
-model_list[["Stab2_Model.1"]] <- nlme::lme(
-  fixed = Y ~ Condition * Contrast,
-  random = ~ 1 + Contrast | Subject,
-  data = df_Stab_2,
-  method = "ML"
-)
-
-model_list[["Stab3_Model.1"]] <- nlme::lme(
-  fixed = Y ~ Condition * Contrast,
-  random = ~ 1 + Contrast | Subject,
-  data = df_Stab_3,
-  method = "ML"
-)
-
-model_list[["Stab4EXP_Model.1"]] <- nlme::lme(
-  fixed = Y ~ Condition * Contrast,
-  random = ~ 1 + Contrast | Subject,
-  data = df_Stab_4,
-  method = "ML"
-)
-
-```
-
-# Results
-## Perceived Similarity
-```{r}
-tab_model(model_list["Check_Model.1"])
-
-tab_model(model_list[str_detect(names(model_list), "PS")],
-          dv.labels = names(model_list[str_detect(names(model_list), "PS")]))
-
-tab_model(model_list[str_detect(names(model_list), "A")],
-          dv.labels = names(model_list[str_detect(names(model_list), "A")]))
-
-```
-
-
-```{r}
+# model_list.E[["H4a_Model.1"]] <- nlme::lme(
+#   fixed = Y ~ Condition * Contrast,
+#   random = ~ 1 + Contrast | Subject,
+#   data = df_A_1,
+#   method = "ML"
+# )
 
 ```
 
