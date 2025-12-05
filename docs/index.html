@@ -12,7 +12,7 @@
 <meta name="author" content="N.C.A. Vullings, E. Brummelman, S.A. Nelemans &amp; J. Sierksma" />
 
 
-<title>Preregistration - Ability Grouping and Beliefs about Performance</title>
+<title>Preregistration - Ability Grouping and Beliefs about School Performance</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -30,12 +30,7 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/navigation-1.1/codefolding.js"></script>
-<script src="site_libs/navigation-1.1/sourceembed.js"></script>
 <script src="site_libs/clipboard-1.7.1/clipboard.min.js"></script>
 <link href="site_libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
 <link href="site_libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
@@ -56,11 +51,6 @@
 
 
 
-<style type="text/css">
-#rmd-source-code {
-  display: none;
-}
-</style>
 
 
 <link rel="stylesheet" href="tweaks.css" type="text/css" />
@@ -222,73 +212,7 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
-<style type="text/css">
-.code-folding-btn { margin-bottom: 4px; }
-</style>
 
-
-
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
 
 
 
@@ -298,16 +222,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -357,17 +271,10 @@ div.tocify {
 
 <div id="header">
 
-<div class="btn-group pull-right float-right">
-<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
-<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
-<li><a id="rmd-download-source" href="#">Download Rmd</a></li>
-</ul>
-</div>
-
 
 
 <h1 class="title toc-ignore">Preregistration - Ability Grouping and
-Beliefs about Performance</h1>
+Beliefs about School Performance</h1>
 <h4 class="author">N.C.A. Vullings, E. Brummelman, S.A. Nelemans &amp;
 J. Sierksma</h4>
 
@@ -394,7 +301,13 @@ text-align: justify}
 <p>Last compiled on december-05-2025</p>
 <p>This webpage is supplement of the preregistration for the study “Does
 ability grouping influence adolescents’ beliefs about school
-performance”. Here you can find the preregistered analytical plan,
+performance”. This study is performed by N.C.A. Vullings<a href="#fn1"
+class="footnote-ref" id="fnref1"><sup>1</sup></a>, dr. E. Brummelman<a
+href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, dr. S.A.
+Nelemans<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
+and dr. J. Sierksma<a href="#fn4" class="footnote-ref"
+id="fnref4"><sup>4</sup></a>.</p>
+<p>On this webpage, you can find the preregistered analytical plan,
 estimated using simulated data. The data have the same structure as the
 collected data, but sampled at random using R. Additionally, you can
 find the code and output of the power analysis for mixed models. In the
@@ -415,12 +328,23 @@ can be found <a
 href="https://github.com/robfranken/LabJournal">here</a>.</em></p>
 </div>
 </div>
-
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlByZXJlZ2lzdHJhdGlvbiAtIEFiaWxpdHkgR3JvdXBpbmcgYW5kIEJlbGllZnMgYWJvdXQgUGVyZm9ybWFuY2UiDQphdXRob3I6ICJOLkMuQS4gVnVsbGluZ3MsIEUuIEJydW1tZWxtYW4sIFMuQS4gTmVsZW1hbnMgJiBKLiBTaWVya3NtYSINCmJpYmxpb2dyYXBoeTogcmVmZXJlbmNlcy5iaWINCi0tLQ0KDQpgYGB7PWh0bWx9DQo8c3R5bGU+DQpib2R5IHsNCnRleHQtYWxpZ246IGp1c3RpZnl9DQo8L3N0eWxlPg0KYGBgDQoNCmBgYHtyLCBpbnN0YWxsIHJlbW90ZWx5LCBnbG9iYWxzZXR0aW5ncywgZWNobz1GQUxTRSwgd2FybmluZz1GQUxTRSwgcmVzdWx0cz0naGlkZSd9DQojIGluc3RhbGwucGFja2FnZXMoInJlbW90ZXMiKQ0KIyByZW1vdGVzOjppbnN0YWxsX2dpdGh1Yigicmxlc3VyL2tsaXBweSIpDQpgYGANCg0KYGBge3IsIGdsb2JhbHNldHRpbmdzLCBlY2hvPUZBTFNFLCB3YXJuaW5nPUZBTFNFLCByZXN1bHRzPSdoaWRlJ30NCmxpYnJhcnkoa25pdHIpDQoNCmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkNCm9wdHNfY2h1bmskc2V0KHRpZHkub3B0cz1saXN0KHdpZHRoLmN1dG9mZj0xMDApLHRpZHk9VFJVRSwgd2FybmluZyA9IEZBTFNFLCBtZXNzYWdlID0gRkFMU0UsY29tbWVudCA9ICIjPiIsIGNhY2hlPVRSVUUsIGNsYXNzLnNvdXJjZT1jKCJ0ZXN0IiksIGNsYXNzLm91dHB1dD1jKCJ0ZXN0MiIpKQ0Kb3B0aW9ucyh3aWR0aCA9IDEwMCkNCnJnbDo6c2V0dXBLbml0cigpDQoNCg0KDQpjb2xvcml6ZSA8LSBmdW5jdGlvbih4LCBjb2xvcikge3NwcmludGYoIjxzcGFuIHN0eWxlPSdjb2xvcjogJXM7Jz4lczwvc3Bhbj4iLCBjb2xvciwgeCkgfQ0KDQpgYGANCg0KYGBge3Iga2xpcHB5LCBlY2hvPUZBTFNFLCBpbmNsdWRlPVRSVUV9DQojS2xpcHB5IG9mZmVycyBhIGNvcHkvcGFzdGUgYnV0dG9uIGZvciBjb2RlIGZpbGVzDQprbGlwcHk6OmtsaXBweShwb3NpdGlvbiA9IGMoJ3RvcCcsICdyaWdodCcpKQ0Ka2xpcHB5OjprbGlwcHkoY29sb3IgPSAnZGFya2dyZWVuJykNCiNrbGlwcHk6OmtsaXBweSh0b29sdGlwX21lc3NhZ2UgPSAnQ2xpY2sgdG8gY29weScsIHRvb2x0aXBfc3VjY2VzcyA9ICdEb25lJykNCmBgYA0KDQotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0NCg0KOjo6OjogY29sdW1ucw0KOjo6IHsuY29sdW1uIHdpZHRoPSIxMDAlIn0NCiMjIEludHJvZHVjdGlvbg0KDQpMYXN0IGNvbXBpbGVkIG9uIGByIGZvcm1hdChTeXMudGltZSgpLCAnJUItJWQtJVknKWANCg0KVGhpcyB3ZWJwYWdlIGlzIHN1cHBsZW1lbnQgb2YgdGhlIHByZXJlZ2lzdHJhdGlvbiBmb3IgdGhlIHN0dWR5ICJEb2VzIGFiaWxpdHkgZ3JvdXBpbmcgaW5mbHVlbmNlIGFkb2xlc2NlbnRzJyBiZWxpZWZzIGFib3V0IHNjaG9vbCBwZXJmb3JtYW5jZSIuIEhlcmUgeW91IGNhbiBmaW5kIHRoZSBwcmVyZWdpc3RlcmVkIGFuYWx5dGljYWwgcGxhbiwgZXN0aW1hdGVkIHVzaW5nIHNpbXVsYXRlZCBkYXRhLiBUaGUgZGF0YSBoYXZlIHRoZSBzYW1lIHN0cnVjdHVyZSBhcyB0aGUgY29sbGVjdGVkIGRhdGEsIGJ1dCBzYW1wbGVkIGF0IHJhbmRvbSB1c2luZyBSLiBBZGRpdGlvbmFsbHksIHlvdSBjYW4gZmluZCB0aGUgY29kZSBhbmQgb3V0cHV0IG9mIHRoZSBwb3dlciBhbmFseXNpcyBmb3IgbWl4ZWQgbW9kZWxzLiBJbiB0aGUgdG9wLXJpZ2h0IGNvcm5lciwgeW91IGNhbiBuYXZpZ2F0ZSB0byB0aGUgR2l0SHViIHJlcG9zaXRvcnksIHdoZXJlIGFsbCBjb2RlIGFuZCBzaW11bGF0ZWQgZGF0YSBpcyBwdWJsaWNseSBhdmFpbGFibHkuIEZlZWwgZnJlZSB0byBzZW5kIHF1ZXN0aW9ucyBhYm91dCB0aGUgY29kZSBhbmQgYW5hbHlzZXMgdG8gW24uYy5hLnZ1bGxpbmdzXEB1dS5ubF0obWFpbHRvOm4uYy5hLnZ1bGxpbmdzQHV1Lm5sKXsuZW1haWx9DQoNClRoaXMgd2VicGFnZSBpcyBhbmQgZXh0ZW5zaW9uIG9mIHRoZSBwcmVyZWdpc3RyYXRpb24gIkRvZXMgYWJpbGl0eSBncm91cGluZyBpbmZsdWVuY2UgYWRvbGVzY2VudHMnIGJlbGllZnMgYWJvdXQgc2Nob29sIHBlcmZvcm1hbmNlIi4gQ2xpY2sgaGVyZSB0byBuYXZpZ2F0ZSB0byB0aGUgcHJlcmVnaXN0cmF0aW9uIG9uIE9TRi4gW2xpbmsgbmFhciBPU0ZdDQo6OjoNCg0KLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQoNCjo6OiB7LmNvbHVtbiB3aWR0aD0iMTAwJSJ9DQoqVGhlIHRlbXBsYXRlIGZvciB0aGlzIHdlYnBhZ2UgYW5kIGl0cyByZWxhdGVkIGNvZGUgd2FzIGRldmVsb3BlZCBieSBkci4gUm9iIEZyYW5rZW4gKFV0cmVjaHQgVW5pdmVyc2l0eSkgZW4gcHJvZi4gZHIuIEpvY2hlbSBUb2xzbWEgKFJhZGJvdWQgVW5pdmVyc2l0eSAmIEdyb25pbmdlbiBVbml2ZXJzaXR5KS4gT3JpZ2luYWwgc291cmNlIGNvZGUgY2FuIGJlIGZvdW5kIFtoZXJlXShodHRwczovL2dpdGh1Yi5jb20vcm9iZnJhbmtlbi9MYWJKb3VybmFsKS4qDQo6OjoNCjo6Ojo6DQo=</div>
-
-
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>Utrecht University, Department of Developmental
+Psychology<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>University of Amsterdam, Research Institute of Child
+Development and Education<a href="#fnref2"
+class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Utrecht University, Department of Youth and Family<a
+href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Utrecht University, Department of Developmental
+Psychology<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
-</div>
+
+
+
 
 </div>
 
@@ -452,41 +376,7 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
-<script>
-$(document).ready(function () {
-  window.initializeSourceEmbed("index.Rmd");
-});
-</script>
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

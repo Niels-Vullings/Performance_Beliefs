@@ -1,7 +1,12 @@
 ---
-title: "Preregistration - Ability Grouping and Beliefs about Performance"
+title: "Preregistration - Ability Grouping and Beliefs about School Performance"
 author: "N.C.A. Vullings, E. Brummelman, S.A. Nelemans & J. Sierksma"
 bibliography: references.bib
+output:
+  html_document:
+    toc: false
+    toc_float: false
+    code_download: no
 ---
 
 ```{=html}
@@ -45,7 +50,9 @@ klippy::klippy(color = 'darkgreen')
 
 Last compiled on `r format(Sys.time(), '%B-%d-%Y')`
 
-This webpage is supplement of the preregistration for the study "Does ability grouping influence adolescents' beliefs about school performance". Here you can find the preregistered analytical plan, estimated using simulated data. The data have the same structure as the collected data, but sampled at random using R. Additionally, you can find the code and output of the power analysis for mixed models. In the top-right corner, you can navigate to the GitHub repository, where all code and simulated data is publicly availably. Feel free to send questions about the code and analyses to [n.c.a.vullings\@uu.nl](mailto:n.c.a.vullings@uu.nl){.email}
+This webpage is supplement of the preregistration for the study "Does ability grouping influence adolescents' beliefs about school performance". This study is performed by N.C.A. Vullings[^1], dr. E. Brummelman[^2], dr. S.A. Nelemans[^3] and dr. J. Sierksma[^1].
+
+On this webpage, you can find the preregistered analytical plan, estimated using simulated data. The data have the same structure as the collected data, but sampled at random using R. Additionally, you can find the code and output of the power analysis for mixed models. In the top-right corner, you can navigate to the GitHub repository, where all code and simulated data is publicly availably. Feel free to send questions about the code and analyses to [n.c.a.vullings\@uu.nl](mailto:n.c.a.vullings@uu.nl){.email}
 
 This webpage is and extension of the preregistration "Does ability grouping influence adolescents' beliefs about school performance". Click here to navigate to the preregistration on OSF. [link naar OSF]
 :::
@@ -56,3 +63,9 @@ This webpage is and extension of the preregistration "Does ability grouping infl
 *The template for this webpage and its related code was developed by dr. Rob Franken (Utrecht University) en prof. dr. Jochem Tolsma (Radboud University & Groningen University). Original source code can be found [here](https://github.com/robfranken/LabJournal).*
 :::
 :::::
+
+[^1]: Utrecht University, Department of Developmental Psychology
+
+[^2]: University of Amsterdam, Research Institute of Child Development and Education
+
+[^3]: Utrecht University, Department of Youth and Family

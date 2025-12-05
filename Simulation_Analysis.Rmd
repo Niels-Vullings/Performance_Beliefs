@@ -1,8 +1,7 @@
 ---
 title: "Simulation - Test Analysis"
-author: "By: N.C.A. Vullings & J.Sierksma"
+date: Last compiled on `r format(Sys.time(), '%B-%d-%Y')`
 output: html_document
-date: "2025-11-11"
 ---
 
 ```{r setup, include=FALSE}

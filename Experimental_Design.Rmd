@@ -1,7 +1,6 @@
 ---
 title: "Experimental Design"
-author: "N.C.A. Vullings, E. Brummelman, S.A. Nelemans & J. Sierksma"
-date: "2025-12-05"
+date: Last compiled on `r format(Sys.time(), '%B-%d-%Y')`
 output: html_document
 ---
 
