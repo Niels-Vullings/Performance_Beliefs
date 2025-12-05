@@ -1,5 +1,6 @@
 ---
 title: "Simulation - Test Analysis"
+author: "By: N.C.A. Vullings & J.Sierksma"
 output: html_document
 date: "2025-11-11"
 ---
@@ -10,27 +11,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 rm(list = ls())
-```
-
-# Load UDF
-```{r}
-# This function generates a normal distribution with modifiable parameters
-Sample_Mean <- function(n, mean = 0, sd = 1, min_val = -Inf, max_val = Inf, int = FALSE){
-  
-  x <- rnorm(n, mean, sd) # sample normal distribution with mean and sd parameters
-  x <- pmin(pmax(x,min_val), max_val) # truncate values to fit mix/max parameters
-  
-  # ---- ROUND SAMPLE TO WHOLE NUMBERS FOR LIKERT-TYPE VARS ----
-  if (int == TRUE) {
-    
-    x <- round(x) # round draws to whole numbers to reflect
-    x <- pmin(pmax(x,min_val), max_val) # Truncate again in case rounding caused range violation
-  }
-  return(x)
-}
-
-
-
 ```
 
 # Load libraries
@@ -58,6 +38,7 @@ temp <- list.files(pattern = "\\.RData") # Load all .RData files in folder
 lapply(temp, load, .GlobalEnv)
 
 ```
+
 ```{r}
 df_check <- df_PS_1 %>% 
   mutate(Condition01 = if_else(Condition == 1, 1,0),

@@ -11,8 +11,9 @@
 
 <meta name="author" content="N.C.A. Vullings, E. Brummelman, S.A. Nelemans &amp; J. Sierksma" />
 
+<meta name="date" content="2025-12-05" />
 
-<title>Preregistration - Ability Grouping and Beliefs about Performance</title>
+<title>Experimental Design</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -36,10 +37,6 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <script src="site_libs/navigation-1.1/sourceembed.js"></script>
-<script src="site_libs/clipboard-1.7.1/clipboard.min.js"></script>
-<link href="site_libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
-<link href="site_libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
-<script src="site_libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
 <link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 
@@ -366,10 +363,10 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Preregistration - Ability Grouping and
-Beliefs about Performance</h1>
+<h1 class="title toc-ignore">Experimental Design</h1>
 <h4 class="author">N.C.A. Vullings, E. Brummelman, S.A. Nelemans &amp;
 J. Sierksma</h4>
+<h4 class="date">2025-12-05</h4>
 
 </div>
 
@@ -378,45 +375,74 @@ J. Sierksma</h4>
 body {
 text-align: justify}
 </style>
-<script>
-  addClassKlippyTo("pre.r, pre.markdown");
-  addKlippy('right', 'top', 'auto', '1', 'Copy code', 'Copied!');
-</script>
-<script>
-  addClassKlippyTo("pre.r, pre.markdown");
-  addKlippy('left', 'top', '#006400', '1', 'Copy code', 'Copied!');
-</script>
+<p>We study whether adolescents view other differently when they are
+aware of what ability group (or high school track) they are assigned to.
+Does it affect how similar they think certain children are? Does it
+affect how much certain children have in common, or who has a better
+bond with whom? Are abilities seen as more stable and is performance
+attributed to internal factors rather than external factors?</p>
+<p>To answer these research questions, we employ an between-subject
+experimental design. Participants see a ranked grade list of 10
+hypothetical students, who are in the 6<sup>th</sup> grade. These
+‘students’ took a test to assess their reading, writing and math
+comprehension. Their grades on this test consistently decrease from 8.4
+to 5.7 with a value of 0.3. In the ‘grouping condition’, participants
+see to what ability group (high, medium low) the students are assigned
+to, based on their performance:</p>
+<ul>
+<li><p>High ability group: 8.4, 8.1 &amp; 7.8;</p></li>
+<li><p>Medium ability group: 7.5, 7.2, 6.9 &amp; 6.6;</p></li>
+<li><p>Low ability group: 6.3, 6.0 &amp; 5.7.</p></li>
+</ul>
+<p>In the ’no-grouping condition, participants only see the names and
+grades of the students. Participants then answer questions about these
+students.</p>
+<p>Below are two example grade lists, for each condition. Participants
+are assigned to the conditions at random. To control for adverse
+effects, the names on the grade list are matched on gender, so boys only
+see boy-names and girls only see girl-names. Participants who identify
+as non-binary are assigned at random to the boys or girls grade lists.
+The names on the list are Dutch and do not have particular associations
+with low or high socioeconomic status (SES, to control for potential
+biases regarding ethnicity or SES. For boys and girls each, we have two
+unique grade lists, to control for adverse effects regarding the names
+on said list. This leads to a total of 8 unique grade lists (2
+Conditions x 2 Gender x 2 versions).</p>
 <hr />
-<div class="columns">
-<div class="column" style="width:100%;">
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
-<p>Last compiled on december-05-2025</p>
-<p>This webpage is supplement of the preregistration for the study “Does
-ability grouping influence adolescents’ beliefs about school
-performance”. Here you can find the preregistered analytical plan,
-estimated using simulated data. The data have the same structure as the
-collected data, but sampled at random using R. Additionally, you can
-find the code and output of the power analysis for mixed models. In the
-top-right corner, you can navigate to the GitHub repository, where all
-code and simulated data is publicly availably. Feel free to send
-questions about the code and analyses to <a
-href="mailto:n.c.a.vullings@uu.nl"
-class="email">n.c.a.vullings@uu.nl</a></p>
-<p>This webpage is and extension of the preregistration “Does ability
-grouping influence adolescents’ beliefs about school performance”. Click
-here to navigate to the preregistration on OSF. [link naar OSF]</p>
+<div id="example-1-no-grouping-condition---girls"
+class="section level2">
+<h2>Example 1) No grouping Condition - Girls</h2>
+<p>In a minute, you will read about students in 6<sup>th</sup> grade
+class in primary school. The students in this class took an important
+test last week. The test was about reading, writing and math. The
+teacher has graded the test. Below you can see the grades. The higher
+the grade, the higher that student is on the list.</p>
+<center>
+<p><img src="images/clipboard-2027783284.png" /></p>
+<center>
+<hr />
 </div>
-</div><hr /><div class="column" style="width:100%;">
-<p><em>The template for this webpage and its related code was developed
-by dr. Rob Franken (Utrecht University) en prof. dr. Jochem Tolsma
-(Radboud University &amp; Groningen University). Original source code
-can be found <a
-href="https://github.com/robfranken/LabJournal">here</a>.</em></p>
-</div>
+<div id="example-2-grouping-condition---boys" class="section level2">
+<h2>Example 2) Grouping Condition - Boys</h2>
+<p>In a minute, you will read about students in 6<sup>th</sup> grade
+class in primary school. The students in this class took an important
+test last week. The test was about reading, writing and math. The
+teacher has graded the test. Below you can see the grades. The higher
+the grade, the higher that student is on the list. Based on the grade
+the teacher has given a track recommendation to the students. This
+recommendations determines which track in high school a student will
+attend. Below you also see the recommendation.</p>
+<p><strong><em>Note: in the column “Track recommendation”, the
+information between brackets (e.g. high-medium-low ability group) is not
+shown to participants. As these tracks names are unique to the Dutch
+educational system, these labels are only to inform international
+readers.</em></strong></p>
+<center>
+<p><img src="images/clipboard-979993405.png" /></p>
+<center>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlByZXJlZ2lzdHJhdGlvbiAtIEFiaWxpdHkgR3JvdXBpbmcgYW5kIEJlbGllZnMgYWJvdXQgUGVyZm9ybWFuY2UiDQphdXRob3I6ICJOLkMuQS4gVnVsbGluZ3MsIEUuIEJydW1tZWxtYW4sIFMuQS4gTmVsZW1hbnMgJiBKLiBTaWVya3NtYSINCmJpYmxpb2dyYXBoeTogcmVmZXJlbmNlcy5iaWINCi0tLQ0KDQpgYGB7PWh0bWx9DQo8c3R5bGU+DQpib2R5IHsNCnRleHQtYWxpZ246IGp1c3RpZnl9DQo8L3N0eWxlPg0KYGBgDQoNCmBgYHtyLCBpbnN0YWxsIHJlbW90ZWx5LCBnbG9iYWxzZXR0aW5ncywgZWNobz1GQUxTRSwgd2FybmluZz1GQUxTRSwgcmVzdWx0cz0naGlkZSd9DQojIGluc3RhbGwucGFja2FnZXMoInJlbW90ZXMiKQ0KIyByZW1vdGVzOjppbnN0YWxsX2dpdGh1Yigicmxlc3VyL2tsaXBweSIpDQpgYGANCg0KYGBge3IsIGdsb2JhbHNldHRpbmdzLCBlY2hvPUZBTFNFLCB3YXJuaW5nPUZBTFNFLCByZXN1bHRzPSdoaWRlJ30NCmxpYnJhcnkoa25pdHIpDQoNCmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkNCm9wdHNfY2h1bmskc2V0KHRpZHkub3B0cz1saXN0KHdpZHRoLmN1dG9mZj0xMDApLHRpZHk9VFJVRSwgd2FybmluZyA9IEZBTFNFLCBtZXNzYWdlID0gRkFMU0UsY29tbWVudCA9ICIjPiIsIGNhY2hlPVRSVUUsIGNsYXNzLnNvdXJjZT1jKCJ0ZXN0IiksIGNsYXNzLm91dHB1dD1jKCJ0ZXN0MiIpKQ0Kb3B0aW9ucyh3aWR0aCA9IDEwMCkNCnJnbDo6c2V0dXBLbml0cigpDQoNCg0KDQpjb2xvcml6ZSA8LSBmdW5jdGlvbih4LCBjb2xvcikge3NwcmludGYoIjxzcGFuIHN0eWxlPSdjb2xvcjogJXM7Jz4lczwvc3Bhbj4iLCBjb2xvciwgeCkgfQ0KDQpgYGANCg0KYGBge3Iga2xpcHB5LCBlY2hvPUZBTFNFLCBpbmNsdWRlPVRSVUV9DQojS2xpcHB5IG9mZmVycyBhIGNvcHkvcGFzdGUgYnV0dG9uIGZvciBjb2RlIGZpbGVzDQprbGlwcHk6OmtsaXBweShwb3NpdGlvbiA9IGMoJ3RvcCcsICdyaWdodCcpKQ0Ka2xpcHB5OjprbGlwcHkoY29sb3IgPSAnZGFya2dyZWVuJykNCiNrbGlwcHk6OmtsaXBweSh0b29sdGlwX21lc3NhZ2UgPSAnQ2xpY2sgdG8gY29weScsIHRvb2x0aXBfc3VjY2VzcyA9ICdEb25lJykNCmBgYA0KDQotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0NCg0KOjo6OjogY29sdW1ucw0KOjo6IHsuY29sdW1uIHdpZHRoPSIxMDAlIn0NCiMjIEludHJvZHVjdGlvbg0KDQpMYXN0IGNvbXBpbGVkIG9uIGByIGZvcm1hdChTeXMudGltZSgpLCAnJUItJWQtJVknKWANCg0KVGhpcyB3ZWJwYWdlIGlzIHN1cHBsZW1lbnQgb2YgdGhlIHByZXJlZ2lzdHJhdGlvbiBmb3IgdGhlIHN0dWR5ICJEb2VzIGFiaWxpdHkgZ3JvdXBpbmcgaW5mbHVlbmNlIGFkb2xlc2NlbnRzJyBiZWxpZWZzIGFib3V0IHNjaG9vbCBwZXJmb3JtYW5jZSIuIEhlcmUgeW91IGNhbiBmaW5kIHRoZSBwcmVyZWdpc3RlcmVkIGFuYWx5dGljYWwgcGxhbiwgZXN0aW1hdGVkIHVzaW5nIHNpbXVsYXRlZCBkYXRhLiBUaGUgZGF0YSBoYXZlIHRoZSBzYW1lIHN0cnVjdHVyZSBhcyB0aGUgY29sbGVjdGVkIGRhdGEsIGJ1dCBzYW1wbGVkIGF0IHJhbmRvbSB1c2luZyBSLiBBZGRpdGlvbmFsbHksIHlvdSBjYW4gZmluZCB0aGUgY29kZSBhbmQgb3V0cHV0IG9mIHRoZSBwb3dlciBhbmFseXNpcyBmb3IgbWl4ZWQgbW9kZWxzLiBJbiB0aGUgdG9wLXJpZ2h0IGNvcm5lciwgeW91IGNhbiBuYXZpZ2F0ZSB0byB0aGUgR2l0SHViIHJlcG9zaXRvcnksIHdoZXJlIGFsbCBjb2RlIGFuZCBzaW11bGF0ZWQgZGF0YSBpcyBwdWJsaWNseSBhdmFpbGFibHkuIEZlZWwgZnJlZSB0byBzZW5kIHF1ZXN0aW9ucyBhYm91dCB0aGUgY29kZSBhbmQgYW5hbHlzZXMgdG8gW24uYy5hLnZ1bGxpbmdzXEB1dS5ubF0obWFpbHRvOm4uYy5hLnZ1bGxpbmdzQHV1Lm5sKXsuZW1haWx9DQoNClRoaXMgd2VicGFnZSBpcyBhbmQgZXh0ZW5zaW9uIG9mIHRoZSBwcmVyZWdpc3RyYXRpb24gIkRvZXMgYWJpbGl0eSBncm91cGluZyBpbmZsdWVuY2UgYWRvbGVzY2VudHMnIGJlbGllZnMgYWJvdXQgc2Nob29sIHBlcmZvcm1hbmNlIi4gQ2xpY2sgaGVyZSB0byBuYXZpZ2F0ZSB0byB0aGUgcHJlcmVnaXN0cmF0aW9uIG9uIE9TRi4gW2xpbmsgbmFhciBPU0ZdDQo6OjoNCg0KLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQoNCjo6OiB7LmNvbHVtbiB3aWR0aD0iMTAwJSJ9DQoqVGhlIHRlbXBsYXRlIGZvciB0aGlzIHdlYnBhZ2UgYW5kIGl0cyByZWxhdGVkIGNvZGUgd2FzIGRldmVsb3BlZCBieSBkci4gUm9iIEZyYW5rZW4gKFV0cmVjaHQgVW5pdmVyc2l0eSkgZW4gcHJvZi4gZHIuIEpvY2hlbSBUb2xzbWEgKFJhZGJvdWQgVW5pdmVyc2l0eSAmIEdyb25pbmdlbiBVbml2ZXJzaXR5KS4gT3JpZ2luYWwgc291cmNlIGNvZGUgY2FuIGJlIGZvdW5kIFtoZXJlXShodHRwczovL2dpdGh1Yi5jb20vcm9iZnJhbmtlbi9MYWJKb3VybmFsKS4qDQo6OjoNCjo6Ojo6DQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkV4cGVyaW1lbnRhbCBEZXNpZ24iDQphdXRob3I6ICJOLkMuQS4gVnVsbGluZ3MsIEUuIEJydW1tZWxtYW4sIFMuQS4gTmVsZW1hbnMgJiBKLiBTaWVya3NtYSINCmRhdGU6ICIyMDI1LTEyLTA1Ig0Kb3V0cHV0OiBodG1sX2RvY3VtZW50DQotLS0NCg0KYGBgez1odG1sfQ0KPHN0eWxlPg0KYm9keSB7DQp0ZXh0LWFsaWduOiBqdXN0aWZ5fQ0KPC9zdHlsZT4NCmBgYA0KDQpgYGB7ciBzZXR1cCwgaW5jbHVkZT1GQUxTRX0NCmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkNCmBgYA0KDQpXZSBzdHVkeSB3aGV0aGVyIGFkb2xlc2NlbnRzIHZpZXcgb3RoZXIgZGlmZmVyZW50bHkgd2hlbiB0aGV5IGFyZSBhd2FyZSBvZiB3aGF0IGFiaWxpdHkgZ3JvdXAgKG9yIGhpZ2ggc2Nob29sIHRyYWNrKSB0aGV5IGFyZSBhc3NpZ25lZCB0by4gRG9lcyBpdCBhZmZlY3QgaG93IHNpbWlsYXIgdGhleSB0aGluayBjZXJ0YWluIGNoaWxkcmVuIGFyZT8gRG9lcyBpdCBhZmZlY3QgaG93IG11Y2ggY2VydGFpbiBjaGlsZHJlbiBoYXZlIGluIGNvbW1vbiwgb3Igd2hvIGhhcyBhIGJldHRlciBib25kIHdpdGggd2hvbT8gQXJlIGFiaWxpdGllcyBzZWVuIGFzIG1vcmUgc3RhYmxlIGFuZCBpcyBwZXJmb3JtYW5jZSBhdHRyaWJ1dGVkIHRvIGludGVybmFsIGZhY3RvcnMgcmF0aGVyIHRoYW4gZXh0ZXJuYWwgZmFjdG9ycz8NCg0KVG8gYW5zd2VyIHRoZXNlIHJlc2VhcmNoIHF1ZXN0aW9ucywgd2UgZW1wbG95IGFuIGJldHdlZW4tc3ViamVjdCBleHBlcmltZW50YWwgZGVzaWduLiBQYXJ0aWNpcGFudHMgc2VlIGEgcmFua2VkIGdyYWRlIGxpc3Qgb2YgMTAgaHlwb3RoZXRpY2FsIHN0dWRlbnRzLCB3aG8gYXJlIGluIHRoZSA2XnRoXiBncmFkZS4gVGhlc2Ug4oCYc3R1ZGVudHPigJkgdG9vayBhIHRlc3QgdG8gYXNzZXNzIHRoZWlyIHJlYWRpbmcsIHdyaXRpbmcgYW5kIG1hdGggY29tcHJlaGVuc2lvbi4gVGhlaXIgZ3JhZGVzIG9uIHRoaXMgdGVzdCBjb25zaXN0ZW50bHkgZGVjcmVhc2UgZnJvbSA4LjQgdG8gNS43IHdpdGggYSB2YWx1ZSBvZiAwLjMuIEluIHRoZSDigJhncm91cGluZyBjb25kaXRpb27igJksIHBhcnRpY2lwYW50cyBzZWUgdG8gd2hhdCBhYmlsaXR5IGdyb3VwIChoaWdoLCBtZWRpdW0gbG93KSB0aGUgc3R1ZGVudHMgYXJlIGFzc2lnbmVkIHRvLCBiYXNlZCBvbiB0aGVpciBwZXJmb3JtYW5jZToNCg0KLSAgIEhpZ2ggYWJpbGl0eSBncm91cDogOC40LCA4LjEgJiA3Ljg7DQoNCi0gICBNZWRpdW0gYWJpbGl0eSBncm91cDogNy41LCA3LjIsIDYuOSAmIDYuNjsNCg0KLSAgIExvdyBhYmlsaXR5IGdyb3VwOiA2LjMsIDYuMCAmIDUuNy4NCg0KSW4gdGhlIOKAmG5vLWdyb3VwaW5nIGNvbmRpdGlvbiwgcGFydGljaXBhbnRzIG9ubHkgc2VlIHRoZSBuYW1lcyBhbmQgZ3JhZGVzIG9mIHRoZSBzdHVkZW50cy4gUGFydGljaXBhbnRzIHRoZW4gYW5zd2VyIHF1ZXN0aW9ucyBhYm91dCB0aGVzZSBzdHVkZW50cy4NCg0KQmVsb3cgYXJlIHR3byBleGFtcGxlIGdyYWRlIGxpc3RzLCBmb3IgZWFjaCBjb25kaXRpb24uIFBhcnRpY2lwYW50cyBhcmUgYXNzaWduZWQgdG8gdGhlIGNvbmRpdGlvbnMgYXQgcmFuZG9tLiBUbyBjb250cm9sIGZvciBhZHZlcnNlIGVmZmVjdHMsIHRoZSBuYW1lcyBvbiB0aGUgZ3JhZGUgbGlzdCBhcmUgbWF0Y2hlZCBvbiBnZW5kZXIsIHNvIGJveXMgb25seSBzZWUgYm95LW5hbWVzIGFuZCBnaXJscyBvbmx5IHNlZSBnaXJsLW5hbWVzLiBQYXJ0aWNpcGFudHMgd2hvIGlkZW50aWZ5IGFzIG5vbi1iaW5hcnkgYXJlIGFzc2lnbmVkIGF0IHJhbmRvbSB0byB0aGUgYm95cyBvciBnaXJscyBncmFkZSBsaXN0cy4gVGhlIG5hbWVzIG9uIHRoZSBsaXN0IGFyZSBEdXRjaCBhbmQgZG8gbm90IGhhdmUgcGFydGljdWxhciBhc3NvY2lhdGlvbnMgd2l0aCBsb3cgb3IgaGlnaCBzb2Npb2Vjb25vbWljIHN0YXR1cyAoU0VTLCB0byBjb250cm9sIGZvciBwb3RlbnRpYWwgYmlhc2VzIHJlZ2FyZGluZyBldGhuaWNpdHkgb3IgU0VTLiBGb3IgYm95cyBhbmQgZ2lybHMgZWFjaCwgd2UgaGF2ZSB0d28gdW5pcXVlIGdyYWRlIGxpc3RzLCB0byBjb250cm9sIGZvciBhZHZlcnNlIGVmZmVjdHMgcmVnYXJkaW5nIHRoZSBuYW1lcyBvbiBzYWlkIGxpc3QuIFRoaXMgbGVhZHMgdG8gYSB0b3RhbCBvZiA4IHVuaXF1ZSBncmFkZSBsaXN0cyAoMiBDb25kaXRpb25zIHggMiBHZW5kZXIgeCAyIHZlcnNpb25zKS4NCg0KLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQoNCiMjIEV4YW1wbGUgMSkgTm8gZ3JvdXBpbmcgQ29uZGl0aW9uIC0gR2lybHMNCg0KSW4gYSBtaW51dGUsIHlvdSB3aWxsIHJlYWQgYWJvdXQgc3R1ZGVudHMgaW4gNl50aF4gZ3JhZGUgY2xhc3MgaW4gcHJpbWFyeSBzY2hvb2wuIFRoZSBzdHVkZW50cyBpbiB0aGlzIGNsYXNzIHRvb2sgYW4gaW1wb3J0YW50IHRlc3QgbGFzdCB3ZWVrLiBUaGUgdGVzdCB3YXMgYWJvdXQgcmVhZGluZywgd3JpdGluZyBhbmQgbWF0aC4gVGhlIHRlYWNoZXIgaGFzIGdyYWRlZCB0aGUgdGVzdC4gQmVsb3cgeW91IGNhbiBzZWUgdGhlIGdyYWRlcy4gVGhlIGhpZ2hlciB0aGUgZ3JhZGUsIHRoZSBoaWdoZXIgdGhhdCBzdHVkZW50IGlzIG9uIHRoZSBsaXN0Lg0KDQo8Y2VudGVyPg0KDQohW10oaW1hZ2VzL2NsaXBib2FyZC0yMDI3NzgzMjg0LnBuZykNCg0KPGNlbnRlcj4NCg0KLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQoNCiMjIEV4YW1wbGUgMikgR3JvdXBpbmcgQ29uZGl0aW9uIC0gQm95cw0KDQpJbiBhIG1pbnV0ZSwgeW91IHdpbGwgcmVhZCBhYm91dCBzdHVkZW50cyBpbiA2XnRoXiBncmFkZSBjbGFzcyBpbiBwcmltYXJ5IHNjaG9vbC4gVGhlIHN0dWRlbnRzIGluIHRoaXMgY2xhc3MgdG9vayBhbiBpbXBvcnRhbnQgdGVzdCBsYXN0IHdlZWsuIFRoZSB0ZXN0IHdhcyBhYm91dCByZWFkaW5nLCB3cml0aW5nIGFuZCBtYXRoLiBUaGUgdGVhY2hlciBoYXMgZ3JhZGVkIHRoZSB0ZXN0LiBCZWxvdyB5b3UgY2FuIHNlZSB0aGUgZ3JhZGVzLiBUaGUgaGlnaGVyIHRoZSBncmFkZSwgdGhlIGhpZ2hlciB0aGF0IHN0dWRlbnQgaXMgb24gdGhlIGxpc3QuIEJhc2VkIG9uIHRoZSBncmFkZSB0aGUgdGVhY2hlciBoYXMgZ2l2ZW4gYSB0cmFjayByZWNvbW1lbmRhdGlvbiB0byB0aGUgc3R1ZGVudHMuIFRoaXMgcmVjb21tZW5kYXRpb25zIGRldGVybWluZXMgd2hpY2ggdHJhY2sgaW4gaGlnaCBzY2hvb2wgYSBzdHVkZW50IHdpbGwgYXR0ZW5kLiBCZWxvdyB5b3UgYWxzbyBzZWUgdGhlIHJlY29tbWVuZGF0aW9uLg0KDQoqKipOb3RlOiBpbiB0aGUgY29sdW1uICJUcmFjayByZWNvbW1lbmRhdGlvbiIsIHRoZSBpbmZvcm1hdGlvbiBiZXR3ZWVuIGJyYWNrZXRzIChlLmcuIGhpZ2gtbWVkaXVtLWxvdyBhYmlsaXR5IGdyb3VwKSBpcyBub3Qgc2hvd24gdG8gcGFydGljaXBhbnRzLiBBcyB0aGVzZSB0cmFja3MgbmFtZXMgYXJlIHVuaXF1ZSB0byB0aGUgRHV0Y2ggZWR1Y2F0aW9uYWwgc3lzdGVtLCB0aGVzZSBsYWJlbHMgYXJlIG9ubHkgdG8gaW5mb3JtIGludGVybmF0aW9uYWwgcmVhZGVycy4qKioNCg0KPGNlbnRlcj4NCg0KIVtdKGltYWdlcy9jbGlwYm9hcmQtOTc5OTkzNDA1LnBuZykNCg0KPGNlbnRlcj4NCg==</div>
 
 
 </div>
@@ -454,7 +480,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("index.Rmd");
+  window.initializeSourceEmbed("Experimental_Design.Rmd");
 });
 </script>
 

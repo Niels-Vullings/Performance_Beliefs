@@ -1,19 +1,31 @@
 ---
-title: "Study 1 - Simulation"
+title: "Data Simulation"
+author: "by: N.C.A. Vullings"
 output: html_document
 date: "2025-11-10"
 ---
+
+```{=html}
+<style>
+body {
+text-align: justify}
+</style>
+```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+In this section, we simulate the data which will be used to perform the power analysis and to define the analytical strategy which will be used for this study. These data are structurally similar to the data which will be collected for this study, but are sampled at random using the function Sample_Mean. The data is simulated to have (relatively) small differences between the "grouping" condition and the "no grouping" condition.
+
 # Clear workspace
+
 ```{r}
 rm(list = ls())
 ```
 
 # Load UDF
+
 ```{r}
 # This function generates a normal distribution with modifiable parameters
 Sample_Mean <- function(n, mean = 0, sd = 1, min_val = -Inf, max_val = Inf, int = FALSE){
@@ -33,6 +45,7 @@ Sample_Mean <- function(n, mean = 0, sd = 1, min_val = -Inf, max_val = Inf, int 
 ```
 
 # Load libraries
+
 ```{r}
 # install.packages(pacman)
 library(pacman)
@@ -44,21 +57,16 @@ p_load(tidyverse,
 
 ```
 
-# Load data template
-```{r}
+# Simulate data
 
-df_temp <- read_excel("Ipsos simulation template.xlsx")
+## Set seed
 
-```
-
-# Simulate data 
-
-## Set seed 
 ```{r}
 set.seed(23409867)
 ```
 
 ## Gender, Conditions & Sets
+
 ```{r}
 n <- 400
 
@@ -78,6 +86,7 @@ df_sim <- df_sim %>%
 ```
 
 ## Dependent Variables
+
 ```{r}
 length(which(df_sim$Condition == -1))
 
@@ -146,7 +155,9 @@ df_sim <- rbind(df_sim_0, df_sim_1) %>%
 ```
 
 # Create Long-files
+
 ## Perceived Similarity
+
 ```{r}
 
 #---- Similarity ----
@@ -166,8 +177,11 @@ df_PS_2 <- df_sim %>%
   mutate(Contrast = if_else(item == "Perceived_sim2_2", -1, 1))
 
 ```
+
 ## Attributions
+
 ### High Performance
+
 ```{r}
 
 #---- ATTRI_1 ----
@@ -197,6 +211,7 @@ df_A_3 <- df_sim %>%
 ```
 
 ## Perceived Smartness
+
 ```{r}
 
 df_S_1 <- df_sim %>%  
@@ -223,6 +238,7 @@ df_S_3 <- df_sim %>%
 ```
 
 ## Stability
+
 ```{r}
 
 #---- Stab_1 ----
@@ -260,6 +276,7 @@ df_Stab_4 <- df_sim %>%
 ```
 
 ## Perceived Closeness
+
 ```{r}
 
 df_C <- df_sim %>%  
@@ -271,7 +288,9 @@ df_C <- df_sim %>%
 ```
 
 # Write outfiles
+
 ## Wide dataset - Main df
+
 ```{r}
 
 save(df_sim, file = "Simulation_data.RData")
@@ -279,6 +298,7 @@ save(df_sim, file = "Simulation_data.RData")
 ```
 
 ## Long datasets
+
 ```{r}
 
 #---- Perceived Similarity ----
@@ -306,8 +326,6 @@ save(df_Stab_4, file = "simulations/df_Stab_4.RData") # Financial succes - Explo
 
 ```
 
-
 ```{r}
 
 ```
-

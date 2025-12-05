@@ -1,39 +1,33 @@
 ---
-title: "Simulation - Test Analysis"
+title: "Power Analysis for mixed models"
+author: "By: N.C.A. Vullings"
 output: html_document
 date: "2025-11-11"
+bibliography: references.bib
 ---
+
+```{=html}
+<style>
+body {
+text-align: justify}
+</style>
+```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+We estimated power analyses for linear mixed models[@kumle2021; @pargent2024tutorial]. Since this study uses 2 types of dependent variables (likert-5 scales and likert 7-scales), two power analyses were performed for each type. Each power analysis is simulated using the mixed power package [@kumle2021]. This form of power analysis estimates how many times a result is significant compared to the amount of simulations for each sample size: $$power_n = \frac{\text{significant simulation}}{\text{total simulations}}$$ , where n is the sample size on which the simulations are ran and results are significant with an $\alpha = 0.05$ . For this study, we simulate power for 100, 200, 300 and 400 participants. While we aim to include approximately 400 participants, we want to know from which sample size onwards our models will be sufficiently powered (power $\ge$ 0.8).
+
+Additionally, the likert 7-scales are used for the dependent variables of the construct Attributions and Stability, which will be estimated using OLS-regression. However, as we explore the variability between higher and lower performing students, a power analysis was conducted to test whether exploratory analyses would be sufficiently powered.
+
 ```{r}
 rm(list = ls())
 ```
 
-# Load UDF
+## Load UDF
 
 ```{r}
-# This function generates a normal distribution with modifiable parameters
-Sample_Mean <- function(n, 
-                        mean = 0, 
-                        sd = 1, 
-                        min_val = -Inf, 
-                        max_val = Inf, 
-                        int = FALSE){
-  
-  x <- rnorm(n, mean, sd) # sample normal distribution with mean and sd parameters
-  x <- pmin(pmax(x,min_val), max_val) # truncate values to fit mix/max parameters
-  
-  # ---- ROUND SAMPLE TO WHOLE NUMBERS FOR LIKERT-TYPE VARIABLES ----
-  if (int == TRUE) {
-    
-    x <- round(x) # round draws to whole numbers to reflect
-    x <- pmin(pmax(x,min_val), max_val) # Truncate again in case rounding caused range violation
-  }
-  return(x)
-}
 
 # This function is a confirmation for running lengthy simulations
 Sim_Confirmation <- function() {
@@ -42,7 +36,7 @@ Sim_Confirmation <- function() {
   print('Good luck')
 }
 
-# This function executes the Power Analysis in Mixed power
+# This function creates the artificial_lmer and the Power Analysis in Mixed power
 run_sim <- function(df = "Simulated df",
                     formula = "Regression Formula",
                     fixef = "Fixed effects",
@@ -88,7 +82,7 @@ run_sim <- function(df = "Simulated df",
 }
 ```
 
-# Load libraries
+## Load libraries
 
 ```{r}
 # install.packages(pacman)
@@ -115,9 +109,7 @@ lapply(temp, load, .GlobalEnv)
 
 ```
 
-# Simulation-based Power Analysis
-
-## Lmer type power analysis
+## Simulation-based Power Analysis
 
 ### Regression formula
 
@@ -135,15 +127,14 @@ sample_n <- c(100, 200, 300, 400)
 
 ```
 
-### Effect Sizes & Variance Composition [!!klopt niet!!]
+### Effect Sizes & Variance Composition
 
-#### 1-5
+#### Likert 5 scales
 
 ##### Fixed Effects
 
 ```{r}
 
-## ChatGPT was consulted for code & suggestions effect sizes
 #---- FIXED EFFECTS (small effects) ----
 fixef_15 <- c(
   "(Intercept)"        = 3.0,   # midpoint of 1–5 scale
@@ -166,6 +157,7 @@ fixef_15_SESOI <- c(
 ##### Random Effects
 
 ```{r}
+## AI was consulted for code & suggestions effect sizes
 #---- RANDOM EFFECTS ----
 sd_subject_intercept <- 0.6      # typical for Likert 1–5
 
@@ -182,13 +174,12 @@ Var_15 <- list(Subject = rand_cov_15,
 
 ```
 
-#### 1-7
+#### Likert 7 scales
 
 ##### Fixed Effects
 
 ```{r}
 
-## ChatGPT was consulted for code & suggestions effect sizes
 #---- FIXED EFFECTS (small effects) ----
 fixef_17 <- c(
   "(Intercept)"        = 4.0,   # midpoint of 1–7 scale
@@ -211,6 +202,8 @@ fixef_17_SESOI <- c(
 ##### Random Effects
 
 ```{r}
+
+## AI was consulted for code & suggestions effect sizes
 #---- RANDOM EFFECTS ----
 sd_subject_intercept <- 1.0      # typical for Likert 1–7
 
@@ -265,9 +258,7 @@ load("Power/Likert_7_20251201-154345")
 
 ```
 
-# Likert 5
-
-Model description
+# Results
 
 ```{r}
 
@@ -277,12 +268,10 @@ multiplotPower(Power_Likert_5, filename = "Power/powerplot_likert_5.png")
 
 ![Power plot for the Likert 5 models](Power/powerplot_likert_5.png)
 
-# Likert 7
-
 ```{r}
 multiplotPower(Power_Likert_7, filename = "Power/powerplot_likert_7.png")
 
 
 ```
 
-!["Power plot for the Likert 7 models"](Power/powerplot_likert_7.png)
+![Power plot for the Likert 7 models](Power/powerplot_likert_7.png)

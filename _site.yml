@@ -1,12 +1,14 @@
-name: "Social Networks - Lab Journal"
+name: "Ability grouping & Beliefs about School Performance"
 author: 
-  - 'Niels Vullings'
+  - 'N.C.A. Vullings, E. Brummelman, S.A. Nelemans & J. Sierksma'
 output_dir: "docs"
 bibliography: references.bib
 navbar:
   left:
     - icon: fa-home
       href: index.html
+    - text: "Experimental Design"
+      href: Experimental_Design.html
     - text: "Simulations"
       href: Simulation_data.html
     - text: "Power Analysis"
@@ -23,7 +25,7 @@ navbar:
 output:
   html_document:
     theme: flatly
-    highlight: kate
+    highlight: pygments
     toc:  true
     toc_float: true
     number_sections: false

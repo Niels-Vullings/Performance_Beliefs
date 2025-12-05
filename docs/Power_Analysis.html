@@ -9,10 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="By: N.C.A. Vullings" />
 
 <meta name="date" content="2025-11-11" />
 
-<title>Simulation - Test Analysis</title>
+<title>Power Analysis for mixed models</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -85,46 +86,43 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    background-color: #ffffff;
-    color: #a0a0a0;
+    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { color: #1f1c1b; background-color: #ffffff; }
+  {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span { color: #1f1c1b; } /* Normal */
-code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
-code span.an { color: #ca60ca; } /* Annotation */
-code span.at { color: #0057ae; } /* Attribute */
-code span.bn { color: #b08000; } /* BaseN */
-code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
-code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #924c9d; } /* Char */
-code span.cn { color: #aa5500; } /* Constant */
-code span.co { color: #898887; } /* Comment */
-code span.cv { color: #0095ff; } /* CommentVar */
-code span.do { color: #607880; } /* Documentation */
-code span.dt { color: #0057ae; } /* DataType */
-code span.dv { color: #b08000; } /* DecVal */
-code span.er { color: #bf0303; text-decoration: underline; } /* Error */
-code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
-code span.fl { color: #b08000; } /* Float */
-code span.fu { color: #644a9b; } /* Function */
-code span.im { color: #ff5500; } /* Import */
-code span.in { color: #b08000; } /* Information */
-code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
-code span.op { color: #1f1c1b; } /* Operator */
-code span.ot { color: #006e28; } /* Other */
-code span.pp { color: #006e28; } /* Preprocessor */
-code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
-code span.sc { color: #3daee9; } /* SpecialChar */
-code span.ss { color: #ff5500; } /* SpecialString */
-code span.st { color: #bf0303; } /* String */
-code span.va { color: #0057ae; } /* Variable */
-code span.vs { color: #bf0303; } /* VerbatimString */
-code span.wa { color: #bf0303; } /* Warning */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 
 </style>
 <script>
@@ -163,6 +161,29 @@ code span.wa { color: #bf0303; } /* Warning */
 }
 </style>
 
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="tweaks.css" type="text/css" />
 
@@ -432,6 +453,9 @@ div.tocify {
   </a>
 </li>
 <li>
+  <a href="Experimental_Design.html">Experimental Design</a>
+</li>
+<li>
   <a href="Simulation_data.html">Simulations</a>
 </li>
 <li>
@@ -464,89 +488,96 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Simulation - Test Analysis</h1>
+<h1 class="title toc-ignore">Power Analysis for mixed models</h1>
+<h4 class="author">By: N.C.A. Vullings</h4>
 <h4 class="date">2025-11-11</h4>
 
 </div>
 
 
+<style>
+body {
+text-align: justify}
+</style>
+<p>We estimated power analyses for linear mixed models<span
+class="citation">(Kumle, Võ, and Draschkow 2021; Pargent et al.
+2024)</span>. Since this study uses 2 types of dependent variables
+(likert-5 scales and likert 7-scales), two power analyses were performed
+for each type. Each power analysis is simulated using the mixed power
+package <span class="citation">(Kumle, Võ, and Draschkow 2021)</span>.
+This form of power analysis estimates how many times a result is
+significant compared to the amount of simulations for each sample size:
+<span class="math display">\[power_n = \frac{\text{significant
+simulation}}{\text{total simulations}}\]</span> , where n is the sample
+size on which the simulations are ran and results are significant with
+an <span class="math inline">\(\alpha = 0.05\)</span> . For this study,
+we simulate power for 100, 200, 300 and 400 participants. While we aim
+to include approximately 400 participants, we want to know from which
+sample size onwards our models will be sufficiently powered (power <span
+class="math inline">\(\ge\)</span> 0.8).</p>
+<p>Additionally, the likert 7-scales are used for the dependent
+variables of the construct Attributions and Stability, which will be
+estimated using OLS-regression. However, as we explore the variability
+between higher and lower performing students, a power analysis was
+conducted to test whether exploratory analyses would be sufficiently
+powered.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div>
-<div id="load-udf" class="section level1">
-<h1>Load UDF</h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># This function generates a normal distribution with modifiable parameters</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>Sample_Mean <span class="ot">&lt;-</span> <span class="cf">function</span>(n, </span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>                        <span class="at">mean =</span> <span class="dv">0</span>, </span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>                        <span class="at">sd =</span> <span class="dv">1</span>, </span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>                        <span class="at">min_val =</span> <span class="sc">-</span><span class="cn">Inf</span>, </span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>                        <span class="at">max_val =</span> <span class="cn">Inf</span>, </span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>                        <span class="at">int =</span> <span class="cn">FALSE</span>){</span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>  </span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, mean, sd) <span class="co"># sample normal distribution with mean and sd parameters</span></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">pmin</span>(<span class="fu">pmax</span>(x,min_val), max_val) <span class="co"># truncate values to fit mix/max parameters</span></span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>  </span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>  <span class="co"># ---- ROUND SAMPLE TO WHOLE NUMBERS FOR LIKERT-TYPE VARIABLES ----</span></span>
-<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>  <span class="cf">if</span> (int <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>    </span>
-<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">round</span>(x) <span class="co"># round draws to whole numbers to reflect</span></span>
-<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">pmin</span>(<span class="fu">pmax</span>(x,min_val), max_val) <span class="co"># Truncate again in case rounding caused range violation</span></span>
-<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a>  }</span>
-<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
-<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a>}</span>
-<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="co"># This function is a confirmation for running lengthy simulations</span></span>
-<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a>Sim_Confirmation <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a>  user_input <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="st">&quot;Are you sure you want to run this? (y/n)  &quot;</span>)</span>
-<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a>  <span class="cf">if</span>(user_input <span class="sc">!=</span> <span class="st">&#39;y&#39;</span>) <span class="fu">stop</span>(<span class="st">&#39;Exiting since you did not press y&#39;</span>)</span>
-<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&#39;Good luck&#39;</span>)</span>
-<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a>}</span>
-<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a><span class="co"># This function executes the Power Analysis in Mixed power</span></span>
-<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a>run_sim <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">df =</span> <span class="st">&quot;Simulated df&quot;</span>,</span>
-<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a>                    <span class="at">formula =</span> <span class="st">&quot;Regression Formula&quot;</span>,</span>
-<span id="cb2-31"><a href="#cb2-31" tabindex="-1"></a>                    <span class="at">fixef =</span> <span class="st">&quot;Fixed effects&quot;</span>,</span>
-<span id="cb2-32"><a href="#cb2-32" tabindex="-1"></a>                    <span class="at">ranef =</span> <span class="st">&quot;Random effects&quot;</span>,</span>
-<span id="cb2-33"><a href="#cb2-33" tabindex="-1"></a>                    <span class="at">SESOI =</span> <span class="st">&quot;Smallest effect size of interest&quot;</span>, </span>
-<span id="cb2-34"><a href="#cb2-34" tabindex="-1"></a>                    <span class="at">fixef_name =</span> <span class="st">&quot;(Vector of) fixed effect-names&quot;</span>,</span>
-<span id="cb2-35"><a href="#cb2-35" tabindex="-1"></a>                    <span class="at">var_name =</span> <span class="st">&quot;Name of simulated variable (subjects)&quot;</span>,</span>
-<span id="cb2-36"><a href="#cb2-36" tabindex="-1"></a>                    <span class="at">sub_range =</span> <span class="st">&quot;Vector with sample sizes&quot;</span>,</span>
-<span id="cb2-37"><a href="#cb2-37" tabindex="-1"></a>                    <span class="at">sim_n =</span> <span class="dv">1000</span>,</span>
-<span id="cb2-38"><a href="#cb2-38" tabindex="-1"></a>                    <span class="at">name =</span> <span class="st">&quot;Art_Model_id.&quot;</span>){</span>
-<span id="cb2-39"><a href="#cb2-39" tabindex="-1"></a>  </span>
-<span id="cb2-40"><a href="#cb2-40" tabindex="-1"></a>  <span class="co">#---- Dependencies ----</span></span>
-<span id="cb2-41"><a href="#cb2-41" tabindex="-1"></a>  <span class="fu">require</span>(mixedpower)</span>
-<span id="cb2-42"><a href="#cb2-42" tabindex="-1"></a>  <span class="fu">require</span>(lme4)</span>
-<span id="cb2-43"><a href="#cb2-43" tabindex="-1"></a>  </span>
-<span id="cb2-44"><a href="#cb2-44" tabindex="-1"></a>  <span class="co">#---- Define regression formula ----</span></span>
-<span id="cb2-45"><a href="#cb2-45" tabindex="-1"></a>  formula <span class="ot">&lt;-</span> formula</span>
+<div id="load-udf" class="section level2">
+<h2>Load UDF</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># This function is a confirmation for running lengthy simulations</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>Sim_Confirmation <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  user_input <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="st">&quot;Are you sure you want to run this? (y/n)  &quot;</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>  <span class="cf">if</span>(user_input <span class="sc">!=</span> <span class="st">&#39;y&#39;</span>) <span class="fu">stop</span>(<span class="st">&#39;Exiting since you did not press y&#39;</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&#39;Good luck&#39;</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>}</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co"># This function creates the artificial_lmer and the Power Analysis in Mixed power</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>run_sim <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">df =</span> <span class="st">&quot;Simulated df&quot;</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>                    <span class="at">formula =</span> <span class="st">&quot;Regression Formula&quot;</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>                    <span class="at">fixef =</span> <span class="st">&quot;Fixed effects&quot;</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>                    <span class="at">ranef =</span> <span class="st">&quot;Random effects&quot;</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>                    <span class="at">SESOI =</span> <span class="st">&quot;Smallest effect size of interest&quot;</span>, </span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>                    <span class="at">fixef_name =</span> <span class="st">&quot;(Vector of) fixed effect-names&quot;</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>                    <span class="at">var_name =</span> <span class="st">&quot;Name of simulated variable (subjects)&quot;</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a>                    <span class="at">sub_range =</span> <span class="st">&quot;Vector with sample sizes&quot;</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a>                    <span class="at">sim_n =</span> <span class="dv">1000</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a>                    <span class="at">name =</span> <span class="st">&quot;Art_Model_id.&quot;</span>){</span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a>  </span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a>  <span class="co">#---- Dependencies ----</span></span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a>  <span class="fu">require</span>(mixedpower)</span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a>  <span class="fu">require</span>(lme4)</span>
+<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a>  </span>
+<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a>  <span class="co">#---- Define regression formula ----</span></span>
+<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a>  formula <span class="ot">&lt;-</span> formula</span>
+<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a>  </span>
+<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a>  <span class="co">#---- Define Mixed model ----</span></span>
+<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a>  articifial_lmer <span class="ot">&lt;-</span> <span class="fu">makeLmer</span>(formula, <span class="at">fixef =</span> fixef,</span>
+<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a>                              <span class="at">VarCorr =</span> ranef,</span>
+<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a>                              <span class="at">data =</span> df)</span>
+<span id="cb2-31"><a href="#cb2-31" tabindex="-1"></a>  </span>
+<span id="cb2-32"><a href="#cb2-32" tabindex="-1"></a>  <span class="fu">assign</span>(<span class="fu">paste0</span>(name, <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">999</span>), <span class="dv">1</span>)), articifial_lmer, .GlobalEnv)</span>
+<span id="cb2-33"><a href="#cb2-33" tabindex="-1"></a>  <span class="co">#---- Run simulations for artificial mixed model----</span></span>
+<span id="cb2-34"><a href="#cb2-34" tabindex="-1"></a>  <span class="co"># Warning: This is the part that takes a long time.</span></span>
+<span id="cb2-35"><a href="#cb2-35" tabindex="-1"></a>  <span class="co"># Mixedpower automatically paralellizes simulations, so executing is computationally intensive</span></span>
+<span id="cb2-36"><a href="#cb2-36" tabindex="-1"></a>  <span class="co"># Mixed power default uses all available cores -1, add argument &quot;maxCores&quot; if wanted</span></span>
+<span id="cb2-37"><a href="#cb2-37" tabindex="-1"></a>  t1 <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb2-38"><a href="#cb2-38" tabindex="-1"></a>  </span>
+<span id="cb2-39"><a href="#cb2-39" tabindex="-1"></a>  power <span class="ot">&lt;-</span> <span class="fu">mixedpower</span>(<span class="at">model =</span> articifial_lmer,</span>
+<span id="cb2-40"><a href="#cb2-40" tabindex="-1"></a>                      <span class="at">data =</span> df,</span>
+<span id="cb2-41"><a href="#cb2-41" tabindex="-1"></a>                      <span class="at">fixed_effects =</span> fixef_name,</span>
+<span id="cb2-42"><a href="#cb2-42" tabindex="-1"></a>                      <span class="at">simvar =</span> var_name, <span class="at">steps =</span> sub_range,</span>
+<span id="cb2-43"><a href="#cb2-43" tabindex="-1"></a>                      <span class="at">critical_value =</span> <span class="dv">2</span>,</span>
+<span id="cb2-44"><a href="#cb2-44" tabindex="-1"></a>                      <span class="at">n_sim =</span> sim_n,</span>
+<span id="cb2-45"><a href="#cb2-45" tabindex="-1"></a>                      <span class="at">SESOI =</span> SESOI)</span>
 <span id="cb2-46"><a href="#cb2-46" tabindex="-1"></a>  </span>
-<span id="cb2-47"><a href="#cb2-47" tabindex="-1"></a>  <span class="co">#---- Define Mixed model ----</span></span>
-<span id="cb2-48"><a href="#cb2-48" tabindex="-1"></a>  articifial_lmer <span class="ot">&lt;-</span> <span class="fu">makeLmer</span>(formula, <span class="at">fixef =</span> fixef,</span>
-<span id="cb2-49"><a href="#cb2-49" tabindex="-1"></a>                              <span class="at">VarCorr =</span> ranef,</span>
-<span id="cb2-50"><a href="#cb2-50" tabindex="-1"></a>                              <span class="at">data =</span> df)</span>
-<span id="cb2-51"><a href="#cb2-51" tabindex="-1"></a>  </span>
-<span id="cb2-52"><a href="#cb2-52" tabindex="-1"></a>  <span class="fu">assign</span>(<span class="fu">paste0</span>(name, <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">999</span>), <span class="dv">1</span>)), articifial_lmer, .GlobalEnv)</span>
-<span id="cb2-53"><a href="#cb2-53" tabindex="-1"></a>  <span class="co">#---- Run simulations for artificial mixed model----</span></span>
-<span id="cb2-54"><a href="#cb2-54" tabindex="-1"></a>  <span class="co"># Warning: This is the part that takes a long time.</span></span>
-<span id="cb2-55"><a href="#cb2-55" tabindex="-1"></a>  <span class="co"># Mixedpower automatically paralellizes simulations, so executing is computationally intensive</span></span>
-<span id="cb2-56"><a href="#cb2-56" tabindex="-1"></a>  <span class="co"># Mixed power default uses all available cores -1, add argument &quot;maxCores&quot; if wanted</span></span>
-<span id="cb2-57"><a href="#cb2-57" tabindex="-1"></a>  t1 <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
-<span id="cb2-58"><a href="#cb2-58" tabindex="-1"></a>  </span>
-<span id="cb2-59"><a href="#cb2-59" tabindex="-1"></a>  power <span class="ot">&lt;-</span> <span class="fu">mixedpower</span>(<span class="at">model =</span> articifial_lmer,</span>
-<span id="cb2-60"><a href="#cb2-60" tabindex="-1"></a>                      <span class="at">data =</span> df,</span>
-<span id="cb2-61"><a href="#cb2-61" tabindex="-1"></a>                      <span class="at">fixed_effects =</span> fixef_name,</span>
-<span id="cb2-62"><a href="#cb2-62" tabindex="-1"></a>                      <span class="at">simvar =</span> var_name, <span class="at">steps =</span> sub_range,</span>
-<span id="cb2-63"><a href="#cb2-63" tabindex="-1"></a>                      <span class="at">critical_value =</span> <span class="dv">2</span>,</span>
-<span id="cb2-64"><a href="#cb2-64" tabindex="-1"></a>                      <span class="at">n_sim =</span> sim_n,</span>
-<span id="cb2-65"><a href="#cb2-65" tabindex="-1"></a>                      <span class="at">SESOI =</span> SESOI)</span>
-<span id="cb2-66"><a href="#cb2-66" tabindex="-1"></a>  </span>
-<span id="cb2-67"><a href="#cb2-67" tabindex="-1"></a>  t2 <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
-<span id="cb2-68"><a href="#cb2-68" tabindex="-1"></a>  </span>
-<span id="cb2-69"><a href="#cb2-69" tabindex="-1"></a>  <span class="fu">print</span>(t2<span class="sc">-</span>t1)</span>
-<span id="cb2-70"><a href="#cb2-70" tabindex="-1"></a>  <span class="fu">return</span>(power)</span>
-<span id="cb2-71"><a href="#cb2-71" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb2-47"><a href="#cb2-47" tabindex="-1"></a>  t2 <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb2-48"><a href="#cb2-48" tabindex="-1"></a>  </span>
+<span id="cb2-49"><a href="#cb2-49" tabindex="-1"></a>  <span class="fu">print</span>(t2<span class="sc">-</span>t1)</span>
+<span id="cb2-50"><a href="#cb2-50" tabindex="-1"></a>  <span class="fu">return</span>(power)</span>
+<span id="cb2-51"><a href="#cb2-51" tabindex="-1"></a>}</span></code></pre></div>
 </div>
-<div id="load-libraries" class="section level1">
-<h1>Load libraries</h1>
+<div id="load-libraries" class="section level2">
+<h2>Load libraries</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># install.packages(pacman)</span></span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">library</span>(pacman)</span></code></pre></div>
 <pre><code>## Warning: package &#39;pacman&#39; was built under R version 4.4.3</code></pre>
@@ -565,11 +596,8 @@ div.tocify {
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>temp <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.RData&quot;</span>) <span class="co"># Load all .RData files in folder </span></span>
 <span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="fu">lapply</span>(temp, load, .GlobalEnv)</span></code></pre></div>
-</div>
-<div id="simulation-based-power-analysis" class="section level1">
-<h1>Simulation-based Power Analysis</h1>
-<div id="lmer-type-power-analysis" class="section level2">
-<h2>Lmer type power analysis</h2>
+<div id="simulation-based-power-analysis" class="section level2">
+<h2>Simulation-based Power Analysis</h2>
 <div id="regression-formula" class="section level3">
 <h3>Regression formula</h3>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>formula <span class="ot">&lt;-</span> Y <span class="sc">~</span> Condition<span class="sc">*</span>Contrast <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject)</span></code></pre></div>
@@ -578,85 +606,84 @@ div.tocify {
 <h3>Selection of simulated sample sizes</h3>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>sample_n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>, <span class="dv">400</span>)</span></code></pre></div>
 </div>
-<div id="effect-sizes-variance-composition-klopt-niet"
-class="section level3">
-<h3>Effect Sizes &amp; Variance Composition [!!klopt niet!!]</h3>
-<div id="section" class="section level4">
-<h4>1-5</h4>
+<div id="effect-sizes-variance-composition" class="section level3">
+<h3>Effect Sizes &amp; Variance Composition</h3>
+<div id="likert-5-scales" class="section level4">
+<h4>Likert 5 scales</h4>
 <div id="fixed-effects" class="section level5">
 <h5>Fixed Effects</h5>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="do">## ChatGPT was consulted for code &amp; suggestions effect sizes</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="co">#---- FIXED EFFECTS (small effects) ----</span></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>fixef_15 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>  <span class="st">&quot;(Intercept)&quot;</span>        <span class="ot">=</span> <span class="fl">3.0</span>,   <span class="co"># midpoint of 1–5 scale</span></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>  <span class="st">&quot;Condition&quot;</span>          <span class="ot">=</span> <span class="fl">0.23</span>,  <span class="co"># small effect</span></span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>  <span class="st">&quot;Contrast&quot;</span>           <span class="ot">=</span> <span class="fl">0.17</span>,  <span class="co"># small effect</span></span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>  <span class="st">&quot;Condition:Contrast&quot;</span> <span class="ot">=</span> <span class="fl">0.14</span>   <span class="co"># small interaction</span></span>
-<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>)</span>
-<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="co">#---- Smallest Effect Size of interest ----</span></span>
-<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a><span class="co"># 15 percent lower than fixed effects</span></span>
-<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a>fixef_15_SESOI <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>  <span class="st">&quot;(Intercept)&quot;</span>        <span class="ot">=</span> <span class="fl">3.0</span>,   <span class="co"># midpoint of 1–5 scale</span></span>
-<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>  <span class="st">&quot;Condition&quot;</span>          <span class="ot">=</span> <span class="fl">0.20</span>,  <span class="co"># small effect</span></span>
-<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a>  <span class="st">&quot;Contrast&quot;</span>           <span class="ot">=</span> <span class="fl">0.15</span>,  <span class="co"># small effect</span></span>
-<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a>  <span class="st">&quot;Condition:Contrast&quot;</span> <span class="ot">=</span> <span class="fl">0.12</span>   <span class="co"># small interaction</span></span>
-<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co">#---- FIXED EFFECTS (small effects) ----</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>fixef_15 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>  <span class="st">&quot;(Intercept)&quot;</span>        <span class="ot">=</span> <span class="fl">3.0</span>,   <span class="co"># midpoint of 1–5 scale</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>  <span class="st">&quot;Condition&quot;</span>          <span class="ot">=</span> <span class="fl">0.23</span>,  <span class="co"># small effect</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>  <span class="st">&quot;Contrast&quot;</span>           <span class="ot">=</span> <span class="fl">0.17</span>,  <span class="co"># small effect</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>  <span class="st">&quot;Condition:Contrast&quot;</span> <span class="ot">=</span> <span class="fl">0.14</span>   <span class="co"># small interaction</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>)</span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="co">#---- Smallest Effect Size of interest ----</span></span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="co"># 15 percent lower than fixed effects</span></span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>fixef_15_SESOI <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a>  <span class="st">&quot;(Intercept)&quot;</span>        <span class="ot">=</span> <span class="fl">3.0</span>,   <span class="co"># midpoint of 1–5 scale</span></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>  <span class="st">&quot;Condition&quot;</span>          <span class="ot">=</span> <span class="fl">0.20</span>,  <span class="co"># small effect</span></span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>  <span class="st">&quot;Contrast&quot;</span>           <span class="ot">=</span> <span class="fl">0.15</span>,  <span class="co"># small effect</span></span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a>  <span class="st">&quot;Condition:Contrast&quot;</span> <span class="ot">=</span> <span class="fl">0.12</span>   <span class="co"># small interaction</span></span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div id="random-effects" class="section level5">
 <h5>Random Effects</h5>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co">#---- RANDOM EFFECTS ----</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>sd_subject_intercept <span class="ot">&lt;-</span> <span class="fl">0.6</span>      <span class="co"># typical for Likert 1–5</span></span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="co"># Variance-covariance matrix for random intercept only</span></span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>rand_cov_15 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(sd_subject_intercept<span class="sc">^</span><span class="dv">2</span>, <span class="at">nrow=</span><span class="dv">1</span>)</span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="fu">rownames</span>(rand_cov_15) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(rand_cov_15) <span class="ot">&lt;-</span> <span class="st">&quot;(Intercept)&quot;</span></span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="co"># Residual variance</span></span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>sd_residual <span class="ot">&lt;-</span> <span class="fl">0.9</span></span>
-<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="co"># Variance list</span></span>
-<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>Var_15 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Subject =</span> rand_cov_15,</span>
-<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>               <span class="at">Residual =</span> sd_residual<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="do">## AI was consulted for code &amp; suggestions effect sizes</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="co">#---- RANDOM EFFECTS ----</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>sd_subject_intercept <span class="ot">&lt;-</span> <span class="fl">0.6</span>      <span class="co"># typical for Likert 1–5</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="co"># Variance-covariance matrix for random intercept only</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>rand_cov_15 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(sd_subject_intercept<span class="sc">^</span><span class="dv">2</span>, <span class="at">nrow=</span><span class="dv">1</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="fu">rownames</span>(rand_cov_15) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(rand_cov_15) <span class="ot">&lt;-</span> <span class="st">&quot;(Intercept)&quot;</span></span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="co"># Residual variance</span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>sd_residual <span class="ot">&lt;-</span> <span class="fl">0.9</span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="co"># Variance list</span></span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>Var_15 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Subject =</span> rand_cov_15,</span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>               <span class="at">Residual =</span> sd_residual<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
 </div>
 </div>
-<div id="section-1" class="section level4">
-<h4>1-7</h4>
+<div id="likert-7-scales" class="section level4">
+<h4>Likert 7 scales</h4>
 <div id="fixed-effects-1" class="section level5">
 <h5>Fixed Effects</h5>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="do">## ChatGPT was consulted for code &amp; suggestions effect sizes</span></span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="co">#---- FIXED EFFECTS (small effects) ----</span></span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>fixef_17 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>  <span class="st">&quot;(Intercept)&quot;</span>        <span class="ot">=</span> <span class="fl">4.0</span>,   <span class="co"># midpoint of 1–7 scale</span></span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>  <span class="st">&quot;Condition&quot;</span>          <span class="ot">=</span> <span class="fl">0.29</span>,  <span class="co"># small effect</span></span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>  <span class="st">&quot;Contrast&quot;</span>           <span class="ot">=</span> <span class="fl">0.23</span>,  <span class="co"># small effect</span></span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>  <span class="st">&quot;Condition:Contrast&quot;</span> <span class="ot">=</span> <span class="fl">0.17</span>   <span class="co"># small interaction</span></span>
-<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a>)</span>
-<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a><span class="co">#---- Smallest Effect Size of interest ----</span></span>
-<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a><span class="co"># 15 percent lower than fixed effects</span></span>
-<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a>fixef_17_SESOI <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a>  <span class="st">&quot;(Intercept)&quot;</span>        <span class="ot">=</span> <span class="fl">4.0</span>,   <span class="co"># midpoint of 1–7 scale</span></span>
-<span id="cb11-14"><a href="#cb11-14" tabindex="-1"></a>  <span class="st">&quot;Condition&quot;</span>          <span class="ot">=</span> <span class="fl">0.25</span>,  <span class="co"># small effect</span></span>
-<span id="cb11-15"><a href="#cb11-15" tabindex="-1"></a>  <span class="st">&quot;Contrast&quot;</span>           <span class="ot">=</span> <span class="fl">0.20</span>,  <span class="co"># small effect</span></span>
-<span id="cb11-16"><a href="#cb11-16" tabindex="-1"></a>  <span class="st">&quot;Condition:Contrast&quot;</span> <span class="ot">=</span> <span class="fl">0.15</span>   <span class="co"># small interaction</span></span>
-<span id="cb11-17"><a href="#cb11-17" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co">#---- FIXED EFFECTS (small effects) ----</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>fixef_17 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>  <span class="st">&quot;(Intercept)&quot;</span>        <span class="ot">=</span> <span class="fl">4.0</span>,   <span class="co"># midpoint of 1–7 scale</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>  <span class="st">&quot;Condition&quot;</span>          <span class="ot">=</span> <span class="fl">0.29</span>,  <span class="co"># small effect</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>  <span class="st">&quot;Contrast&quot;</span>           <span class="ot">=</span> <span class="fl">0.23</span>,  <span class="co"># small effect</span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>  <span class="st">&quot;Condition:Contrast&quot;</span> <span class="ot">=</span> <span class="fl">0.17</span>   <span class="co"># small interaction</span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>)</span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="co">#---- Smallest Effect Size of interest ----</span></span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a><span class="co"># 15 percent lower than fixed effects</span></span>
+<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a>fixef_17_SESOI <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a>  <span class="st">&quot;(Intercept)&quot;</span>        <span class="ot">=</span> <span class="fl">4.0</span>,   <span class="co"># midpoint of 1–7 scale</span></span>
+<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a>  <span class="st">&quot;Condition&quot;</span>          <span class="ot">=</span> <span class="fl">0.25</span>,  <span class="co"># small effect</span></span>
+<span id="cb11-14"><a href="#cb11-14" tabindex="-1"></a>  <span class="st">&quot;Contrast&quot;</span>           <span class="ot">=</span> <span class="fl">0.20</span>,  <span class="co"># small effect</span></span>
+<span id="cb11-15"><a href="#cb11-15" tabindex="-1"></a>  <span class="st">&quot;Condition:Contrast&quot;</span> <span class="ot">=</span> <span class="fl">0.15</span>   <span class="co"># small interaction</span></span>
+<span id="cb11-16"><a href="#cb11-16" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div id="random-effects-1" class="section level5">
 <h5>Random Effects</h5>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="co">#---- RANDOM EFFECTS ----</span></span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>sd_subject_intercept <span class="ot">&lt;-</span> <span class="fl">1.0</span>      <span class="co"># typical for Likert 1–7</span></span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="co"># Variance-covariance matrix for random intercept only</span></span>
-<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>rand_cov_17 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(sd_subject_intercept<span class="sc">^</span><span class="dv">2</span>, <span class="at">nrow=</span><span class="dv">1</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a><span class="fu">rownames</span>(rand_cov_17) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(rand_cov_17) <span class="ot">&lt;-</span> <span class="st">&quot;(Intercept)&quot;</span></span>
-<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a><span class="co"># Residual variance</span></span>
-<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a>sd_residual <span class="ot">&lt;-</span> <span class="fl">1.2</span></span>
-<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a></span>
-<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a><span class="co"># Variance list</span></span>
-<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a>Var_17 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Subject =</span> rand_cov_17,</span>
-<span id="cb12-13"><a href="#cb12-13" tabindex="-1"></a>               <span class="at">Residual =</span> sd_residual<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="do">## AI was consulted for code &amp; suggestions effect sizes</span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="co">#---- RANDOM EFFECTS ----</span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>sd_subject_intercept <span class="ot">&lt;-</span> <span class="fl">1.0</span>      <span class="co"># typical for Likert 1–7</span></span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a><span class="co"># Variance-covariance matrix for random intercept only</span></span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>rand_cov_17 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(sd_subject_intercept<span class="sc">^</span><span class="dv">2</span>, <span class="at">nrow=</span><span class="dv">1</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a><span class="fu">rownames</span>(rand_cov_17) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(rand_cov_17) <span class="ot">&lt;-</span> <span class="st">&quot;(Intercept)&quot;</span></span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a><span class="co"># Residual variance</span></span>
+<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a>sd_residual <span class="ot">&lt;-</span> <span class="fl">1.2</span></span>
+<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a><span class="co"># Variance list</span></span>
+<span id="cb12-13"><a href="#cb12-13" tabindex="-1"></a>Var_17 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Subject =</span> rand_cov_17,</span>
+<span id="cb12-14"><a href="#cb12-14" tabindex="-1"></a>               <span class="at">Residual =</span> sd_residual<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -690,9 +717,8 @@ class="section level2">
 <span id="cb13-24"><a href="#cb13-24" tabindex="-1"></a><span class="fu">save</span>(Power_Likert_7, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;Power/Likert_7_&quot;</span>, <span class="fu">format</span>(<span class="fu">Sys.time</span>(), <span class="st">&quot;%Y%m%d-%H%M%S&quot;</span>)))</span></code></pre></div>
 </div>
 </div>
-<div id="likert-5" class="section level1">
-<h1>Likert 5</h1>
-<p>Model description</p>
+<div id="results" class="section level1">
+<h1>Results</h1>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">multiplotPower</span>(Power_Likert_5, <span class="at">filename =</span> <span class="st">&quot;Power/powerplot_likert_5.png&quot;</span>)</span></code></pre></div>
 <pre><code>## png 
 ##   2</code></pre>
@@ -701,20 +727,34 @@ class="section level2">
 alt="Power plot for the Likert 5 models" />
 <div class="figcaption">Power plot for the Likert 5 models</div>
 </div>
-</div>
-<div id="likert-7" class="section level1">
-<h1>Likert 7</h1>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="fu">multiplotPower</span>(Power_Likert_7, <span class="at">filename =</span> <span class="st">&quot;Power/powerplot_likert_7.png&quot;</span>)</span></code></pre></div>
 <pre><code>## png 
 ##   2</code></pre>
 <div class="float">
 <img src="Power/powerplot_likert_7.png"
-alt="“Power plot for the Likert 7 models”" />
-<div class="figcaption">“Power plot for the Likert 7 models”</div>
+alt="Power plot for the Likert 7 models" />
+<div class="figcaption">Power plot for the Likert 7 models</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent"
+entry-spacing="0">
+<div id="ref-kumle2021" class="csl-entry">
+Kumle, Levi, Melissa L.-H. Võ, and Dejan Draschkow. 2021.
+<span>“Estimating Power in (Generalized) Linear Mixed Models: An Open
+Introduction and Tutorial in R.”</span> <em>Behavior Research
+Methods</em> 53 (6): 2528–43. <a
+href="https://doi.org/10.3758/s13428-021-01546-0">https://doi.org/10.3758/s13428-021-01546-0</a>.
+</div>
+<div id="ref-pargent2024tutorial" class="csl-entry">
+Pargent, Florian, Timo K Koch, Anne-Kathrin Kleine, Eva Lermer, and
+Susanne Gaube. 2024. <span>“A Tutorial on Tailored Simulation-Based
+Sample-Size Planning for Experimental Designs with Generalized Linear
+Mixed Models.”</span> <em>Advances in Methods and Practices in
+Psychological Science</em> 7 (4): 25152459241287132.
+</div>
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNpbXVsYXRpb24gLSBUZXN0IEFuYWx5c2lzIg0Kb3V0cHV0OiBodG1sX2RvY3VtZW50DQpkYXRlOiAiMjAyNS0xMS0xMSINCi0tLQ0KDQpgYGB7ciBzZXR1cCwgaW5jbHVkZT1GQUxTRX0NCmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkNCmBgYA0KDQpgYGB7cn0NCnJtKGxpc3QgPSBscygpKQ0KYGBgDQoNCiMgTG9hZCBVREYNCg0KYGBge3J9DQojIFRoaXMgZnVuY3Rpb24gZ2VuZXJhdGVzIGEgbm9ybWFsIGRpc3RyaWJ1dGlvbiB3aXRoIG1vZGlmaWFibGUgcGFyYW1ldGVycw0KU2FtcGxlX01lYW4gPC0gZnVuY3Rpb24obiwgDQogICAgICAgICAgICAgICAgICAgICAgICBtZWFuID0gMCwgDQogICAgICAgICAgICAgICAgICAgICAgICBzZCA9IDEsIA0KICAgICAgICAgICAgICAgICAgICAgICAgbWluX3ZhbCA9IC1JbmYsIA0KICAgICAgICAgICAgICAgICAgICAgICAgbWF4X3ZhbCA9IEluZiwgDQogICAgICAgICAgICAgICAgICAgICAgICBpbnQgPSBGQUxTRSl7DQogIA0KICB4IDwtIHJub3JtKG4sIG1lYW4sIHNkKSAjIHNhbXBsZSBub3JtYWwgZGlzdHJpYnV0aW9uIHdpdGggbWVhbiBhbmQgc2QgcGFyYW1ldGVycw0KICB4IDwtIHBtaW4ocG1heCh4LG1pbl92YWwpLCBtYXhfdmFsKSAjIHRydW5jYXRlIHZhbHVlcyB0byBmaXQgbWl4L21heCBwYXJhbWV0ZXJzDQogIA0KICAjIC0tLS0gUk9VTkQgU0FNUExFIFRPIFdIT0xFIE5VTUJFUlMgRk9SIExJS0VSVC1UWVBFIFZBUklBQkxFUyAtLS0tDQogIGlmIChpbnQgPT0gVFJVRSkgew0KICAgIA0KICAgIHggPC0gcm91bmQoeCkgIyByb3VuZCBkcmF3cyB0byB3aG9sZSBudW1iZXJzIHRvIHJlZmxlY3QNCiAgICB4IDwtIHBtaW4ocG1heCh4LG1pbl92YWwpLCBtYXhfdmFsKSAjIFRydW5jYXRlIGFnYWluIGluIGNhc2Ugcm91bmRpbmcgY2F1c2VkIHJhbmdlIHZpb2xhdGlvbg0KICB9DQogIHJldHVybih4KQ0KfQ0KDQojIFRoaXMgZnVuY3Rpb24gaXMgYSBjb25maXJtYXRpb24gZm9yIHJ1bm5pbmcgbGVuZ3RoeSBzaW11bGF0aW9ucw0KU2ltX0NvbmZpcm1hdGlvbiA8LSBmdW5jdGlvbigpIHsNCiAgdXNlcl9pbnB1dCA8LSByZWFkbGluZSgiQXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIHJ1biB0aGlzPyAoeS9uKSAgIikNCiAgaWYodXNlcl9pbnB1dCAhPSAneScpIHN0b3AoJ0V4aXRpbmcgc2luY2UgeW91IGRpZCBub3QgcHJlc3MgeScpDQogIHByaW50KCdHb29kIGx1Y2snKQ0KfQ0KDQojIFRoaXMgZnVuY3Rpb24gZXhlY3V0ZXMgdGhlIFBvd2VyIEFuYWx5c2lzIGluIE1peGVkIHBvd2VyDQpydW5fc2ltIDwtIGZ1bmN0aW9uKGRmID0gIlNpbXVsYXRlZCBkZiIsDQogICAgICAgICAgICAgICAgICAgIGZvcm11bGEgPSAiUmVncmVzc2lvbiBGb3JtdWxhIiwNCiAgICAgICAgICAgICAgICAgICAgZml4ZWYgPSAiRml4ZWQgZWZmZWN0cyIsDQogICAgICAgICAgICAgICAgICAgIHJhbmVmID0gIlJhbmRvbSBlZmZlY3RzIiwNCiAgICAgICAgICAgICAgICAgICAgU0VTT0kgPSAiU21hbGxlc3QgZWZmZWN0IHNpemUgb2YgaW50ZXJlc3QiLCANCiAgICAgICAgICAgICAgICAgICAgZml4ZWZfbmFtZSA9ICIoVmVjdG9yIG9mKSBmaXhlZCBlZmZlY3QtbmFtZXMiLA0KICAgICAgICAgICAgICAgICAgICB2YXJfbmFtZSA9ICJOYW1lIG9mIHNpbXVsYXRlZCB2YXJpYWJsZSAoc3ViamVjdHMpIiwNCiAgICAgICAgICAgICAgICAgICAgc3ViX3JhbmdlID0gIlZlY3RvciB3aXRoIHNhbXBsZSBzaXplcyIsDQogICAgICAgICAgICAgICAgICAgIHNpbV9uID0gMTAwMCwNCiAgICAgICAgICAgICAgICAgICAgbmFtZSA9ICJBcnRfTW9kZWxfaWQuIil7DQogIA0KICAjLS0tLSBEZXBlbmRlbmNpZXMgLS0tLQ0KICByZXF1aXJlKG1peGVkcG93ZXIpDQogIHJlcXVpcmUobG1lNCkNCiAgDQogICMtLS0tIERlZmluZSByZWdyZXNzaW9uIGZvcm11bGEgLS0tLQ0KICBmb3JtdWxhIDwtIGZvcm11bGENCiAgDQogICMtLS0tIERlZmluZSBNaXhlZCBtb2RlbCAtLS0tDQogIGFydGljaWZpYWxfbG1lciA8LSBtYWtlTG1lcihmb3JtdWxhLCBmaXhlZiA9IGZpeGVmLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgVmFyQ29yciA9IHJhbmVmLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGF0YSA9IGRmKQ0KICANCiAgYXNzaWduKHBhc3RlMChuYW1lLCBzYW1wbGUoYygxOjk5OSksIDEpKSwgYXJ0aWNpZmlhbF9sbWVyLCAuR2xvYmFsRW52KQ0KICAjLS0tLSBSdW4gc2ltdWxhdGlvbnMgZm9yIGFydGlmaWNpYWwgbWl4ZWQgbW9kZWwtLS0tDQogICMgV2FybmluZzogVGhpcyBpcyB0aGUgcGFydCB0aGF0IHRha2VzIGEgbG9uZyB0aW1lLg0KICAjIE1peGVkcG93ZXIgYXV0b21hdGljYWxseSBwYXJhbGVsbGl6ZXMgc2ltdWxhdGlvbnMsIHNvIGV4ZWN1dGluZyBpcyBjb21wdXRhdGlvbmFsbHkgaW50ZW5zaXZlDQogICMgTWl4ZWQgcG93ZXIgZGVmYXVsdCB1c2VzIGFsbCBhdmFpbGFibGUgY29yZXMgLTEsIGFkZCBhcmd1bWVudCAibWF4Q29yZXMiIGlmIHdhbnRlZA0KICB0MSA8LSBTeXMudGltZSgpDQogIA0KICBwb3dlciA8LSBtaXhlZHBvd2VyKG1vZGVsID0gYXJ0aWNpZmlhbF9sbWVyLA0KICAgICAgICAgICAgICAgICAgICAgIGRhdGEgPSBkZiwNCiAgICAgICAgICAgICAgICAgICAgICBmaXhlZF9lZmZlY3RzID0gZml4ZWZfbmFtZSwNCiAgICAgICAgICAgICAgICAgICAgICBzaW12YXIgPSB2YXJfbmFtZSwgc3RlcHMgPSBzdWJfcmFuZ2UsDQogICAgICAgICAgICAgICAgICAgICAgY3JpdGljYWxfdmFsdWUgPSAyLA0KICAgICAgICAgICAgICAgICAgICAgIG5fc2ltID0gc2ltX24sDQogICAgICAgICAgICAgICAgICAgICAgU0VTT0kgPSBTRVNPSSkNCiAgDQogIHQyIDwtIFN5cy50aW1lKCkNCiAgDQogIHByaW50KHQyLXQxKQ0KICByZXR1cm4ocG93ZXIpDQp9DQpgYGANCg0KIyBMb2FkIGxpYnJhcmllcw0KDQpgYGB7cn0NCiMgaW5zdGFsbC5wYWNrYWdlcyhwYWNtYW4pDQpsaWJyYXJ5KHBhY21hbikNCg0KcF9sb2FkKHRpZHl2ZXJzZSwNCiAgICAgICByZWFkeGwsDQogICAgICAgbG1lNCwNCiAgICAgICBsbWVyVGVzdCwNCiAgICAgICBubG1lLA0KICAgICAgIHNpbXIsDQogICAgICAgbWl4ZWRwb3dlciwNCiAgICAgICBmdXR1cmUpICNBZGQgYWRkaXRpb25hbCBwYWNrYWdlcw0KDQpgYGANCg0KIyBMb2FkIGRhdGEgdGVtcGxhdGUNCg0KYGBge3IsIGVjaG8gPSBUUlVFLCByZXN1bHRzID0gImhpZGUifQ0Kc2V0d2QoInNpbXVsYXRpb25zLyIpICMgQ2hhbmdlIFdEIGZvciBsb2FkaW5nIGZpbGVzDQp0ZW1wIDwtIGxpc3QuZmlsZXMocGF0dGVybiA9ICJcXC5SRGF0YSIpICMgTG9hZCBhbGwgLlJEYXRhIGZpbGVzIGluIGZvbGRlciANCg0KbGFwcGx5KHRlbXAsIGxvYWQsIC5HbG9iYWxFbnYpDQoNCmBgYA0KDQojIFNpbXVsYXRpb24tYmFzZWQgUG93ZXIgQW5hbHlzaXMNCg0KIyMgTG1lciB0eXBlIHBvd2VyIGFuYWx5c2lzDQoNCiMjIyBSZWdyZXNzaW9uIGZvcm11bGENCg0KYGBge3J9DQoNCmZvcm11bGEgPC0gWSB+IENvbmRpdGlvbipDb250cmFzdCArICgxIHwgU3ViamVjdCkNCg0KYGBgDQoNCiMjIyBTZWxlY3Rpb24gb2Ygc2ltdWxhdGVkIHNhbXBsZSBzaXplcw0KDQpgYGB7cn0NCg0Kc2FtcGxlX24gPC0gYygxMDAsIDIwMCwgMzAwLCA0MDApDQoNCmBgYA0KDQojIyMgRWZmZWN0IFNpemVzICYgVmFyaWFuY2UgQ29tcG9zaXRpb24gWyEha2xvcHQgbmlldCEhXQ0KDQojIyMjIDEtNQ0KDQojIyMjIyBGaXhlZCBFZmZlY3RzDQoNCmBgYHtyfQ0KDQojIyBDaGF0R1BUIHdhcyBjb25zdWx0ZWQgZm9yIGNvZGUgJiBzdWdnZXN0aW9ucyBlZmZlY3Qgc2l6ZXMNCiMtLS0tIEZJWEVEIEVGRkVDVFMgKHNtYWxsIGVmZmVjdHMpIC0tLS0NCmZpeGVmXzE1IDwtIGMoDQogICIoSW50ZXJjZXB0KSIgICAgICAgID0gMy4wLCAgICMgbWlkcG9pbnQgb2YgMeKAkzUgc2NhbGUNCiAgIkNvbmRpdGlvbiIgICAgICAgICAgPSAwLjIzLCAgIyBzbWFsbCBlZmZlY3QNCiAgIkNvbnRyYXN0IiAgICAgICAgICAgPSAwLjE3LCAgIyBzbWFsbCBlZmZlY3QNCiAgIkNvbmRpdGlvbjpDb250cmFzdCIgPSAwLjE0ICAgIyBzbWFsbCBpbnRlcmFjdGlvbg0KKQ0KDQojLS0tLSBTbWFsbGVzdCBFZmZlY3QgU2l6ZSBvZiBpbnRlcmVzdCAtLS0tDQojIDE1IHBlcmNlbnQgbG93ZXIgdGhhbiBmaXhlZCBlZmZlY3RzDQpmaXhlZl8xNV9TRVNPSSA8LSBjKA0KICAiKEludGVyY2VwdCkiICAgICAgICA9IDMuMCwgICAjIG1pZHBvaW50IG9mIDHigJM1IHNjYWxlDQogICJDb25kaXRpb24iICAgICAgICAgID0gMC4yMCwgICMgc21hbGwgZWZmZWN0DQogICJDb250cmFzdCIgICAgICAgICAgID0gMC4xNSwgICMgc21hbGwgZWZmZWN0DQogICJDb25kaXRpb246Q29udHJhc3QiID0gMC4xMiAgICMgc21hbGwgaW50ZXJhY3Rpb24NCikNCg0KYGBgDQoNCiMjIyMjIFJhbmRvbSBFZmZlY3RzDQoNCmBgYHtyfQ0KIy0tLS0gUkFORE9NIEVGRkVDVFMgLS0tLQ0Kc2Rfc3ViamVjdF9pbnRlcmNlcHQgPC0gMC42ICAgICAgIyB0eXBpY2FsIGZvciBMaWtlcnQgMeKAkzUNCg0KIyBWYXJpYW5jZS1jb3ZhcmlhbmNlIG1hdHJpeCBmb3IgcmFuZG9tIGludGVyY2VwdCBvbmx5DQpyYW5kX2Nvdl8xNSA8LSBtYXRyaXgoc2Rfc3ViamVjdF9pbnRlcmNlcHReMiwgbnJvdz0xKQ0Kcm93bmFtZXMocmFuZF9jb3ZfMTUpIDwtIGNvbG5hbWVzKHJhbmRfY292XzE1KSA8LSAiKEludGVyY2VwdCkiDQoNCiMgUmVzaWR1YWwgdmFyaWFuY2UNCnNkX3Jlc2lkdWFsIDwtIDAuOQ0KDQojIFZhcmlhbmNlIGxpc3QNClZhcl8xNSA8LSBsaXN0KFN1YmplY3QgPSByYW5kX2Nvdl8xNSwNCiAgICAgICAgICAgICAgIFJlc2lkdWFsID0gc2RfcmVzaWR1YWxeMikNCg0KYGBgDQoNCiMjIyMgMS03DQoNCiMjIyMjIEZpeGVkIEVmZmVjdHMNCg0KYGBge3J9DQoNCiMjIENoYXRHUFQgd2FzIGNvbnN1bHRlZCBmb3IgY29kZSAmIHN1Z2dlc3Rpb25zIGVmZmVjdCBzaXplcw0KIy0tLS0gRklYRUQgRUZGRUNUUyAoc21hbGwgZWZmZWN0cykgLS0tLQ0KZml4ZWZfMTcgPC0gYygNCiAgIihJbnRlcmNlcHQpIiAgICAgICAgPSA0LjAsICAgIyBtaWRwb2ludCBvZiAx4oCTNyBzY2FsZQ0KICAiQ29uZGl0aW9uIiAgICAgICAgICA9IDAuMjksICAjIHNtYWxsIGVmZmVjdA0KICAiQ29udHJhc3QiICAgICAgICAgICA9IDAuMjMsICAjIHNtYWxsIGVmZmVjdA0KICAiQ29uZGl0aW9uOkNvbnRyYXN0IiA9IDAuMTcgICAjIHNtYWxsIGludGVyYWN0aW9uDQopDQoNCiMtLS0tIFNtYWxsZXN0IEVmZmVjdCBTaXplIG9mIGludGVyZXN0IC0tLS0NCiMgMTUgcGVyY2VudCBsb3dlciB0aGFuIGZpeGVkIGVmZmVjdHMNCmZpeGVmXzE3X1NFU09JIDwtIGMoDQogICIoSW50ZXJjZXB0KSIgICAgICAgID0gNC4wLCAgICMgbWlkcG9pbnQgb2YgMeKAkzcgc2NhbGUNCiAgIkNvbmRpdGlvbiIgICAgICAgICAgPSAwLjI1LCAgIyBzbWFsbCBlZmZlY3QNCiAgIkNvbnRyYXN0IiAgICAgICAgICAgPSAwLjIwLCAgIyBzbWFsbCBlZmZlY3QNCiAgIkNvbmRpdGlvbjpDb250cmFzdCIgPSAwLjE1ICAgIyBzbWFsbCBpbnRlcmFjdGlvbg0KKQ0KDQpgYGANCg0KIyMjIyMgUmFuZG9tIEVmZmVjdHMNCg0KYGBge3J9DQojLS0tLSBSQU5ET00gRUZGRUNUUyAtLS0tDQpzZF9zdWJqZWN0X2ludGVyY2VwdCA8LSAxLjAgICAgICAjIHR5cGljYWwgZm9yIExpa2VydCAx4oCTNw0KDQojIFZhcmlhbmNlLWNvdmFyaWFuY2UgbWF0cml4IGZvciByYW5kb20gaW50ZXJjZXB0IG9ubHkNCnJhbmRfY292XzE3IDwtIG1hdHJpeChzZF9zdWJqZWN0X2ludGVyY2VwdF4yLCBucm93PTEpDQpyb3duYW1lcyhyYW5kX2Nvdl8xNykgPC0gY29sbmFtZXMocmFuZF9jb3ZfMTcpIDwtICIoSW50ZXJjZXB0KSINCg0KIyBSZXNpZHVhbCB2YXJpYW5jZQ0Kc2RfcmVzaWR1YWwgPC0gMS4yDQoNCiMgVmFyaWFuY2UgbGlzdA0KVmFyXzE3IDwtIGxpc3QoU3ViamVjdCA9IHJhbmRfY292XzE3LA0KICAgICAgICAgICAgICAgUmVzaWR1YWwgPSBzZF9yZXNpZHVhbF4yKQ0KDQpgYGANCg0KIyMgU2ltdWxhdGlvbnMgLSBXQVJOSU5HOiBUQUtFUyBBIExPTkcgVElNRQ0KDQpgYGB7ciwgZXZhbD1GQUxTRX0NCg0KIy0tLS0gQ29uZmlybWF0aW9uIGJlZm9yZSBzdGFydGluZyBTaW11bGF0aW9ucyAtLS0tDQpTaW1fQ29uZmlybWF0aW9uKCkNCg0KUG93ZXJfTGlrZXJ0XzUgPC0gcnVuX3NpbShkZiA9IGRmX1BTXzEsZm9ybXVsYSA9IGZvcm11bGEsDQogICAgICAgICAgICAgICAgICAgICAgICAgIGZpeGVmID0gZml4ZWZfMTUsDQogICAgICAgICAgICAgICAgICAgICAgICAgIHJhbmVmID0gcmFuZF9jb3ZfMTUsDQogICAgICAgICAgICAgICAgICAgICAgICAgIFNFU09JID0gZml4ZWZfMTVfU0VTT0ksDQogICAgICAgICAgICAgICAgICAgICAgICAgIGZpeGVmX25hbWUgPSBjKCJDb25kaXRpb24iLCAiQ29udHJhc3QiKSwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgdmFyX25hbWUgPSAiU3ViamVjdCIsIA0KICAgICAgICAgICAgICAgICAgICAgICAgICBzdWJfcmFuZ2UgPSBzYW1wbGVfbiwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgc2ltX24gPSAxNDAwKQ0KDQpzYXZlKFBvd2VyX0xpa2VydF81LCBmaWxlID0gcGFzdGUwKCJQb3dlci9MaWtlcnRfNV8iLCBmb3JtYXQoU3lzLnRpbWUoKSwgIiVZJW0lZC0lSCVNJVMiKSkpDQoNClBvd2VyX0xpa2VydF83IDwtIHJ1bl9zaW0oZGYgPSBkZl9BXzEsZm9ybXVsYSA9IGZvcm11bGEsDQogICAgICAgICAgICAgICAgICAgICAgICAgIGZpeGVmID0gZml4ZWZfMTcsDQogICAgICAgICAgICAgICAgICAgICAgICAgIHJhbmVmID0gcmFuZF9jb3ZfMTcsIA0KICAgICAgICAgICAgICAgICAgICAgICAgICBTRVNPSSA9IGZpeGVmXzE3X1NFU09JLA0KICAgICAgICAgICAgICAgICAgICAgICAgICBmaXhlZl9uYW1lID0gYygiQ29uZGl0aW9uIiwgIkNvbnRyYXN0IiksDQogICAgICAgICAgICAgICAgICAgICAgICAgIHZhcl9uYW1lID0gIlN1YmplY3QiLCANCiAgICAgICAgICAgICAgICAgICAgICAgICAgc3ViX3JhbmdlID0gc2FtcGxlX24sDQogICAgICAgICAgICAgICAgICAgICAgICAgIHNpbV9uID0gMTQwMCkNCg0Kc2F2ZShQb3dlcl9MaWtlcnRfNywgZmlsZSA9IHBhc3RlMCgiUG93ZXIvTGlrZXJ0XzdfIiwgZm9ybWF0KFN5cy50aW1lKCksICIlWSVtJWQtJUglTSVTIikpKQ0KDQpgYGANCg0KYGBge3IsIGVjaG89RkFMU0V9DQoNCmxvYWQoIlBvd2VyL0xpa2VydF81XzIwMjUxMjAxLTE1MjcxMCIpDQpsb2FkKCJQb3dlci9MaWtlcnRfN18yMDI1MTIwMS0xNTQzNDUiKQ0KDQpgYGANCg0KIyBMaWtlcnQgNQ0KDQpNb2RlbCBkZXNjcmlwdGlvbg0KDQpgYGB7cn0NCg0KbXVsdGlwbG90UG93ZXIoUG93ZXJfTGlrZXJ0XzUsIGZpbGVuYW1lID0gIlBvd2VyL3Bvd2VycGxvdF9saWtlcnRfNS5wbmciKQ0KDQpgYGANCg0KIVtQb3dlciBwbG90IGZvciB0aGUgTGlrZXJ0IDUgbW9kZWxzXShQb3dlci9wb3dlcnBsb3RfbGlrZXJ0XzUucG5nKQ0KDQojIExpa2VydCA3DQoNCmBgYHtyfQ0KbXVsdGlwbG90UG93ZXIoUG93ZXJfTGlrZXJ0XzcsIGZpbGVuYW1lID0gIlBvd2VyL3Bvd2VycGxvdF9saWtlcnRfNy5wbmciKQ0KDQoNCmBgYA0KDQohWyJQb3dlciBwbG90IGZvciB0aGUgTGlrZXJ0IDcgbW9kZWxzIl0oUG93ZXIvcG93ZXJwbG90X2xpa2VydF83LnBuZykNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlBvd2VyIEFuYWx5c2lzIGZvciBtaXhlZCBtb2RlbHMiDQphdXRob3I6ICJCeTogTi5DLkEuIFZ1bGxpbmdzIg0Kb3V0cHV0OiBodG1sX2RvY3VtZW50DQpkYXRlOiAiMjAyNS0xMS0xMSINCmJpYmxpb2dyYXBoeTogcmVmZXJlbmNlcy5iaWINCi0tLQ0KDQpgYGB7PWh0bWx9DQo8c3R5bGU+DQpib2R5IHsNCnRleHQtYWxpZ246IGp1c3RpZnl9DQo8L3N0eWxlPg0KYGBgDQoNCmBgYHtyIHNldHVwLCBpbmNsdWRlPUZBTFNFfQ0Ka25pdHI6Om9wdHNfY2h1bmskc2V0KGVjaG8gPSBUUlVFKQ0KYGBgDQoNCldlIGVzdGltYXRlZCBwb3dlciBhbmFseXNlcyBmb3IgbGluZWFyIG1peGVkIG1vZGVsc1tAa3VtbGUyMDIxOyBAcGFyZ2VudDIwMjR0dXRvcmlhbF0uIFNpbmNlIHRoaXMgc3R1ZHkgdXNlcyAyIHR5cGVzIG9mIGRlcGVuZGVudCB2YXJpYWJsZXMgKGxpa2VydC01IHNjYWxlcyBhbmQgbGlrZXJ0IDctc2NhbGVzKSwgdHdvIHBvd2VyIGFuYWx5c2VzIHdlcmUgcGVyZm9ybWVkIGZvciBlYWNoIHR5cGUuIEVhY2ggcG93ZXIgYW5hbHlzaXMgaXMgc2ltdWxhdGVkIHVzaW5nIHRoZSBtaXhlZCBwb3dlciBwYWNrYWdlIFtAa3VtbGUyMDIxXS4gVGhpcyBmb3JtIG9mIHBvd2VyIGFuYWx5c2lzIGVzdGltYXRlcyBob3cgbWFueSB0aW1lcyBhIHJlc3VsdCBpcyBzaWduaWZpY2FudCBjb21wYXJlZCB0byB0aGUgYW1vdW50IG9mIHNpbXVsYXRpb25zIGZvciBlYWNoIHNhbXBsZSBzaXplOiAkJHBvd2VyX24gPSBcZnJhY3tcdGV4dHtzaWduaWZpY2FudCBzaW11bGF0aW9ufX17XHRleHR7dG90YWwgc2ltdWxhdGlvbnN9fSQkICwgd2hlcmUgbiBpcyB0aGUgc2FtcGxlIHNpemUgb24gd2hpY2ggdGhlIHNpbXVsYXRpb25zIGFyZSByYW4gYW5kIHJlc3VsdHMgYXJlIHNpZ25pZmljYW50IHdpdGggYW4gJFxhbHBoYSA9IDAuMDUkIC4gRm9yIHRoaXMgc3R1ZHksIHdlIHNpbXVsYXRlIHBvd2VyIGZvciAxMDAsIDIwMCwgMzAwIGFuZCA0MDAgcGFydGljaXBhbnRzLiBXaGlsZSB3ZSBhaW0gdG8gaW5jbHVkZSBhcHByb3hpbWF0ZWx5IDQwMCBwYXJ0aWNpcGFudHMsIHdlIHdhbnQgdG8ga25vdyBmcm9tIHdoaWNoIHNhbXBsZSBzaXplIG9ud2FyZHMgb3VyIG1vZGVscyB3aWxsIGJlIHN1ZmZpY2llbnRseSBwb3dlcmVkIChwb3dlciAkXGdlJCAwLjgpLg0KDQpBZGRpdGlvbmFsbHksIHRoZSBsaWtlcnQgNy1zY2FsZXMgYXJlIHVzZWQgZm9yIHRoZSBkZXBlbmRlbnQgdmFyaWFibGVzIG9mIHRoZSBjb25zdHJ1Y3QgQXR0cmlidXRpb25zIGFuZCBTdGFiaWxpdHksIHdoaWNoIHdpbGwgYmUgZXN0aW1hdGVkIHVzaW5nIE9MUy1yZWdyZXNzaW9uLiBIb3dldmVyLCBhcyB3ZSBleHBsb3JlIHRoZSB2YXJpYWJpbGl0eSBiZXR3ZWVuIGhpZ2hlciBhbmQgbG93ZXIgcGVyZm9ybWluZyBzdHVkZW50cywgYSBwb3dlciBhbmFseXNpcyB3YXMgY29uZHVjdGVkIHRvIHRlc3Qgd2hldGhlciBleHBsb3JhdG9yeSBhbmFseXNlcyB3b3VsZCBiZSBzdWZmaWNpZW50bHkgcG93ZXJlZC4NCg0KYGBge3J9DQpybShsaXN0ID0gbHMoKSkNCmBgYA0KDQojIyBMb2FkIFVERg0KDQpgYGB7cn0NCg0KIyBUaGlzIGZ1bmN0aW9uIGlzIGEgY29uZmlybWF0aW9uIGZvciBydW5uaW5nIGxlbmd0aHkgc2ltdWxhdGlvbnMNClNpbV9Db25maXJtYXRpb24gPC0gZnVuY3Rpb24oKSB7DQogIHVzZXJfaW5wdXQgPC0gcmVhZGxpbmUoIkFyZSB5b3Ugc3VyZSB5b3Ugd2FudCB0byBydW4gdGhpcz8gKHkvbikgICIpDQogIGlmKHVzZXJfaW5wdXQgIT0gJ3knKSBzdG9wKCdFeGl0aW5nIHNpbmNlIHlvdSBkaWQgbm90IHByZXNzIHknKQ0KICBwcmludCgnR29vZCBsdWNrJykNCn0NCg0KIyBUaGlzIGZ1bmN0aW9uIGNyZWF0ZXMgdGhlIGFydGlmaWNpYWxfbG1lciBhbmQgdGhlIFBvd2VyIEFuYWx5c2lzIGluIE1peGVkIHBvd2VyDQpydW5fc2ltIDwtIGZ1bmN0aW9uKGRmID0gIlNpbXVsYXRlZCBkZiIsDQogICAgICAgICAgICAgICAgICAgIGZvcm11bGEgPSAiUmVncmVzc2lvbiBGb3JtdWxhIiwNCiAgICAgICAgICAgICAgICAgICAgZml4ZWYgPSAiRml4ZWQgZWZmZWN0cyIsDQogICAgICAgICAgICAgICAgICAgIHJhbmVmID0gIlJhbmRvbSBlZmZlY3RzIiwNCiAgICAgICAgICAgICAgICAgICAgU0VTT0kgPSAiU21hbGxlc3QgZWZmZWN0IHNpemUgb2YgaW50ZXJlc3QiLCANCiAgICAgICAgICAgICAgICAgICAgZml4ZWZfbmFtZSA9ICIoVmVjdG9yIG9mKSBmaXhlZCBlZmZlY3QtbmFtZXMiLA0KICAgICAgICAgICAgICAgICAgICB2YXJfbmFtZSA9ICJOYW1lIG9mIHNpbXVsYXRlZCB2YXJpYWJsZSAoc3ViamVjdHMpIiwNCiAgICAgICAgICAgICAgICAgICAgc3ViX3JhbmdlID0gIlZlY3RvciB3aXRoIHNhbXBsZSBzaXplcyIsDQogICAgICAgICAgICAgICAgICAgIHNpbV9uID0gMTAwMCwNCiAgICAgICAgICAgICAgICAgICAgbmFtZSA9ICJBcnRfTW9kZWxfaWQuIil7DQogIA0KICAjLS0tLSBEZXBlbmRlbmNpZXMgLS0tLQ0KICByZXF1aXJlKG1peGVkcG93ZXIpDQogIHJlcXVpcmUobG1lNCkNCiAgDQogICMtLS0tIERlZmluZSByZWdyZXNzaW9uIGZvcm11bGEgLS0tLQ0KICBmb3JtdWxhIDwtIGZvcm11bGENCiAgDQogICMtLS0tIERlZmluZSBNaXhlZCBtb2RlbCAtLS0tDQogIGFydGljaWZpYWxfbG1lciA8LSBtYWtlTG1lcihmb3JtdWxhLCBmaXhlZiA9IGZpeGVmLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgVmFyQ29yciA9IHJhbmVmLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGF0YSA9IGRmKQ0KICANCiAgYXNzaWduKHBhc3RlMChuYW1lLCBzYW1wbGUoYygxOjk5OSksIDEpKSwgYXJ0aWNpZmlhbF9sbWVyLCAuR2xvYmFsRW52KQ0KICAjLS0tLSBSdW4gc2ltdWxhdGlvbnMgZm9yIGFydGlmaWNpYWwgbWl4ZWQgbW9kZWwtLS0tDQogICMgV2FybmluZzogVGhpcyBpcyB0aGUgcGFydCB0aGF0IHRha2VzIGEgbG9uZyB0aW1lLg0KICAjIE1peGVkcG93ZXIgYXV0b21hdGljYWxseSBwYXJhbGVsbGl6ZXMgc2ltdWxhdGlvbnMsIHNvIGV4ZWN1dGluZyBpcyBjb21wdXRhdGlvbmFsbHkgaW50ZW5zaXZlDQogICMgTWl4ZWQgcG93ZXIgZGVmYXVsdCB1c2VzIGFsbCBhdmFpbGFibGUgY29yZXMgLTEsIGFkZCBhcmd1bWVudCAibWF4Q29yZXMiIGlmIHdhbnRlZA0KICB0MSA8LSBTeXMudGltZSgpDQogIA0KICBwb3dlciA8LSBtaXhlZHBvd2VyKG1vZGVsID0gYXJ0aWNpZmlhbF9sbWVyLA0KICAgICAgICAgICAgICAgICAgICAgIGRhdGEgPSBkZiwNCiAgICAgICAgICAgICAgICAgICAgICBmaXhlZF9lZmZlY3RzID0gZml4ZWZfbmFtZSwNCiAgICAgICAgICAgICAgICAgICAgICBzaW12YXIgPSB2YXJfbmFtZSwgc3RlcHMgPSBzdWJfcmFuZ2UsDQogICAgICAgICAgICAgICAgICAgICAgY3JpdGljYWxfdmFsdWUgPSAyLA0KICAgICAgICAgICAgICAgICAgICAgIG5fc2ltID0gc2ltX24sDQogICAgICAgICAgICAgICAgICAgICAgU0VTT0kgPSBTRVNPSSkNCiAgDQogIHQyIDwtIFN5cy50aW1lKCkNCiAgDQogIHByaW50KHQyLXQxKQ0KICByZXR1cm4ocG93ZXIpDQp9DQpgYGANCg0KIyMgTG9hZCBsaWJyYXJpZXMNCg0KYGBge3J9DQojIGluc3RhbGwucGFja2FnZXMocGFjbWFuKQ0KbGlicmFyeShwYWNtYW4pDQoNCnBfbG9hZCh0aWR5dmVyc2UsDQogICAgICAgcmVhZHhsLA0KICAgICAgIGxtZTQsDQogICAgICAgbG1lclRlc3QsDQogICAgICAgbmxtZSwNCiAgICAgICBzaW1yLA0KICAgICAgIG1peGVkcG93ZXIsDQogICAgICAgZnV0dXJlKSAjQWRkIGFkZGl0aW9uYWwgcGFja2FnZXMNCg0KYGBgDQoNCiMgTG9hZCBkYXRhIHRlbXBsYXRlDQoNCmBgYHtyLCBlY2hvID0gVFJVRSwgcmVzdWx0cyA9ICJoaWRlIn0NCnNldHdkKCJzaW11bGF0aW9ucy8iKSAjIENoYW5nZSBXRCBmb3IgbG9hZGluZyBmaWxlcw0KdGVtcCA8LSBsaXN0LmZpbGVzKHBhdHRlcm4gPSAiXFwuUkRhdGEiKSAjIExvYWQgYWxsIC5SRGF0YSBmaWxlcyBpbiBmb2xkZXIgDQoNCmxhcHBseSh0ZW1wLCBsb2FkLCAuR2xvYmFsRW52KQ0KDQpgYGANCg0KIyMgU2ltdWxhdGlvbi1iYXNlZCBQb3dlciBBbmFseXNpcw0KDQojIyMgUmVncmVzc2lvbiBmb3JtdWxhDQoNCmBgYHtyfQ0KDQpmb3JtdWxhIDwtIFkgfiBDb25kaXRpb24qQ29udHJhc3QgKyAoMSB8IFN1YmplY3QpDQoNCmBgYA0KDQojIyMgU2VsZWN0aW9uIG9mIHNpbXVsYXRlZCBzYW1wbGUgc2l6ZXMNCg0KYGBge3J9DQoNCnNhbXBsZV9uIDwtIGMoMTAwLCAyMDAsIDMwMCwgNDAwKQ0KDQpgYGANCg0KIyMjIEVmZmVjdCBTaXplcyAmIFZhcmlhbmNlIENvbXBvc2l0aW9uDQoNCiMjIyMgTGlrZXJ0IDUgc2NhbGVzDQoNCiMjIyMjIEZpeGVkIEVmZmVjdHMNCg0KYGBge3J9DQoNCiMtLS0tIEZJWEVEIEVGRkVDVFMgKHNtYWxsIGVmZmVjdHMpIC0tLS0NCmZpeGVmXzE1IDwtIGMoDQogICIoSW50ZXJjZXB0KSIgICAgICAgID0gMy4wLCAgICMgbWlkcG9pbnQgb2YgMeKAkzUgc2NhbGUNCiAgIkNvbmRpdGlvbiIgICAgICAgICAgPSAwLjIzLCAgIyBzbWFsbCBlZmZlY3QNCiAgIkNvbnRyYXN0IiAgICAgICAgICAgPSAwLjE3LCAgIyBzbWFsbCBlZmZlY3QNCiAgIkNvbmRpdGlvbjpDb250cmFzdCIgPSAwLjE0ICAgIyBzbWFsbCBpbnRlcmFjdGlvbg0KKQ0KDQojLS0tLSBTbWFsbGVzdCBFZmZlY3QgU2l6ZSBvZiBpbnRlcmVzdCAtLS0tDQojIDE1IHBlcmNlbnQgbG93ZXIgdGhhbiBmaXhlZCBlZmZlY3RzDQpmaXhlZl8xNV9TRVNPSSA8LSBjKA0KICAiKEludGVyY2VwdCkiICAgICAgICA9IDMuMCwgICAjIG1pZHBvaW50IG9mIDHigJM1IHNjYWxlDQogICJDb25kaXRpb24iICAgICAgICAgID0gMC4yMCwgICMgc21hbGwgZWZmZWN0DQogICJDb250cmFzdCIgICAgICAgICAgID0gMC4xNSwgICMgc21hbGwgZWZmZWN0DQogICJDb25kaXRpb246Q29udHJhc3QiID0gMC4xMiAgICMgc21hbGwgaW50ZXJhY3Rpb24NCikNCg0KYGBgDQoNCiMjIyMjIFJhbmRvbSBFZmZlY3RzDQoNCmBgYHtyfQ0KIyMgQUkgd2FzIGNvbnN1bHRlZCBmb3IgY29kZSAmIHN1Z2dlc3Rpb25zIGVmZmVjdCBzaXplcw0KIy0tLS0gUkFORE9NIEVGRkVDVFMgLS0tLQ0Kc2Rfc3ViamVjdF9pbnRlcmNlcHQgPC0gMC42ICAgICAgIyB0eXBpY2FsIGZvciBMaWtlcnQgMeKAkzUNCg0KIyBWYXJpYW5jZS1jb3ZhcmlhbmNlIG1hdHJpeCBmb3IgcmFuZG9tIGludGVyY2VwdCBvbmx5DQpyYW5kX2Nvdl8xNSA8LSBtYXRyaXgoc2Rfc3ViamVjdF9pbnRlcmNlcHReMiwgbnJvdz0xKQ0Kcm93bmFtZXMocmFuZF9jb3ZfMTUpIDwtIGNvbG5hbWVzKHJhbmRfY292XzE1KSA8LSAiKEludGVyY2VwdCkiDQoNCiMgUmVzaWR1YWwgdmFyaWFuY2UNCnNkX3Jlc2lkdWFsIDwtIDAuOQ0KDQojIFZhcmlhbmNlIGxpc3QNClZhcl8xNSA8LSBsaXN0KFN1YmplY3QgPSByYW5kX2Nvdl8xNSwNCiAgICAgICAgICAgICAgIFJlc2lkdWFsID0gc2RfcmVzaWR1YWxeMikNCg0KYGBgDQoNCiMjIyMgTGlrZXJ0IDcgc2NhbGVzDQoNCiMjIyMjIEZpeGVkIEVmZmVjdHMNCg0KYGBge3J9DQoNCiMtLS0tIEZJWEVEIEVGRkVDVFMgKHNtYWxsIGVmZmVjdHMpIC0tLS0NCmZpeGVmXzE3IDwtIGMoDQogICIoSW50ZXJjZXB0KSIgICAgICAgID0gNC4wLCAgICMgbWlkcG9pbnQgb2YgMeKAkzcgc2NhbGUNCiAgIkNvbmRpdGlvbiIgICAgICAgICAgPSAwLjI5LCAgIyBzbWFsbCBlZmZlY3QNCiAgIkNvbnRyYXN0IiAgICAgICAgICAgPSAwLjIzLCAgIyBzbWFsbCBlZmZlY3QNCiAgIkNvbmRpdGlvbjpDb250cmFzdCIgPSAwLjE3ICAgIyBzbWFsbCBpbnRlcmFjdGlvbg0KKQ0KDQojLS0tLSBTbWFsbGVzdCBFZmZlY3QgU2l6ZSBvZiBpbnRlcmVzdCAtLS0tDQojIDE1IHBlcmNlbnQgbG93ZXIgdGhhbiBmaXhlZCBlZmZlY3RzDQpmaXhlZl8xN19TRVNPSSA8LSBjKA0KICAiKEludGVyY2VwdCkiICAgICAgICA9IDQuMCwgICAjIG1pZHBvaW50IG9mIDHigJM3IHNjYWxlDQogICJDb25kaXRpb24iICAgICAgICAgID0gMC4yNSwgICMgc21hbGwgZWZmZWN0DQogICJDb250cmFzdCIgICAgICAgICAgID0gMC4yMCwgICMgc21hbGwgZWZmZWN0DQogICJDb25kaXRpb246Q29udHJhc3QiID0gMC4xNSAgICMgc21hbGwgaW50ZXJhY3Rpb24NCikNCg0KYGBgDQoNCiMjIyMjIFJhbmRvbSBFZmZlY3RzDQoNCmBgYHtyfQ0KDQojIyBBSSB3YXMgY29uc3VsdGVkIGZvciBjb2RlICYgc3VnZ2VzdGlvbnMgZWZmZWN0IHNpemVzDQojLS0tLSBSQU5ET00gRUZGRUNUUyAtLS0tDQpzZF9zdWJqZWN0X2ludGVyY2VwdCA8LSAxLjAgICAgICAjIHR5cGljYWwgZm9yIExpa2VydCAx4oCTNw0KDQojIFZhcmlhbmNlLWNvdmFyaWFuY2UgbWF0cml4IGZvciByYW5kb20gaW50ZXJjZXB0IG9ubHkNCnJhbmRfY292XzE3IDwtIG1hdHJpeChzZF9zdWJqZWN0X2ludGVyY2VwdF4yLCBucm93PTEpDQpyb3duYW1lcyhyYW5kX2Nvdl8xNykgPC0gY29sbmFtZXMocmFuZF9jb3ZfMTcpIDwtICIoSW50ZXJjZXB0KSINCg0KIyBSZXNpZHVhbCB2YXJpYW5jZQ0Kc2RfcmVzaWR1YWwgPC0gMS4yDQoNCiMgVmFyaWFuY2UgbGlzdA0KVmFyXzE3IDwtIGxpc3QoU3ViamVjdCA9IHJhbmRfY292XzE3LA0KICAgICAgICAgICAgICAgUmVzaWR1YWwgPSBzZF9yZXNpZHVhbF4yKQ0KDQpgYGANCg0KIyMgU2ltdWxhdGlvbnMgLSBXQVJOSU5HOiBUQUtFUyBBIExPTkcgVElNRQ0KDQpgYGB7ciwgZXZhbD1GQUxTRX0NCg0KIy0tLS0gQ29uZmlybWF0aW9uIGJlZm9yZSBzdGFydGluZyBTaW11bGF0aW9ucyAtLS0tDQpTaW1fQ29uZmlybWF0aW9uKCkNCg0KUG93ZXJfTGlrZXJ0XzUgPC0gcnVuX3NpbShkZiA9IGRmX1BTXzEsZm9ybXVsYSA9IGZvcm11bGEsDQogICAgICAgICAgICAgICAgICAgICAgICAgIGZpeGVmID0gZml4ZWZfMTUsDQogICAgICAgICAgICAgICAgICAgICAgICAgIHJhbmVmID0gcmFuZF9jb3ZfMTUsDQogICAgICAgICAgICAgICAgICAgICAgICAgIFNFU09JID0gZml4ZWZfMTVfU0VTT0ksDQogICAgICAgICAgICAgICAgICAgICAgICAgIGZpeGVmX25hbWUgPSBjKCJDb25kaXRpb24iLCAiQ29udHJhc3QiKSwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgdmFyX25hbWUgPSAiU3ViamVjdCIsIA0KICAgICAgICAgICAgICAgICAgICAgICAgICBzdWJfcmFuZ2UgPSBzYW1wbGVfbiwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgc2ltX24gPSAxNDAwKQ0KDQpzYXZlKFBvd2VyX0xpa2VydF81LCBmaWxlID0gcGFzdGUwKCJQb3dlci9MaWtlcnRfNV8iLCBmb3JtYXQoU3lzLnRpbWUoKSwgIiVZJW0lZC0lSCVNJVMiKSkpDQoNClBvd2VyX0xpa2VydF83IDwtIHJ1bl9zaW0oZGYgPSBkZl9BXzEsZm9ybXVsYSA9IGZvcm11bGEsDQogICAgICAgICAgICAgICAgICAgICAgICAgIGZpeGVmID0gZml4ZWZfMTcsDQogICAgICAgICAgICAgICAgICAgICAgICAgIHJhbmVmID0gcmFuZF9jb3ZfMTcsIA0KICAgICAgICAgICAgICAgICAgICAgICAgICBTRVNPSSA9IGZpeGVmXzE3X1NFU09JLA0KICAgICAgICAgICAgICAgICAgICAgICAgICBmaXhlZl9uYW1lID0gYygiQ29uZGl0aW9uIiwgIkNvbnRyYXN0IiksDQogICAgICAgICAgICAgICAgICAgICAgICAgIHZhcl9uYW1lID0gIlN1YmplY3QiLCANCiAgICAgICAgICAgICAgICAgICAgICAgICAgc3ViX3JhbmdlID0gc2FtcGxlX24sDQogICAgICAgICAgICAgICAgICAgICAgICAgIHNpbV9uID0gMTQwMCkNCg0Kc2F2ZShQb3dlcl9MaWtlcnRfNywgZmlsZSA9IHBhc3RlMCgiUG93ZXIvTGlrZXJ0XzdfIiwgZm9ybWF0KFN5cy50aW1lKCksICIlWSVtJWQtJUglTSVTIikpKQ0KDQpgYGANCg0KYGBge3IsIGVjaG89RkFMU0V9DQoNCmxvYWQoIlBvd2VyL0xpa2VydF81XzIwMjUxMjAxLTE1MjcxMCIpDQpsb2FkKCJQb3dlci9MaWtlcnRfN18yMDI1MTIwMS0xNTQzNDUiKQ0KDQpgYGANCg0KIyBSZXN1bHRzDQoNCmBgYHtyfQ0KDQptdWx0aXBsb3RQb3dlcihQb3dlcl9MaWtlcnRfNSwgZmlsZW5hbWUgPSAiUG93ZXIvcG93ZXJwbG90X2xpa2VydF81LnBuZyIpDQoNCmBgYA0KDQohW1Bvd2VyIHBsb3QgZm9yIHRoZSBMaWtlcnQgNSBtb2RlbHNdKFBvd2VyL3Bvd2VycGxvdF9saWtlcnRfNS5wbmcpDQoNCmBgYHtyfQ0KbXVsdGlwbG90UG93ZXIoUG93ZXJfTGlrZXJ0XzcsIGZpbGVuYW1lID0gIlBvd2VyL3Bvd2VycGxvdF9saWtlcnRfNy5wbmciKQ0KDQoNCmBgYA0KDQohW1Bvd2VyIHBsb3QgZm9yIHRoZSBMaWtlcnQgNyBtb2RlbHNdKFBvd2VyL3Bvd2VycGxvdF9saWtlcnRfNy5wbmcpDQo=</div>
 
 
 </div>
