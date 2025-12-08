@@ -464,7 +464,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Simulation - Test Analysis</h1>
-<h4 class="date">Last compiled on december-05-2025</h4>
+<h4 class="date">Last compiled on december-08-2025</h4>
 
 </div>
 
@@ -513,75 +513,1149 @@ div.tocify {
 <span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>  <span class="at">data =</span> df_S_2,</span>
 <span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;ML&quot;</span></span>
 <span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a>)</span></code></pre></div>
+<div id="results" class="section level4">
+<h4>Results</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">tab_model</span>(model_list.C[<span class="fu">str_detect</span>(<span class="fu">names</span>(model_list.C), <span class="st">&quot;H1&quot;</span>)],</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>          <span class="at">dv.labels =</span> <span class="fu">names</span>(model_list.C[<span class="fu">str_detect</span>(<span class="fu">names</span>(model_list.C), <span class="st">&quot;H1&quot;</span>)]))</span></code></pre></div>
+<table style="border-collapse:collapse; border:none;">
+<tr>
+<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
+ 
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+H1_Model.1
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+H1_Model.2
+</th>
+</tr>
+<tr>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">
+Predictors
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+p
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col7">
+p
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+(Intercept)
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+3.49
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+3.43 – 3.56
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+3.48
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+3.41 – 3.55
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+Condition
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.50
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.43 – 0.56
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.46
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.39 – 0.53
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+Contrast
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-0.03
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-0.09 – 0.04
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.462
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-0.00
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-0.07 – 0.06
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
+0.926
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+Condition × Contrast
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.06
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-0.01 – 0.13
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.075
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-0.03
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-0.10 – 0.03
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
+0.336
+</td>
+</tr>
+<tr>
+<td colspan="7" style="font-weight:bold; text-align:left; padding-top:.8em;">
+Random Effects
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+σ<sup>2</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.11
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.12
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+τ<sub>00</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.41 <sub>Subject</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.45 <sub>Subject</sub>
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+τ<sub>11</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.40 <sub>Subject.Contrast</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.40 <sub>Subject.Contrast</sub>
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+ρ<sub>01</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.10 <sub>Subject</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.06 <sub>Subject</sub>
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+ICC
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.88
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.88
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+N
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+400 <sub>Subject</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+400 <sub>Subject</sub>
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">
+Observations
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+800
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+800
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+Marginal R<sup>2</sup> / Conditional R<sup>2</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.212 / 0.903
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.183 / 0.899
+</td>
+</tr>
+</table>
+<p><br></p>
+</div>
 </div>
 <div id="perceived-similarity" class="section level3">
 <h3>Perceived Similarity</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># ---- Similarity ----</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H2a_Model.1&quot;</span>]] <span class="ot">&lt;-</span> nlme<span class="sc">::</span><span class="fu">lme</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  <span class="at">fixed =</span> Y <span class="sc">~</span> Condition,</span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  <span class="at">random =</span> <span class="sc">~</span> <span class="dv">1</span> <span class="sc">|</span> Subject,</span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  <span class="at">data =</span> df_PS_1,</span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;ML&quot;</span></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>)</span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co"># ---- Commonality ----</span></span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H2b_Model.1&quot;</span>]] <span class="ot">&lt;-</span> nlme<span class="sc">::</span><span class="fu">lme</span>(</span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>  <span class="at">fixed =</span> Y <span class="sc">~</span> Condition,</span>
-<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>  <span class="at">random =</span> <span class="sc">~</span> <span class="dv">1</span> <span class="sc">|</span> Subject,</span>
-<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>  <span class="at">data =</span> df_PS_2,</span>
-<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;ML&quot;</span></span>
-<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># ---- Similarity ----</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H2a_Model.1&quot;</span>]] <span class="ot">&lt;-</span> nlme<span class="sc">::</span><span class="fu">lme</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  <span class="at">fixed =</span> Y <span class="sc">~</span> Condition,</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  <span class="at">random =</span> <span class="sc">~</span> <span class="dv">1</span> <span class="sc">|</span> Subject,</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  <span class="at">data =</span> df_PS_1,</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;ML&quot;</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>)</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="co"># ---- Commonality ----</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H2b_Model.1&quot;</span>]] <span class="ot">&lt;-</span> nlme<span class="sc">::</span><span class="fu">lme</span>(</span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>  <span class="at">fixed =</span> Y <span class="sc">~</span> Condition,</span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a>  <span class="at">random =</span> <span class="sc">~</span> <span class="dv">1</span> <span class="sc">|</span> Subject,</span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a>  <span class="at">data =</span> df_PS_2,</span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;ML&quot;</span></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a>)</span></code></pre></div>
+<div id="results-1" class="section level4">
+<h4>Results</h4>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">tab_model</span>(model_list.C[<span class="fu">str_detect</span>(<span class="fu">names</span>(model_list.C), <span class="st">&quot;H2&quot;</span>)],</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>          <span class="at">dv.labels =</span> <span class="fu">names</span>(model_list.C[<span class="fu">str_detect</span>(<span class="fu">names</span>(model_list.C), <span class="st">&quot;H2&quot;</span>)]))</span></code></pre></div>
+<table style="border-collapse:collapse; border:none;">
+<tr>
+<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
+ 
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+H2a_Model.1
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+H2b_Model.1
+</th>
+</tr>
+<tr>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">
+Predictors
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+p
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col7">
+p
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+(Intercept)
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+3.41
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+3.34 – 3.48
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+3.45
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+3.38 – 3.51
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+Condition
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.44
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.37 – 0.51
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.41
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.34 – 0.47
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td colspan="7" style="font-weight:bold; text-align:left; padding-top:.8em;">
+Random Effects
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+σ<sup>2</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.96
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.85
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+τ<sub>00</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.00 <sub>Subject</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.05 <sub>Subject</sub>
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+ICC
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+ 
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.05
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+N
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+400 <sub>Subject</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+400 <sub>Subject</sub>
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">
+Observations
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+800
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+800
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+Marginal R<sup>2</sup> / Conditional R<sup>2</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.167 / NA
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.154 / 0.200
+</td>
+</tr>
+</table>
+<p><br></p>
+</div>
 </div>
 <div id="closeness" class="section level3">
 <h3>Closeness</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H3_Model.1&quot;</span>]] <span class="ot">&lt;-</span> nlme<span class="sc">::</span><span class="fu">lme</span>(</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  <span class="at">fixed =</span> Y <span class="sc">~</span> Condition,</span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  <span class="at">random =</span> <span class="sc">~</span> <span class="dv">1</span> <span class="sc">|</span> Subject,</span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  <span class="at">data =</span> df_C,</span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;ML&quot;</span></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H3_Model.1&quot;</span>]] <span class="ot">&lt;-</span> nlme<span class="sc">::</span><span class="fu">lme</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>  <span class="at">fixed =</span> Y <span class="sc">~</span> Condition,</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>  <span class="at">random =</span> <span class="sc">~</span> <span class="dv">1</span> <span class="sc">|</span> Subject,</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>  <span class="at">data =</span> df_C,</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;ML&quot;</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>)</span></code></pre></div>
+<div id="results-2" class="section level4">
+<h4>Results</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">tab_model</span>(model_list.C[<span class="fu">str_detect</span>(<span class="fu">names</span>(model_list.C), <span class="st">&quot;H3&quot;</span>)],</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>          <span class="at">dv.labels =</span> <span class="fu">names</span>(model_list.C[<span class="fu">str_detect</span>(<span class="fu">names</span>(model_list.C), <span class="st">&quot;H3&quot;</span>)]))</span></code></pre></div>
+<table style="border-collapse:collapse; border:none;">
+<tr>
+<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
+ 
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+H3_Model.1
+</th>
+</tr>
+<tr>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">
+Predictors
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+p
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+(Intercept)
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+3.42
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+3.34 – 3.49
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+Condition
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.49
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.41 – 0.56
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="font-weight:bold; text-align:left; padding-top:.8em;">
+Random Effects
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+σ<sup>2</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.93
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+τ<sub>00</sub> <sub>Subject</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.09
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+ICC
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.08
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+N <sub>Subject</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+400
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">
+Observations
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+800
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+Marginal R<sup>2</sup> / Conditional R<sup>2</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.189 / 0.257
+</td>
+</tr>
+</table>
+<p><br></p>
+</div>
 </div>
 </div>
 <div id="model-type-2-linear-models" class="section level2">
 <h2>Model type 2) Linear Models</h2>
-</div>
-<div id="attributions---high-performance" class="section level2">
-<h2>Attributions - High Performance</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># ---- Internal - Smart ----</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H4a_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Attributions_HP_1 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="co"># ---- External - Luck ----</span></span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H4b_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Attributions_HP_3 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span></code></pre></div>
-</div>
-<div id="stability---high-performance" class="section level2">
-<h2>Stability - High Performance</h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># ---- Smart parents ----</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H5a_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Stability_HP_1 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="co"># ---- Early emergence ----</span></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H5b_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Stability_HP_2 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a><span class="co"># ---- Smart future job ----</span></span>
-<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H5c_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Stability_HP_3 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span></code></pre></div>
-</div>
-<div id="attributions---low-performance" class="section level2">
-<h2>Attributions - Low Performance</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># ---- Internal - Smart ----</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H4a_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Attributions_LP_1 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="co"># ---- External - Luck ----</span></span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H4b_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Attributions_LP_3 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span></code></pre></div>
-</div>
-<div id="stability---low-performance" class="section level2">
-<h2>Stability - Low Performance</h2>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co"># ---- Smart parents ----</span></span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H5a_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Stability_LP_1 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span>
+<div id="attributions---high-performance" class="section level3">
+<h3>Attributions - High Performance</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co"># ---- Internal - Smart ----</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H4a_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Attributions_HP_1 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span>
 <span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co"># ---- Early emergence ----</span></span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H5b_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Stability_LP_2 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="co"># ---- Smart future job ----</span></span>
-<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H5c_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Stability_LP_3 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span></code></pre></div>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co"># ---- External - Luck ----</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H4b_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Attributions_HP_3 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span></code></pre></div>
+<div id="results-3" class="section level4">
+<h4>Results</h4>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">tab_model</span>(model_list.C[<span class="fu">str_detect</span>(<span class="fu">names</span>(model_list.C), <span class="st">&quot;H4&quot;</span>)],</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>          <span class="at">dv.labels =</span> <span class="fu">names</span>(model_list.C[<span class="fu">str_detect</span>(<span class="fu">names</span>(model_list.C), <span class="st">&quot;H4&quot;</span>)]))</span></code></pre></div>
+<table style="border-collapse:collapse; border:none;">
+<tr>
+<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
+ 
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+H4a_Model.1
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+H4b_Model.1
+</th>
+</tr>
+<tr>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">
+Predictors
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+p
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col7">
+p
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+(Intercept)
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+4.56
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+4.46 – 4.67
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+4.53
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+4.43 – 4.63
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+Condition
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.57
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.47 – 0.67
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.45
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.34 – 0.55
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">
+Observations
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+400
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+400
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+R<sup>2</sup> / R<sup>2</sup> adjusted
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.228 / 0.226
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.157 / 0.155
+</td>
+</tr>
+</table>
+<p><br></p>
+</div>
+</div>
+<div id="stability---high-performance" class="section level3">
+<h3>Stability - High Performance</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co"># ---- Smart parents ----</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H5a_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Stability_HP_1 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="co"># ---- Early emergence ----</span></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H5b_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Stability_HP_2 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="co"># ---- Smart future job ----</span></span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H5c_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Stability_HP_3 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span></code></pre></div>
+<div id="results-4" class="section level4">
+<h4>Results</h4>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">tab_model</span>(model_list.C[<span class="fu">str_detect</span>(<span class="fu">names</span>(model_list.C), <span class="st">&quot;H1&quot;</span>)],</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>          <span class="at">dv.labels =</span> <span class="fu">names</span>(model_list.C[<span class="fu">str_detect</span>(<span class="fu">names</span>(model_list.C), <span class="st">&quot;H1&quot;</span>)]))</span></code></pre></div>
+<table style="border-collapse:collapse; border:none;">
+<tr>
+<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
+ 
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+H1_Model.1
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+H1_Model.2
+</th>
+</tr>
+<tr>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">
+Predictors
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+p
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col7">
+p
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+(Intercept)
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+3.49
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+3.43 – 3.56
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+3.48
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+3.41 – 3.55
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+Condition
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.50
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.43 – 0.56
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.46
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.39 – 0.53
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+Contrast
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-0.03
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-0.09 – 0.04
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.462
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-0.00
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-0.07 – 0.06
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
+0.926
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+Condition × Contrast
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.06
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-0.01 – 0.13
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.075
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-0.03
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-0.10 – 0.03
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
+0.336
+</td>
+</tr>
+<tr>
+<td colspan="7" style="font-weight:bold; text-align:left; padding-top:.8em;">
+Random Effects
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+σ<sup>2</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.11
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.12
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+τ<sub>00</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.41 <sub>Subject</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.45 <sub>Subject</sub>
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+τ<sub>11</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.40 <sub>Subject.Contrast</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.40 <sub>Subject.Contrast</sub>
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+ρ<sub>01</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.10 <sub>Subject</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.06 <sub>Subject</sub>
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+ICC
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.88
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.88
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+N
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+400 <sub>Subject</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+400 <sub>Subject</sub>
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">
+Observations
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+800
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+800
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+Marginal R<sup>2</sup> / Conditional R<sup>2</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.212 / 0.903
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.183 / 0.899
+</td>
+</tr>
+</table>
+<p><br></p>
+</div>
+</div>
+<div id="attributions---low-performance" class="section level3">
+<h3>Attributions - Low Performance</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co"># ---- Internal - Smart ----</span></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H6a_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Attributions_LP_1 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a><span class="co"># ---- External - Luck ----</span></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H6b_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Attributions_LP_3 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span></code></pre></div>
+<div id="results-5" class="section level4">
+<h4>Results</h4>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="fu">tab_model</span>(model_list.C[<span class="fu">str_detect</span>(<span class="fu">names</span>(model_list.C), <span class="st">&quot;H6&quot;</span>)],</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>          <span class="at">dv.labels =</span> <span class="fu">names</span>(model_list.C[<span class="fu">str_detect</span>(<span class="fu">names</span>(model_list.C), <span class="st">&quot;H6&quot;</span>)]))</span></code></pre></div>
+<table style="border-collapse:collapse; border:none;">
+<tr>
+<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
+ 
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+H6a_Model.1
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+H6b_Model.1
+</th>
+</tr>
+<tr>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">
+Predictors
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+p
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col7">
+p
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+(Intercept)
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+4.52
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+4.42 – 4.63
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+4.43
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+4.32 – 4.54
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+Condition
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.50
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.40 – 0.61
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.57
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.46 – 0.68
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">
+Observations
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+400
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+400
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+R<sup>2</sup> / R<sup>2</sup> adjusted
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.181 / 0.179
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.214 / 0.212
+</td>
+</tr>
+</table>
+<p><br></p>
+</div>
+</div>
+<div id="stability---low-performance" class="section level3">
+<h3>Stability - Low Performance</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="co"># ---- Smart parents ----</span></span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H7a_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Stability_LP_1.R <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a><span class="co"># ---- Early emergence ----</span></span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H7b_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Stability_LP_2.R <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span>
+<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" tabindex="-1"></a><span class="co"># ---- Smart future job ----</span></span>
+<span id="cb17-8"><a href="#cb17-8" tabindex="-1"></a>model_list.C[[<span class="st">&quot;H7c_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Stability_LP_3.R <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span></code></pre></div>
+<div id="results-6" class="section level4">
+<h4>Results</h4>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">tab_model</span>(model_list.C[<span class="fu">str_detect</span>(<span class="fu">names</span>(model_list.C), <span class="st">&quot;H7&quot;</span>)],</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>          <span class="at">dv.labels =</span> <span class="fu">names</span>(model_list.C[<span class="fu">str_detect</span>(<span class="fu">names</span>(model_list.C), <span class="st">&quot;H7&quot;</span>)]))</span></code></pre></div>
+<table style="border-collapse:collapse; border:none;">
+<tr>
+<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
+ 
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+H7a_Model.1
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+H7b_Model.1
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+H7c_Model.1
+</th>
+</tr>
+<tr>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">
+Predictors
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+p
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col7">
+p
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col8">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col9">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  0">
+p
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+(Intercept)
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+4.49
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+4.39 – 4.60
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+4.49
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+4.39 – 4.59
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
+4.44
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
+4.34 – 4.54
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+Condition
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.54
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.43 – 0.64
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.52
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.42 – 0.62
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
+0.49
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
+0.39 – 0.59
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">
+Observations
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+400
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+400
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+400
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+R<sup>2</sup> / R<sup>2</sup> adjusted
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.202 / 0.200
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.209 / 0.207
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.185 / 0.183
+</td>
+</tr>
+</table>
+<p><br></p>
+</div>
+</div>
 </div>
 </div>
 <div id="exploratory-analyses" class="section level1">
@@ -600,70 +1674,402 @@ paper:</p>
 <li><p>Exploratory Moderation analyses</p></li>
 <li><p>Confirmatory Factor Analysis</p></li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="co">#---- Model list for Exploratory Analyses</span></span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>model_list.E <span class="ot">&lt;-</span> <span class="fu">list</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="co">#---- Model list for Exploratory Analyses</span></span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>model_list.E <span class="ot">&lt;-</span> <span class="fu">list</span>()</span></code></pre></div>
 <div id="exploratory-smartness-hypothesis" class="section level2">
 <h2>Exploratory Smartness hypothesis</h2>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co"># ---- Smartness comparison 7.5 &amp; 6.6 ----</span></span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>model_list.E[[<span class="st">&quot;EH_Model.1&quot;</span>]] <span class="ot">&lt;-</span> nlme<span class="sc">::</span><span class="fu">lme</span>(</span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>  <span class="at">fixed =</span> Y <span class="sc">~</span> Condition <span class="sc">*</span> Contrast,</span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>  <span class="at">random =</span> <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> Contrast <span class="sc">|</span> Subject,</span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>  <span class="at">data =</span> df_S_3,</span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;ML&quot;</span></span>
-<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="co"># ---- Smartness comparison 7.5 &amp; 6.6 ----</span></span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>model_list.E[[<span class="st">&quot;EH_Model.1&quot;</span>]] <span class="ot">&lt;-</span> nlme<span class="sc">::</span><span class="fu">lme</span>(</span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a>  <span class="at">fixed =</span> Y <span class="sc">~</span> Condition <span class="sc">*</span> Contrast,</span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a>  <span class="at">random =</span> <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> Contrast <span class="sc">|</span> Subject,</span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a>  <span class="at">data =</span> df_S_3,</span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;ML&quot;</span></span>
+<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a>)</span></code></pre></div>
+<div id="results-7" class="section level4">
+<h4>Results</h4>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">tab_model</span>(model_list.E[<span class="fu">str_detect</span>(<span class="fu">names</span>(model_list.E), <span class="st">&quot;EH&quot;</span>)],</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>          <span class="at">dv.labels =</span> <span class="fu">names</span>(model_list.E[<span class="fu">str_detect</span>(<span class="fu">names</span>(model_list.E), <span class="st">&quot;EH&quot;</span>)]))</span></code></pre></div>
+<table style="border-collapse:collapse; border:none;">
+<tr>
+<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
+ 
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+EH_Model.1
+</th>
+</tr>
+<tr>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">
+Predictors
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+p
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+(Intercept)
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+3.47
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+3.40 – 3.54
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+Condition
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.49
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.42 – 0.56
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+Contrast
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-0.00
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-0.07 – 0.06
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.889
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+Condition × Contrast
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.06
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-0.01 – 0.13
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.074
+</td>
+</tr>
+<tr>
+<td colspan="4" style="font-weight:bold; text-align:left; padding-top:.8em;">
+Random Effects
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+σ<sup>2</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.12
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+τ<sub>00</sub> <sub>Subject</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.45
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+τ<sub>11</sub> <sub>Subject.Contrast</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.44
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+ρ<sub>01</sub> <sub>Subject</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.00
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+ICC
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.88
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+N <sub>Subject</sub>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+400
+</td>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">
+Observations
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+800
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+Marginal R<sup>2</sup> / Conditional R<sup>2</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.197 / 0.901
+</td>
+</tr>
+</table>
+<p><br></p>
+</div>
 </div>
 <div id="exploratory-dependent-variables" class="section level2">
 <h2>Exploratory Dependent Variables</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="co"># ---- Stability - Future Financial Success ----</span></span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>model_list.E[[<span class="st">&quot;EDV1_HP_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Stability_HP_4 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>model_list.E[[<span class="st">&quot;EDV1_LP_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Stability_LP_4 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="co"># ---- External - Hard Work ----</span></span>
-<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>model_list.E[[<span class="st">&quot;EDV2_HP_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Attributions_HP_2 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span>
-<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>model_list.E[[<span class="st">&quot;EDV2_LP_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Attributions_LP_2 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="co"># ---- Stability - Future Financial Success ----</span></span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a>model_list.E[[<span class="st">&quot;EDV1_HP_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Stability_HP_4 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span>
+<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a>model_list.E[[<span class="st">&quot;EDV1_LP_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Stability_LP_4.R <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span>
+<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a><span class="co"># ---- External - Hard Work ----</span></span>
+<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a>model_list.E[[<span class="st">&quot;EDV2_HP_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Attributions_HP_2 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span>
+<span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a>model_list.E[[<span class="st">&quot;EDV2_LP_Model.1&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Attributions_LP_2 <span class="sc">~</span> Condition, <span class="at">data =</span> df_sim)</span></code></pre></div>
+<div id="results-8" class="section level4">
+<h4>Results</h4>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="fu">tab_model</span>(model_list.E[<span class="fu">str_detect</span>(<span class="fu">names</span>(model_list.E), <span class="st">&quot;EDV&quot;</span>)],</span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>          <span class="at">dv.labels =</span> <span class="fu">names</span>(model_list.E[<span class="fu">str_detect</span>(<span class="fu">names</span>(model_list.E), <span class="st">&quot;EDV&quot;</span>)]))</span></code></pre></div>
+<table style="border-collapse:collapse; border:none;">
+<tr>
+<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
+ 
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+EDV1_HP_Model.1
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+EDV1_LP_Model.1
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+EDV2_HP_Model.1
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+EDV2_LP_Model.1
+</th>
+</tr>
+<tr>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">
+Predictors
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+p
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col7">
+p
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col8">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col9">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  0">
+p
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  1">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  2">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  3">
+p
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+(Intercept)
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+4.48
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+4.37 – 4.59
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+4.50
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+4.40 – 4.61
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
+4.49
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
+4.39 – 4.60
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">
+4.53
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">
+4.43 – 4.63
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+Condition
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.42
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.31 – 0.52
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.47
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.36 – 0.58
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">
+0.50
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">
+0.40 – 0.60
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">
+<strong>&lt;0.001</strong>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">
+0.51
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">
+0.41 – 0.61
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">
+Observations
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+400
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+400
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+400
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+400
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+R<sup>2</sup> / R<sup>2</sup> adjusted
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.131 / 0.129
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.159 / 0.157
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.190 / 0.188
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.196 / 0.194
+</td>
+</tr>
+</table>
+<p><br></p>
+</div>
 </div>
 <div id="exploratory-random-effects" class="section level2">
 <h2>Exploratory Random Effects</h2>
 <div id="perceived-similarity-1" class="section level3">
 <h3>Perceived Similarity</h3>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co"># ---- Similarity ----</span></span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>model_list.E[[<span class="st">&quot;H2a_Model.1&quot;</span>]] <span class="ot">&lt;-</span> nlme<span class="sc">::</span><span class="fu">lme</span>(</span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>  <span class="at">fixed =</span> Y <span class="sc">~</span> Condition <span class="sc">*</span> Contrast,</span>
-<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>  <span class="at">random =</span> <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> Contrast <span class="sc">|</span> Subject,</span>
-<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a>  <span class="at">data =</span> df_PS_1,</span>
-<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;ML&quot;</span></span>
-<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a>)</span>
-<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a><span class="co"># ---- Commonality ----</span></span>
-<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a>model_list.E[[<span class="st">&quot;H2b_Model.1&quot;</span>]] <span class="ot">&lt;-</span> nlme<span class="sc">::</span><span class="fu">lme</span>(</span>
-<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a>  <span class="at">fixed =</span> Y <span class="sc">~</span> Condition <span class="sc">*</span> Contrast,</span>
-<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a>  <span class="at">random =</span> <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> Contrast <span class="sc">|</span> Subject,</span>
-<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a>  <span class="at">data =</span> df_PS_2,</span>
-<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;ML&quot;</span></span>
-<span id="cb15-15"><a href="#cb15-15" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="co"># ---- Similarity ----</span></span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>model_list.E[[<span class="st">&quot;H2a_Model.1&quot;</span>]] <span class="ot">&lt;-</span> nlme<span class="sc">::</span><span class="fu">lme</span>(</span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a>  <span class="at">fixed =</span> Y <span class="sc">~</span> Condition <span class="sc">*</span> Contrast,</span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a>  <span class="at">random =</span> <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> Contrast <span class="sc">|</span> Subject,</span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a>  <span class="at">data =</span> df_PS_1,</span>
+<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;ML&quot;</span></span>
+<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a>)</span>
+<span id="cb24-8"><a href="#cb24-8" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" tabindex="-1"></a><span class="co"># ---- Commonality ----</span></span>
+<span id="cb24-10"><a href="#cb24-10" tabindex="-1"></a>model_list.E[[<span class="st">&quot;H2b_Model.1&quot;</span>]] <span class="ot">&lt;-</span> nlme<span class="sc">::</span><span class="fu">lme</span>(</span>
+<span id="cb24-11"><a href="#cb24-11" tabindex="-1"></a>  <span class="at">fixed =</span> Y <span class="sc">~</span> Condition <span class="sc">*</span> Contrast,</span>
+<span id="cb24-12"><a href="#cb24-12" tabindex="-1"></a>  <span class="at">random =</span> <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> Contrast <span class="sc">|</span> Subject,</span>
+<span id="cb24-13"><a href="#cb24-13" tabindex="-1"></a>  <span class="at">data =</span> df_PS_2,</span>
+<span id="cb24-14"><a href="#cb24-14" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;ML&quot;</span></span>
+<span id="cb24-15"><a href="#cb24-15" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div id="closeness-1" class="section level3">
 <h3>Closeness</h3>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>model_list.E[[<span class="st">&quot;H3_Model.1&quot;</span>]] <span class="ot">&lt;-</span> nlme<span class="sc">::</span><span class="fu">lme</span>(</span>
-<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>  <span class="at">fixed =</span> Y <span class="sc">~</span> Condition <span class="sc">*</span> Contrast,</span>
-<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>  <span class="at">random =</span> <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> Contrast <span class="sc">|</span> Subject,</span>
-<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>  <span class="at">data =</span> df_C,</span>
-<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;ML&quot;</span></span>
-<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>model_list.E[[<span class="st">&quot;H3_Model.1&quot;</span>]] <span class="ot">&lt;-</span> nlme<span class="sc">::</span><span class="fu">lme</span>(</span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a>  <span class="at">fixed =</span> Y <span class="sc">~</span> Condition <span class="sc">*</span> Contrast,</span>
+<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a>  <span class="at">random =</span> <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> Contrast <span class="sc">|</span> Subject,</span>
+<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a>  <span class="at">data =</span> df_C,</span>
+<span id="cb25-5"><a href="#cb25-5" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;ML&quot;</span></span>
+<span id="cb25-6"><a href="#cb25-6" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div id="to-be-expanded" class="section level3">
 <h3>TO BE EXPANDED???</h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="co"># model_list.E[[&quot;H4a_Model.1&quot;]] &lt;- nlme::lme(</span></span>
-<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a><span class="co">#   fixed = Y ~ Condition * Contrast,</span></span>
-<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a><span class="co">#   random = ~ 1 + Contrast | Subject,</span></span>
-<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a><span class="co">#   data = df_A_1,</span></span>
-<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a><span class="co">#   method = &quot;ML&quot;</span></span>
-<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a><span class="co"># )</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="co"># model_list.E[[&quot;H4a_Model.1&quot;]] &lt;- nlme::lme(</span></span>
+<span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a><span class="co">#   fixed = Y ~ Condition * Contrast,</span></span>
+<span id="cb26-3"><a href="#cb26-3" tabindex="-1"></a><span class="co">#   random = ~ 1 + Contrast | Subject,</span></span>
+<span id="cb26-4"><a href="#cb26-4" tabindex="-1"></a><span class="co">#   data = df_A_1,</span></span>
+<span id="cb26-5"><a href="#cb26-5" tabindex="-1"></a><span class="co">#   method = &quot;ML&quot;</span></span>
+<span id="cb26-6"><a href="#cb26-6" tabindex="-1"></a><span class="co"># )</span></span></code></pre></div>
 </div>
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNpbXVsYXRpb24gLSBUZXN0IEFuYWx5c2lzIg0KZGF0ZTogTGFzdCBjb21waWxlZCBvbiBgciBmb3JtYXQoU3lzLnRpbWUoKSwgJyVCLSVkLSVZJylgDQpvdXRwdXQ6IGh0bWxfZG9jdW1lbnQNCi0tLQ0KDQpgYGB7ciBzZXR1cCwgaW5jbHVkZT1GQUxTRX0NCmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkNCmBgYA0KDQpgYGB7cn0NCnJtKGxpc3QgPSBscygpKQ0KYGBgDQoNCiMgTG9hZCBsaWJyYXJpZXMNCg0KYGBge3J9DQojIGluc3RhbGwucGFja2FnZXMocGFjbWFuKQ0KbGlicmFyeShwYWNtYW4pDQoNCnBfbG9hZCh0aWR5dmVyc2UsDQogICAgICAgcmVhZHhsLA0KICAgICAgIGxtZTQsDQogICAgICAgbmxtZSwNCiAgICAgICBsbWVyVGVzdCwNCiAgICAgICBwc3ljaCwNCiAgICAgICBzalBsb3QpICNBZGQgYWRkaXRpb25hbCBwYWNrYWdlcw0KDQoNCg0KYGBgDQoNCiMgTG9hZCBkYXRhDQoNCmBgYHtyLCBlY2hvID0gVFJVRSwgcmVzdWx0cyA9ICJoaWRlIn0NCnNldHdkKCJzaW11bGF0aW9ucy8iKSAjIENoYW5nZSBXRCBmb3IgbG9hZGluZyBmaWxlcw0KdGVtcCA8LSBsaXN0LmZpbGVzKHBhdHRlcm4gPSAiXFwuUkRhdGEiKSAjIExvYWQgYWxsIC5SRGF0YSBmaWxlcyBpbiBmb2xkZXIgDQoNCmxhcHBseSh0ZW1wLCBsb2FkLCAuR2xvYmFsRW52KQ0KDQpgYGANCg0KIyBDb25maXJtYXRvcnkgQW5hbHlzZXMNCg0KYGBge3J9DQoNCiMtLS0tIE1vZGVsIGxpc3QgZm9yIENvbmZpcm1hdG9yeSBBbmFseXNlcyAtLS0tDQptb2RlbF9saXN0LkMgPC0gbGlzdCgpDQoNCmBgYA0KDQojIyBNb2RlbCB0eXBlIDEpIE1peGVkIE1vZGVscw0KDQojIyMgU21hcnRuZXNzDQoNCmBgYHtyfQ0KDQojIC0tLS0gU21hcnRuZXNzIGNvbXBhcmlzb24gNy44ICYgNy41IC0tLS0gDQptb2RlbF9saXN0LkNbWyJIMV9Nb2RlbC4xIl1dIDwtIG5sbWU6OmxtZSgNCiAgZml4ZWQgPSBZIH4gQ29uZGl0aW9uICogQ29udHJhc3QsDQogIHJhbmRvbSA9IH4gMSArIENvbnRyYXN0IHwgU3ViamVjdCwNCiAgZGF0YSA9IGRmX1NfMSwNCiAgbWV0aG9kID0gIk1MIg0KKQ0KDQojIC0tLS0gU21hcnRuZXNzIGNvbXBhcmlzb24gNi42ICYgNi4zIC0tLS0NCm1vZGVsX2xpc3QuQ1tbIkgxX01vZGVsLjIiXV0gPC0gbmxtZTo6bG1lKA0KICBmaXhlZCA9IFkgfiBDb25kaXRpb24gKiBDb250cmFzdCwNCiAgcmFuZG9tID0gfiAxICsgQ29udHJhc3QgfCBTdWJqZWN0LA0KICBkYXRhID0gZGZfU18yLA0KICBtZXRob2QgPSAiTUwiDQopDQoNCmBgYA0KDQojIyMgUGVyY2VpdmVkIFNpbWlsYXJpdHkNCg0KYGBge3J9DQoNCiMgLS0tLSBTaW1pbGFyaXR5IC0tLS0NCm1vZGVsX2xpc3QuQ1tbIkgyYV9Nb2RlbC4xIl1dIDwtIG5sbWU6OmxtZSgNCiAgZml4ZWQgPSBZIH4gQ29uZGl0aW9uLA0KICByYW5kb20gPSB+IDEgfCBTdWJqZWN0LA0KICBkYXRhID0gZGZfUFNfMSwNCiAgbWV0aG9kID0gIk1MIg0KKQ0KDQojIC0tLS0gQ29tbW9uYWxpdHkgLS0tLQ0KbW9kZWxfbGlzdC5DW1siSDJiX01vZGVsLjEiXV0gPC0gbmxtZTo6bG1lKA0KICBmaXhlZCA9IFkgfiBDb25kaXRpb24sDQogIHJhbmRvbSA9IH4gMSB8IFN1YmplY3QsDQogIGRhdGEgPSBkZl9QU18yLA0KICBtZXRob2QgPSAiTUwiDQopDQoNCmBgYA0KDQojIyMgQ2xvc2VuZXNzDQoNCmBgYHtyfQ0KDQptb2RlbF9saXN0LkNbWyJIM19Nb2RlbC4xIl1dIDwtIG5sbWU6OmxtZSgNCiAgZml4ZWQgPSBZIH4gQ29uZGl0aW9uLA0KICByYW5kb20gPSB+IDEgfCBTdWJqZWN0LA0KICBkYXRhID0gZGZfQywNCiAgbWV0aG9kID0gIk1MIg0KKQ0KDQpgYGANCg0KIyMgTW9kZWwgdHlwZSAyKSBMaW5lYXIgTW9kZWxzDQoNCiMjIEF0dHJpYnV0aW9ucyAtIEhpZ2ggUGVyZm9ybWFuY2UNCg0KYGBge3J9DQojIC0tLS0gSW50ZXJuYWwgLSBTbWFydCAtLS0tDQptb2RlbF9saXN0LkNbWyJINGFfTW9kZWwuMSJdXSA8LSBsbShBdHRyaWJ1dGlvbnNfSFBfMSB+IENvbmRpdGlvbiwgZGF0YSA9IGRmX3NpbSkNCg0KIyAtLS0tIEV4dGVybmFsIC0gTHVjayAtLS0tDQptb2RlbF9saXN0LkNbWyJINGJfTW9kZWwuMSJdXSA8LSBsbShBdHRyaWJ1dGlvbnNfSFBfMyB+IENvbmRpdGlvbiwgZGF0YSA9IGRmX3NpbSkNCg0KYGBgDQoNCiMjIFN0YWJpbGl0eSAtIEhpZ2ggUGVyZm9ybWFuY2UNCg0KYGBge3J9DQojIC0tLS0gU21hcnQgcGFyZW50cyAtLS0tDQptb2RlbF9saXN0LkNbWyJINWFfTW9kZWwuMSJdXSA8LSBsbShTdGFiaWxpdHlfSFBfMSB+IENvbmRpdGlvbiwgZGF0YSA9IGRmX3NpbSkNCg0KIyAtLS0tIEVhcmx5IGVtZXJnZW5jZSAtLS0tDQptb2RlbF9saXN0LkNbWyJINWJfTW9kZWwuMSJdXSA8LSBsbShTdGFiaWxpdHlfSFBfMiB+IENvbmRpdGlvbiwgZGF0YSA9IGRmX3NpbSkNCg0KIyAtLS0tIFNtYXJ0IGZ1dHVyZSBqb2IgLS0tLQ0KbW9kZWxfbGlzdC5DW1siSDVjX01vZGVsLjEiXV0gPC0gbG0oU3RhYmlsaXR5X0hQXzMgfiBDb25kaXRpb24sIGRhdGEgPSBkZl9zaW0pDQoNCmBgYA0KDQojIyBBdHRyaWJ1dGlvbnMgLSBMb3cgUGVyZm9ybWFuY2UNCg0KYGBge3J9DQojIC0tLS0gSW50ZXJuYWwgLSBTbWFydCAtLS0tDQptb2RlbF9saXN0LkNbWyJINGFfTW9kZWwuMSJdXSA8LSBsbShBdHRyaWJ1dGlvbnNfTFBfMSB+IENvbmRpdGlvbiwgZGF0YSA9IGRmX3NpbSkNCg0KIyAtLS0tIEV4dGVybmFsIC0gTHVjayAtLS0tDQptb2RlbF9saXN0LkNbWyJINGJfTW9kZWwuMSJdXSA8LSBsbShBdHRyaWJ1dGlvbnNfTFBfMyB+IENvbmRpdGlvbiwgZGF0YSA9IGRmX3NpbSkNCg0KYGBgDQoNCiMjIFN0YWJpbGl0eSAtIExvdyBQZXJmb3JtYW5jZQ0KDQpgYGB7cn0NCiMgLS0tLSBTbWFydCBwYXJlbnRzIC0tLS0NCm1vZGVsX2xpc3QuQ1tbIkg1YV9Nb2RlbC4xIl1dIDwtIGxtKFN0YWJpbGl0eV9MUF8xIH4gQ29uZGl0aW9uLCBkYXRhID0gZGZfc2ltKQ0KDQojIC0tLS0gRWFybHkgZW1lcmdlbmNlIC0tLS0NCm1vZGVsX2xpc3QuQ1tbIkg1Yl9Nb2RlbC4xIl1dIDwtIGxtKFN0YWJpbGl0eV9MUF8yIH4gQ29uZGl0aW9uLCBkYXRhID0gZGZfc2ltKQ0KDQojIC0tLS0gU21hcnQgZnV0dXJlIGpvYiAtLS0tDQptb2RlbF9saXN0LkNbWyJINWNfTW9kZWwuMSJdXSA8LSBsbShTdGFiaWxpdHlfTFBfMyB+IENvbmRpdGlvbiwgZGF0YSA9IGRmX3NpbSkNCg0KYGBgDQoNCiMgRXhwbG9yYXRvcnkgQW5hbHlzZXMNCg0KSW4gdGhpcyBzdGFnZSwgb25seSB0aGUgZm9sbG93aW5nIGV4cGxvcmF0b3J5IGFuYWx5c2VzIGFyZSB3b3JrZWQgb3V0Og0KDQotICAgRXhwbG9yYXRvcnkgU21hcnRuZXNzIGh5cG90aGVzaXMNCg0KLSAgIEV4cGxvcmF0b3J5IERlcGVuZGVudCB2YXJpYWJsZXMgKEhhcmQgd29yayAtIGF0dHJpYnV0aW9uICYgRnV0dXJlIGZpbmFuY2lhbCBzdWNjZXNzKQ0KDQotICAgRXhwbG9yYXRvcnkgcmFuZG9tIGVmZmVjdHMNCg0KVGhlIGZvbGxvd2luZyBleHBsb3JhdG9yeSBhbmFseXNlcyB3aWxsIGJlIHdvcmtlZCBvdXQgYXMgcGFydCBvZiB0aGUgcGFwZXI6DQoNCi0gICBFeHBsb3JhdG9yeSBNb2RlcmF0aW9uIGFuYWx5c2VzDQoNCi0gICBDb25maXJtYXRvcnkgRmFjdG9yIEFuYWx5c2lzDQoNCmBgYHtyfQ0KIy0tLS0gTW9kZWwgbGlzdCBmb3IgRXhwbG9yYXRvcnkgQW5hbHlzZXMNCm1vZGVsX2xpc3QuRSA8LSBsaXN0KCkNCg0KYGBgDQoNCiMjIEV4cGxvcmF0b3J5IFNtYXJ0bmVzcyBoeXBvdGhlc2lzDQpgYGB7cn0NCiMgLS0tLSBTbWFydG5lc3MgY29tcGFyaXNvbiA3LjUgJiA2LjYgLS0tLQ0KbW9kZWxfbGlzdC5FW1siRUhfTW9kZWwuMSJdXSA8LSBubG1lOjpsbWUoDQogIGZpeGVkID0gWSB+IENvbmRpdGlvbiAqIENvbnRyYXN0LA0KICByYW5kb20gPSB+IDEgKyBDb250cmFzdCB8IFN1YmplY3QsDQogIGRhdGEgPSBkZl9TXzMsDQogIG1ldGhvZCA9ICJNTCINCikNCg0KYGBgDQoNCiMjIEV4cGxvcmF0b3J5IERlcGVuZGVudCBWYXJpYWJsZXMNCmBgYHtyfQ0KIyAtLS0tIFN0YWJpbGl0eSAtIEZ1dHVyZSBGaW5hbmNpYWwgU3VjY2VzcyAtLS0tDQptb2RlbF9saXN0LkVbWyJFRFYxX0hQX01vZGVsLjEiXV0gPC0gbG0oU3RhYmlsaXR5X0hQXzQgfiBDb25kaXRpb24sIGRhdGEgPSBkZl9zaW0pDQptb2RlbF9saXN0LkVbWyJFRFYxX0xQX01vZGVsLjEiXV0gPC0gbG0oU3RhYmlsaXR5X0xQXzQgfiBDb25kaXRpb24sIGRhdGEgPSBkZl9zaW0pDQoNCiMgLS0tLSBFeHRlcm5hbCAtIEhhcmQgV29yayAtLS0tDQptb2RlbF9saXN0LkVbWyJFRFYyX0hQX01vZGVsLjEiXV0gPC0gbG0oQXR0cmlidXRpb25zX0hQXzIgfiBDb25kaXRpb24sIGRhdGEgPSBkZl9zaW0pDQptb2RlbF9saXN0LkVbWyJFRFYyX0xQX01vZGVsLjEiXV0gPC0gbG0oQXR0cmlidXRpb25zX0xQXzIgfiBDb25kaXRpb24sIGRhdGEgPSBkZl9zaW0pDQoNCmBgYA0KDQojIyBFeHBsb3JhdG9yeSBSYW5kb20gRWZmZWN0cw0KDQojIyMgUGVyY2VpdmVkIFNpbWlsYXJpdHkNCg0KYGBge3J9DQoNCiMgLS0tLSBTaW1pbGFyaXR5IC0tLS0NCm1vZGVsX2xpc3QuRVtbIkgyYV9Nb2RlbC4xIl1dIDwtIG5sbWU6OmxtZSgNCiAgZml4ZWQgPSBZIH4gQ29uZGl0aW9uICogQ29udHJhc3QsDQogIHJhbmRvbSA9IH4gMSArIENvbnRyYXN0IHwgU3ViamVjdCwNCiAgZGF0YSA9IGRmX1BTXzEsDQogIG1ldGhvZCA9ICJNTCINCikNCg0KIyAtLS0tIENvbW1vbmFsaXR5IC0tLS0NCm1vZGVsX2xpc3QuRVtbIkgyYl9Nb2RlbC4xIl1dIDwtIG5sbWU6OmxtZSgNCiAgZml4ZWQgPSBZIH4gQ29uZGl0aW9uICogQ29udHJhc3QsDQogIHJhbmRvbSA9IH4gMSArIENvbnRyYXN0IHwgU3ViamVjdCwNCiAgZGF0YSA9IGRmX1BTXzIsDQogIG1ldGhvZCA9ICJNTCINCikNCg0KYGBgDQoNCiMjIyBDbG9zZW5lc3MNCg0KYGBge3J9DQoNCm1vZGVsX2xpc3QuRVtbIkgzX01vZGVsLjEiXV0gPC0gbmxtZTo6bG1lKA0KICBmaXhlZCA9IFkgfiBDb25kaXRpb24gKiBDb250cmFzdCwNCiAgcmFuZG9tID0gfiAxICsgQ29udHJhc3QgfCBTdWJqZWN0LA0KICBkYXRhID0gZGZfQywNCiAgbWV0aG9kID0gIk1MIg0KKQ0KDQpgYGANCg0KDQojIyMgVE8gQkUgRVhQQU5ERUQ/Pz8NCmBgYHtyfQ0KDQojIG1vZGVsX2xpc3QuRVtbIkg0YV9Nb2RlbC4xIl1dIDwtIG5sbWU6OmxtZSgNCiMgICBmaXhlZCA9IFkgfiBDb25kaXRpb24gKiBDb250cmFzdCwNCiMgICByYW5kb20gPSB+IDEgKyBDb250cmFzdCB8IFN1YmplY3QsDQojICAgZGF0YSA9IGRmX0FfMSwNCiMgICBtZXRob2QgPSAiTUwiDQojICkNCg0KYGBgDQoNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNpbXVsYXRpb24gLSBUZXN0IEFuYWx5c2lzIg0KZGF0ZTogTGFzdCBjb21waWxlZCBvbiBgciBmb3JtYXQoU3lzLnRpbWUoKSwgJyVCLSVkLSVZJylgDQpvdXRwdXQ6IGh0bWxfZG9jdW1lbnQNCi0tLQ0KDQpgYGB7ciBzZXR1cCwgaW5jbHVkZT1GQUxTRX0NCmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkNCmBgYA0KDQpgYGB7cn0NCnJtKGxpc3QgPSBscygpKQ0KYGBgDQoNCiMgTG9hZCBsaWJyYXJpZXMNCg0KYGBge3J9DQojIGluc3RhbGwucGFja2FnZXMocGFjbWFuKQ0KbGlicmFyeShwYWNtYW4pDQoNCnBfbG9hZCh0aWR5dmVyc2UsDQogICAgICAgcmVhZHhsLA0KICAgICAgIGxtZTQsDQogICAgICAgbmxtZSwNCiAgICAgICBsbWVyVGVzdCwNCiAgICAgICBwc3ljaCwNCiAgICAgICBzalBsb3QpICNBZGQgYWRkaXRpb25hbCBwYWNrYWdlcw0KDQoNCg0KYGBgDQoNCiMgTG9hZCBkYXRhDQoNCmBgYHtyLCBlY2hvID0gVFJVRSwgcmVzdWx0cyA9ICJoaWRlIn0NCnNldHdkKCJzaW11bGF0aW9ucy8iKSAjIENoYW5nZSBXRCBmb3IgbG9hZGluZyBmaWxlcw0KdGVtcCA8LSBsaXN0LmZpbGVzKHBhdHRlcm4gPSAiXFwuUkRhdGEiKSAjIExvYWQgYWxsIC5SRGF0YSBmaWxlcyBpbiBmb2xkZXIgDQoNCmxhcHBseSh0ZW1wLCBsb2FkLCAuR2xvYmFsRW52KQ0KDQpgYGANCg0KIyBDb25maXJtYXRvcnkgQW5hbHlzZXMNCg0KYGBge3J9DQoNCiMtLS0tIE1vZGVsIGxpc3QgZm9yIENvbmZpcm1hdG9yeSBBbmFseXNlcyAtLS0tDQptb2RlbF9saXN0LkMgPC0gbGlzdCgpDQoNCmBgYA0KDQojIyBNb2RlbCB0eXBlIDEpIE1peGVkIE1vZGVscw0KDQojIyMgU21hcnRuZXNzDQoNCmBgYHtyfQ0KDQojIC0tLS0gU21hcnRuZXNzIGNvbXBhcmlzb24gNy44ICYgNy41IC0tLS0gDQptb2RlbF9saXN0LkNbWyJIMV9Nb2RlbC4xIl1dIDwtIG5sbWU6OmxtZSgNCiAgZml4ZWQgPSBZIH4gQ29uZGl0aW9uICogQ29udHJhc3QsDQogIHJhbmRvbSA9IH4gMSArIENvbnRyYXN0IHwgU3ViamVjdCwNCiAgZGF0YSA9IGRmX1NfMSwNCiAgbWV0aG9kID0gIk1MIg0KKQ0KDQojIC0tLS0gU21hcnRuZXNzIGNvbXBhcmlzb24gNi42ICYgNi4zIC0tLS0NCm1vZGVsX2xpc3QuQ1tbIkgxX01vZGVsLjIiXV0gPC0gbmxtZTo6bG1lKA0KICBmaXhlZCA9IFkgfiBDb25kaXRpb24gKiBDb250cmFzdCwNCiAgcmFuZG9tID0gfiAxICsgQ29udHJhc3QgfCBTdWJqZWN0LA0KICBkYXRhID0gZGZfU18yLA0KICBtZXRob2QgPSAiTUwiDQopDQoNCmBgYA0KDQojIyMjIFJlc3VsdHMNCg0KYGBge3J9DQoNCnRhYl9tb2RlbChtb2RlbF9saXN0LkNbc3RyX2RldGVjdChuYW1lcyhtb2RlbF9saXN0LkMpLCAiSDEiKV0sDQogICAgICAgICAgZHYubGFiZWxzID0gbmFtZXMobW9kZWxfbGlzdC5DW3N0cl9kZXRlY3QobmFtZXMobW9kZWxfbGlzdC5DKSwgIkgxIildKSkNCg0KYGBgDQoNCjxicj4NCg0KIyMjIFBlcmNlaXZlZCBTaW1pbGFyaXR5DQoNCmBgYHtyfQ0KDQojIC0tLS0gU2ltaWxhcml0eSAtLS0tDQptb2RlbF9saXN0LkNbWyJIMmFfTW9kZWwuMSJdXSA8LSBubG1lOjpsbWUoDQogIGZpeGVkID0gWSB+IENvbmRpdGlvbiwNCiAgcmFuZG9tID0gfiAxIHwgU3ViamVjdCwNCiAgZGF0YSA9IGRmX1BTXzEsDQogIG1ldGhvZCA9ICJNTCINCikNCg0KIyAtLS0tIENvbW1vbmFsaXR5IC0tLS0NCm1vZGVsX2xpc3QuQ1tbIkgyYl9Nb2RlbC4xIl1dIDwtIG5sbWU6OmxtZSgNCiAgZml4ZWQgPSBZIH4gQ29uZGl0aW9uLA0KICByYW5kb20gPSB+IDEgfCBTdWJqZWN0LA0KICBkYXRhID0gZGZfUFNfMiwNCiAgbWV0aG9kID0gIk1MIg0KKQ0KDQpgYGANCg0KIyMjIyBSZXN1bHRzDQoNCmBgYHtyfQ0KDQp0YWJfbW9kZWwobW9kZWxfbGlzdC5DW3N0cl9kZXRlY3QobmFtZXMobW9kZWxfbGlzdC5DKSwgIkgyIildLA0KICAgICAgICAgIGR2LmxhYmVscyA9IG5hbWVzKG1vZGVsX2xpc3QuQ1tzdHJfZGV0ZWN0KG5hbWVzKG1vZGVsX2xpc3QuQyksICJIMiIpXSkpDQoNCmBgYA0KDQo8YnI+DQoNCiMjIyBDbG9zZW5lc3MNCg0KYGBge3J9DQoNCm1vZGVsX2xpc3QuQ1tbIkgzX01vZGVsLjEiXV0gPC0gbmxtZTo6bG1lKA0KICBmaXhlZCA9IFkgfiBDb25kaXRpb24sDQogIHJhbmRvbSA9IH4gMSB8IFN1YmplY3QsDQogIGRhdGEgPSBkZl9DLA0KICBtZXRob2QgPSAiTUwiDQopDQoNCmBgYA0KDQojIyMjIFJlc3VsdHMNCg0KYGBge3J9DQoNCnRhYl9tb2RlbChtb2RlbF9saXN0LkNbc3RyX2RldGVjdChuYW1lcyhtb2RlbF9saXN0LkMpLCAiSDMiKV0sDQogICAgICAgICAgZHYubGFiZWxzID0gbmFtZXMobW9kZWxfbGlzdC5DW3N0cl9kZXRlY3QobmFtZXMobW9kZWxfbGlzdC5DKSwgIkgzIildKSkNCg0KYGBgDQoNCjxicj4NCg0KIyMgTW9kZWwgdHlwZSAyKSBMaW5lYXIgTW9kZWxzDQoNCiMjIyBBdHRyaWJ1dGlvbnMgLSBIaWdoIFBlcmZvcm1hbmNlDQoNCmBgYHtyfQ0KIyAtLS0tIEludGVybmFsIC0gU21hcnQgLS0tLQ0KbW9kZWxfbGlzdC5DW1siSDRhX01vZGVsLjEiXV0gPC0gbG0oQXR0cmlidXRpb25zX0hQXzEgfiBDb25kaXRpb24sIGRhdGEgPSBkZl9zaW0pDQoNCiMgLS0tLSBFeHRlcm5hbCAtIEx1Y2sgLS0tLQ0KbW9kZWxfbGlzdC5DW1siSDRiX01vZGVsLjEiXV0gPC0gbG0oQXR0cmlidXRpb25zX0hQXzMgfiBDb25kaXRpb24sIGRhdGEgPSBkZl9zaW0pDQoNCmBgYA0KDQojIyMjIFJlc3VsdHMNCg0KYGBge3J9DQoNCnRhYl9tb2RlbChtb2RlbF9saXN0LkNbc3RyX2RldGVjdChuYW1lcyhtb2RlbF9saXN0LkMpLCAiSDQiKV0sDQogICAgICAgICAgZHYubGFiZWxzID0gbmFtZXMobW9kZWxfbGlzdC5DW3N0cl9kZXRlY3QobmFtZXMobW9kZWxfbGlzdC5DKSwgIkg0IildKSkNCg0KYGBgDQoNCjxicj4NCg0KIyMjIFN0YWJpbGl0eSAtIEhpZ2ggUGVyZm9ybWFuY2UNCg0KYGBge3J9DQojIC0tLS0gU21hcnQgcGFyZW50cyAtLS0tDQptb2RlbF9saXN0LkNbWyJINWFfTW9kZWwuMSJdXSA8LSBsbShTdGFiaWxpdHlfSFBfMSB+IENvbmRpdGlvbiwgZGF0YSA9IGRmX3NpbSkNCg0KIyAtLS0tIEVhcmx5IGVtZXJnZW5jZSAtLS0tDQptb2RlbF9saXN0LkNbWyJINWJfTW9kZWwuMSJdXSA8LSBsbShTdGFiaWxpdHlfSFBfMiB+IENvbmRpdGlvbiwgZGF0YSA9IGRmX3NpbSkNCg0KIyAtLS0tIFNtYXJ0IGZ1dHVyZSBqb2IgLS0tLQ0KbW9kZWxfbGlzdC5DW1siSDVjX01vZGVsLjEiXV0gPC0gbG0oU3RhYmlsaXR5X0hQXzMgfiBDb25kaXRpb24sIGRhdGEgPSBkZl9zaW0pDQoNCmBgYA0KDQojIyMjIFJlc3VsdHMNCg0KYGBge3J9DQoNCnRhYl9tb2RlbChtb2RlbF9saXN0LkNbc3RyX2RldGVjdChuYW1lcyhtb2RlbF9saXN0LkMpLCAiSDEiKV0sDQogICAgICAgICAgZHYubGFiZWxzID0gbmFtZXMobW9kZWxfbGlzdC5DW3N0cl9kZXRlY3QobmFtZXMobW9kZWxfbGlzdC5DKSwgIkgxIildKSkNCg0KYGBgDQoNCjxicj4NCg0KIyMjIEF0dHJpYnV0aW9ucyAtIExvdyBQZXJmb3JtYW5jZQ0KDQpgYGB7cn0NCiMgLS0tLSBJbnRlcm5hbCAtIFNtYXJ0IC0tLS0NCm1vZGVsX2xpc3QuQ1tbIkg2YV9Nb2RlbC4xIl1dIDwtIGxtKEF0dHJpYnV0aW9uc19MUF8xIH4gQ29uZGl0aW9uLCBkYXRhID0gZGZfc2ltKQ0KDQojIC0tLS0gRXh0ZXJuYWwgLSBMdWNrIC0tLS0NCm1vZGVsX2xpc3QuQ1tbIkg2Yl9Nb2RlbC4xIl1dIDwtIGxtKEF0dHJpYnV0aW9uc19MUF8zIH4gQ29uZGl0aW9uLCBkYXRhID0gZGZfc2ltKQ0KDQpgYGANCg0KIyMjIyBSZXN1bHRzDQoNCmBgYHtyfQ0KDQp0YWJfbW9kZWwobW9kZWxfbGlzdC5DW3N0cl9kZXRlY3QobmFtZXMobW9kZWxfbGlzdC5DKSwgIkg2IildLA0KICAgICAgICAgIGR2LmxhYmVscyA9IG5hbWVzKG1vZGVsX2xpc3QuQ1tzdHJfZGV0ZWN0KG5hbWVzKG1vZGVsX2xpc3QuQyksICJINiIpXSkpDQoNCmBgYA0KDQo8YnI+DQoNCiMjIyBTdGFiaWxpdHkgLSBMb3cgUGVyZm9ybWFuY2UNCg0KYGBge3J9DQojIC0tLS0gU21hcnQgcGFyZW50cyAtLS0tDQptb2RlbF9saXN0LkNbWyJIN2FfTW9kZWwuMSJdXSA8LSBsbShTdGFiaWxpdHlfTFBfMS5SIH4gQ29uZGl0aW9uLCBkYXRhID0gZGZfc2ltKQ0KDQojIC0tLS0gRWFybHkgZW1lcmdlbmNlIC0tLS0NCm1vZGVsX2xpc3QuQ1tbIkg3Yl9Nb2RlbC4xIl1dIDwtIGxtKFN0YWJpbGl0eV9MUF8yLlIgfiBDb25kaXRpb24sIGRhdGEgPSBkZl9zaW0pDQoNCiMgLS0tLSBTbWFydCBmdXR1cmUgam9iIC0tLS0NCm1vZGVsX2xpc3QuQ1tbIkg3Y19Nb2RlbC4xIl1dIDwtIGxtKFN0YWJpbGl0eV9MUF8zLlIgfiBDb25kaXRpb24sIGRhdGEgPSBkZl9zaW0pDQoNCmBgYA0KDQojIyMjIFJlc3VsdHMNCg0KYGBge3J9DQoNCnRhYl9tb2RlbChtb2RlbF9saXN0LkNbc3RyX2RldGVjdChuYW1lcyhtb2RlbF9saXN0LkMpLCAiSDciKV0sDQogICAgICAgICAgZHYubGFiZWxzID0gbmFtZXMobW9kZWxfbGlzdC5DW3N0cl9kZXRlY3QobmFtZXMobW9kZWxfbGlzdC5DKSwgIkg3IildKSkNCg0KYGBgDQoNCjxicj4NCg0KIyBFeHBsb3JhdG9yeSBBbmFseXNlcw0KDQpJbiB0aGlzIHN0YWdlLCBvbmx5IHRoZSBmb2xsb3dpbmcgZXhwbG9yYXRvcnkgYW5hbHlzZXMgYXJlIHdvcmtlZCBvdXQ6DQoNCi0gICBFeHBsb3JhdG9yeSBTbWFydG5lc3MgaHlwb3RoZXNpcw0KDQotICAgRXhwbG9yYXRvcnkgRGVwZW5kZW50IHZhcmlhYmxlcyAoSGFyZCB3b3JrIC0gYXR0cmlidXRpb24gJiBGdXR1cmUgZmluYW5jaWFsIHN1Y2Nlc3MpDQoNCi0gICBFeHBsb3JhdG9yeSByYW5kb20gZWZmZWN0cw0KDQpUaGUgZm9sbG93aW5nIGV4cGxvcmF0b3J5IGFuYWx5c2VzIHdpbGwgYmUgd29ya2VkIG91dCBhcyBwYXJ0IG9mIHRoZSBwYXBlcjoNCg0KLSAgIEV4cGxvcmF0b3J5IE1vZGVyYXRpb24gYW5hbHlzZXMNCg0KLSAgIENvbmZpcm1hdG9yeSBGYWN0b3IgQW5hbHlzaXMNCg0KYGBge3J9DQojLS0tLSBNb2RlbCBsaXN0IGZvciBFeHBsb3JhdG9yeSBBbmFseXNlcw0KbW9kZWxfbGlzdC5FIDwtIGxpc3QoKQ0KDQpgYGANCg0KIyMgRXhwbG9yYXRvcnkgU21hcnRuZXNzIGh5cG90aGVzaXMNCg0KYGBge3J9DQojIC0tLS0gU21hcnRuZXNzIGNvbXBhcmlzb24gNy41ICYgNi42IC0tLS0NCm1vZGVsX2xpc3QuRVtbIkVIX01vZGVsLjEiXV0gPC0gbmxtZTo6bG1lKA0KICBmaXhlZCA9IFkgfiBDb25kaXRpb24gKiBDb250cmFzdCwNCiAgcmFuZG9tID0gfiAxICsgQ29udHJhc3QgfCBTdWJqZWN0LA0KICBkYXRhID0gZGZfU18zLA0KICBtZXRob2QgPSAiTUwiDQopDQoNCmBgYA0KDQojIyMjIFJlc3VsdHMNCg0KYGBge3J9DQoNCnRhYl9tb2RlbChtb2RlbF9saXN0LkVbc3RyX2RldGVjdChuYW1lcyhtb2RlbF9saXN0LkUpLCAiRUgiKV0sDQogICAgICAgICAgZHYubGFiZWxzID0gbmFtZXMobW9kZWxfbGlzdC5FW3N0cl9kZXRlY3QobmFtZXMobW9kZWxfbGlzdC5FKSwgIkVIIildKSkNCg0KYGBgDQoNCjxicj4NCg0KIyMgRXhwbG9yYXRvcnkgRGVwZW5kZW50IFZhcmlhYmxlcw0KDQpgYGB7cn0NCiMgLS0tLSBTdGFiaWxpdHkgLSBGdXR1cmUgRmluYW5jaWFsIFN1Y2Nlc3MgLS0tLQ0KbW9kZWxfbGlzdC5FW1siRURWMV9IUF9Nb2RlbC4xIl1dIDwtIGxtKFN0YWJpbGl0eV9IUF80IH4gQ29uZGl0aW9uLCBkYXRhID0gZGZfc2ltKQ0KbW9kZWxfbGlzdC5FW1siRURWMV9MUF9Nb2RlbC4xIl1dIDwtIGxtKFN0YWJpbGl0eV9MUF80LlIgfiBDb25kaXRpb24sIGRhdGEgPSBkZl9zaW0pDQoNCiMgLS0tLSBFeHRlcm5hbCAtIEhhcmQgV29yayAtLS0tDQptb2RlbF9saXN0LkVbWyJFRFYyX0hQX01vZGVsLjEiXV0gPC0gbG0oQXR0cmlidXRpb25zX0hQXzIgfiBDb25kaXRpb24sIGRhdGEgPSBkZl9zaW0pDQptb2RlbF9saXN0LkVbWyJFRFYyX0xQX01vZGVsLjEiXV0gPC0gbG0oQXR0cmlidXRpb25zX0xQXzIgfiBDb25kaXRpb24sIGRhdGEgPSBkZl9zaW0pDQoNCmBgYA0KDQojIyMjIFJlc3VsdHMNCg0KYGBge3J9DQoNCnRhYl9tb2RlbChtb2RlbF9saXN0LkVbc3RyX2RldGVjdChuYW1lcyhtb2RlbF9saXN0LkUpLCAiRURWIildLA0KICAgICAgICAgIGR2LmxhYmVscyA9IG5hbWVzKG1vZGVsX2xpc3QuRVtzdHJfZGV0ZWN0KG5hbWVzKG1vZGVsX2xpc3QuRSksICJFRFYiKV0pKQ0KDQpgYGANCg0KPGJyPg0KDQojIyBFeHBsb3JhdG9yeSBSYW5kb20gRWZmZWN0cw0KDQojIyMgUGVyY2VpdmVkIFNpbWlsYXJpdHkNCg0KYGBge3J9DQoNCiMgLS0tLSBTaW1pbGFyaXR5IC0tLS0NCm1vZGVsX2xpc3QuRVtbIkgyYV9Nb2RlbC4xIl1dIDwtIG5sbWU6OmxtZSgNCiAgZml4ZWQgPSBZIH4gQ29uZGl0aW9uICogQ29udHJhc3QsDQogIHJhbmRvbSA9IH4gMSArIENvbnRyYXN0IHwgU3ViamVjdCwNCiAgZGF0YSA9IGRmX1BTXzEsDQogIG1ldGhvZCA9ICJNTCINCikNCg0KIyAtLS0tIENvbW1vbmFsaXR5IC0tLS0NCm1vZGVsX2xpc3QuRVtbIkgyYl9Nb2RlbC4xIl1dIDwtIG5sbWU6OmxtZSgNCiAgZml4ZWQgPSBZIH4gQ29uZGl0aW9uICogQ29udHJhc3QsDQogIHJhbmRvbSA9IH4gMSArIENvbnRyYXN0IHwgU3ViamVjdCwNCiAgZGF0YSA9IGRmX1BTXzIsDQogIG1ldGhvZCA9ICJNTCINCikNCg0KYGBgDQoNCiMjIyBDbG9zZW5lc3MNCg0KYGBge3J9DQoNCm1vZGVsX2xpc3QuRVtbIkgzX01vZGVsLjEiXV0gPC0gbmxtZTo6bG1lKA0KICBmaXhlZCA9IFkgfiBDb25kaXRpb24gKiBDb250cmFzdCwNCiAgcmFuZG9tID0gfiAxICsgQ29udHJhc3QgfCBTdWJqZWN0LA0KICBkYXRhID0gZGZfQywNCiAgbWV0aG9kID0gIk1MIg0KKQ0KDQpgYGANCg0KIyMjIFRPIEJFIEVYUEFOREVEPz8/DQoNCmBgYHtyfQ0KDQojIG1vZGVsX2xpc3QuRVtbIkg0YV9Nb2RlbC4xIl1dIDwtIG5sbWU6OmxtZSgNCiMgICBmaXhlZCA9IFkgfiBDb25kaXRpb24gKiBDb250cmFzdCwNCiMgICByYW5kb20gPSB+IDEgKyBDb250cmFzdCB8IFN1YmplY3QsDQojICAgZGF0YSA9IGRmX0FfMSwNCiMgICBtZXRob2QgPSAiTUwiDQojICkNCg0KYGBgDQo=</div>
 
 
 </div>

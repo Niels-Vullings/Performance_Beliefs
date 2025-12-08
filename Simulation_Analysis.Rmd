@@ -73,6 +73,17 @@ model_list.C[["H1_Model.2"]] <- nlme::lme(
 
 ```
 
+#### Results
+
+```{r}
+
+tab_model(model_list.C[str_detect(names(model_list.C), "H1")],
+          dv.labels = names(model_list.C[str_detect(names(model_list.C), "H1")]))
+
+```
+
+<br>
+
 ### Perceived Similarity
 
 ```{r}
@@ -95,6 +106,17 @@ model_list.C[["H2b_Model.1"]] <- nlme::lme(
 
 ```
 
+#### Results
+
+```{r}
+
+tab_model(model_list.C[str_detect(names(model_list.C), "H2")],
+          dv.labels = names(model_list.C[str_detect(names(model_list.C), "H2")]))
+
+```
+
+<br>
+
 ### Closeness
 
 ```{r}
@@ -108,9 +130,20 @@ model_list.C[["H3_Model.1"]] <- nlme::lme(
 
 ```
 
+#### Results
+
+```{r}
+
+tab_model(model_list.C[str_detect(names(model_list.C), "H3")],
+          dv.labels = names(model_list.C[str_detect(names(model_list.C), "H3")]))
+
+```
+
+<br>
+
 ## Model type 2) Linear Models
 
-## Attributions - High Performance
+### Attributions - High Performance
 
 ```{r}
 # ---- Internal - Smart ----
@@ -121,7 +154,18 @@ model_list.C[["H4b_Model.1"]] <- lm(Attributions_HP_3 ~ Condition, data = df_sim
 
 ```
 
-## Stability - High Performance
+#### Results
+
+```{r}
+
+tab_model(model_list.C[str_detect(names(model_list.C), "H4")],
+          dv.labels = names(model_list.C[str_detect(names(model_list.C), "H4")]))
+
+```
+
+<br>
+
+### Stability - High Performance
 
 ```{r}
 # ---- Smart parents ----
@@ -135,30 +179,63 @@ model_list.C[["H5c_Model.1"]] <- lm(Stability_HP_3 ~ Condition, data = df_sim)
 
 ```
 
-## Attributions - Low Performance
+#### Results
+
+```{r}
+
+tab_model(model_list.C[str_detect(names(model_list.C), "H1")],
+          dv.labels = names(model_list.C[str_detect(names(model_list.C), "H1")]))
+
+```
+
+<br>
+
+### Attributions - Low Performance
 
 ```{r}
 # ---- Internal - Smart ----
-model_list.C[["H4a_Model.1"]] <- lm(Attributions_LP_1 ~ Condition, data = df_sim)
+model_list.C[["H6a_Model.1"]] <- lm(Attributions_LP_1 ~ Condition, data = df_sim)
 
 # ---- External - Luck ----
-model_list.C[["H4b_Model.1"]] <- lm(Attributions_LP_3 ~ Condition, data = df_sim)
+model_list.C[["H6b_Model.1"]] <- lm(Attributions_LP_3 ~ Condition, data = df_sim)
 
 ```
 
-## Stability - Low Performance
+#### Results
+
+```{r}
+
+tab_model(model_list.C[str_detect(names(model_list.C), "H6")],
+          dv.labels = names(model_list.C[str_detect(names(model_list.C), "H6")]))
+
+```
+
+<br>
+
+### Stability - Low Performance
 
 ```{r}
 # ---- Smart parents ----
-model_list.C[["H5a_Model.1"]] <- lm(Stability_LP_1 ~ Condition, data = df_sim)
+model_list.C[["H7a_Model.1"]] <- lm(Stability_LP_1.R ~ Condition, data = df_sim)
 
 # ---- Early emergence ----
-model_list.C[["H5b_Model.1"]] <- lm(Stability_LP_2 ~ Condition, data = df_sim)
+model_list.C[["H7b_Model.1"]] <- lm(Stability_LP_2.R ~ Condition, data = df_sim)
 
 # ---- Smart future job ----
-model_list.C[["H5c_Model.1"]] <- lm(Stability_LP_3 ~ Condition, data = df_sim)
+model_list.C[["H7c_Model.1"]] <- lm(Stability_LP_3.R ~ Condition, data = df_sim)
 
 ```
+
+#### Results
+
+```{r}
+
+tab_model(model_list.C[str_detect(names(model_list.C), "H7")],
+          dv.labels = names(model_list.C[str_detect(names(model_list.C), "H7")]))
+
+```
+
+<br>
 
 # Exploratory Analyses
 
@@ -183,6 +260,7 @@ model_list.E <- list()
 ```
 
 ## Exploratory Smartness hypothesis
+
 ```{r}
 # ---- Smartness comparison 7.5 & 6.6 ----
 model_list.E[["EH_Model.1"]] <- nlme::lme(
@@ -194,17 +272,40 @@ model_list.E[["EH_Model.1"]] <- nlme::lme(
 
 ```
 
+#### Results
+
+```{r}
+
+tab_model(model_list.E[str_detect(names(model_list.E), "EH")],
+          dv.labels = names(model_list.E[str_detect(names(model_list.E), "EH")]))
+
+```
+
+<br>
+
 ## Exploratory Dependent Variables
+
 ```{r}
 # ---- Stability - Future Financial Success ----
 model_list.E[["EDV1_HP_Model.1"]] <- lm(Stability_HP_4 ~ Condition, data = df_sim)
-model_list.E[["EDV1_LP_Model.1"]] <- lm(Stability_LP_4 ~ Condition, data = df_sim)
+model_list.E[["EDV1_LP_Model.1"]] <- lm(Stability_LP_4.R ~ Condition, data = df_sim)
 
 # ---- External - Hard Work ----
 model_list.E[["EDV2_HP_Model.1"]] <- lm(Attributions_HP_2 ~ Condition, data = df_sim)
 model_list.E[["EDV2_LP_Model.1"]] <- lm(Attributions_LP_2 ~ Condition, data = df_sim)
 
 ```
+
+#### Results
+
+```{r}
+
+tab_model(model_list.E[str_detect(names(model_list.E), "EDV")],
+          dv.labels = names(model_list.E[str_detect(names(model_list.E), "EDV")]))
+
+```
+
+<br>
 
 ## Exploratory Random Effects
 
@@ -243,8 +344,8 @@ model_list.E[["H3_Model.1"]] <- nlme::lme(
 
 ```
 
-
 ### TO BE EXPANDED???
+
 ```{r}
 
 # model_list.E[["H4a_Model.1"]] <- nlme::lme(
@@ -255,4 +356,3 @@ model_list.E[["H3_Model.1"]] <- nlme::lme(
 # )
 
 ```
-

@@ -53,7 +53,7 @@ library(pacman)
 p_load(tidyverse,
        readxl,
        lme4,
-       lmertest) #Add additional packages
+       lmerTest) #Add additional packages
 
 ```
 
@@ -178,9 +178,7 @@ df_PS_2 <- df_sim %>%
 
 ```
 
-## Attributions
-
-### High Performance
+## Attributions - Exploratory
 
 ```{r}
 
@@ -192,7 +190,7 @@ df_A_1 <- df_sim %>%
                values_to = "Y") %>% 
   mutate(Contrast = if_else(item == "Attributions_LP_1", -1, 1))
 
-#---- ATTRI_2 ----
+#---- ATTRI_2 - Exploratory ----
 df_A_2 <- df_sim %>%  
   select(Subject, Gender, Condition, Set, Attributions_HP_2, Attributions_LP_2) %>% 
   pivot_longer(cols = starts_with("Attributions"),
@@ -214,6 +212,7 @@ df_A_3 <- df_sim %>%
 
 ```{r}
 
+#---- Smartness 7.8 & 7.5 ----
 df_S_1 <- df_sim %>%  
   select(Subject, Gender, Condition, Set, Smartness_HP, Smartness_MP_1) %>% 
   pivot_longer(cols = starts_with("Smart"),
@@ -221,6 +220,7 @@ df_S_1 <- df_sim %>%
                values_to = "Y") %>% 
   mutate(Contrast = if_else(item == "Smartness_HP", -1, 1))
 
+#---- Smartness 6.6 & 6.3 ----
 df_S_2 <- df_sim %>%  
   select(Subject, Gender, Condition, Set, Smartness_MP_2, Smartness_LP) %>% 
   pivot_longer(cols = starts_with("Smart"),
@@ -228,6 +228,7 @@ df_S_2 <- df_sim %>%
                values_to = "Y") %>% 
   mutate(Contrast = if_else(item == "Smartness_LP", -1, 1))
 
+#---- Smartness 7.5 & 6.6 - Exploratory ----
 df_S_3 <- df_sim %>%
   select(Subject, Gender, Condition, Set, Smartness_MP_1, Smartness_MP_2) %>%
   pivot_longer(cols = starts_with("Smart"),
@@ -237,7 +238,7 @@ df_S_3 <- df_sim %>%
 
 ```
 
-## Stability
+## Stability - Exploratory
 
 ```{r}
 
@@ -247,7 +248,8 @@ df_Stab_1 <- df_sim %>%
   pivot_longer(cols = starts_with("Stability"),
                names_to = "item",
                values_to = "Y") %>% 
-  mutate(Contrast = if_else(item == "Stability_LP_1", -1, 1))
+  mutate(Y_rev = 8 - Y,
+         Contrast = if_else(item == "Stability_LP_1", -1, 1))
 
 #---- Stab_2 ----
 df_Stab_2 <- df_sim %>%  
@@ -255,7 +257,8 @@ df_Stab_2 <- df_sim %>%
   pivot_longer(cols = starts_with("Stability"),
                names_to = "item",
                values_to = "Y") %>% 
-  mutate(Contrast = if_else(item == "Stability_LP_2", -1, 1))
+  mutate(Y_rev = 8 - Y,
+         Contrast = if_else(item == "Stability_LP_2", -1, 1))
 
 #---- Stab_3 ----
 df_Stab_3 <- df_sim %>%  
@@ -263,15 +266,17 @@ df_Stab_3 <- df_sim %>%
   pivot_longer(cols = starts_with("Stability"),
                names_to = "item",
                values_to = "Y") %>% 
-  mutate(Contrast = if_else(item == "Stability_LP_3", -1, 1))
+  mutate(Y_rev = 8 - Y,
+         Contrast = if_else(item == "Stability_LP_3", -1, 1))
 
-#---- Stab_4 ----
+#---- Stab_4 - Exploratory ----
 df_Stab_4 <- df_sim %>%  
   select(Subject, Gender, Condition, Set, Stability_HP_4, Stability_LP_4) %>% 
   pivot_longer(cols = starts_with("Stability"),
                names_to = "item",
                values_to = "Y") %>% 
-  mutate(Contrast = if_else(item == "Stability_LP_4", -1, 1))
+  mutate(Y_rev = 8 - Y,
+         Contrast = if_else(item == "Stability_LP_4", -1, 1))
 
 ```
 
@@ -286,6 +291,19 @@ df_C <- df_sim %>%
                values_to = "Y") %>% 
   mutate(Contrast = if_else(item == "Closeness_2", -1, 1))
 ```
+
+# Reverse DVs for Lower Performance Stability
+
+```{r}
+
+df_sim <- df_sim %>% 
+  mutate(Stability_LP_1.R = 8 - Stability_LP_1,
+         Stability_LP_2.R = 8 - Stability_LP_2,
+         Stability_LP_3.R = 8 - Stability_LP_3,
+         Stability_LP_4.R = 8 - Stability_LP_4)
+
+```
+
 
 # Write outfiles
 
