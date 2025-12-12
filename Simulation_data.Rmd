@@ -16,7 +16,7 @@ text-align: justify}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-In this section, we simulate the data which will be used to perform the power analysis and to define the analytical strategy which will be used for this study. These data are structurally similar to the data which will be collected for this study, but are sampled at random using the function Sample_Mean. The data is simulated to have (relatively) small differences between the "grouping" condition and the "no grouping" condition.
+In this file, we simulate the data which will be used to perform the power analysis and to define the analytical strategy which will be used for this study. These data are structurally similar to the data which will be collected for this study, but are sampled at random using the function Sample_Mean. The data is simulated to have (relatively) small differences between the "grouping" condition and the "no grouping" condition.
 
 # Clear workspace
 
@@ -103,10 +103,10 @@ df_sim_0 <- df_sim %>%
          Attributions_LP_1 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
          Attributions_LP_2 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
          Attributions_LP_3 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
-         Smartness_HP = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 3, sd = 1, min_val = 1, max_val = 5, int = T),
-         Smartness_MP_1 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 3, sd = 1, min_val = 1, max_val = 5, int = T),
+         Smartness_HP = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 5, int = T),
+         Smartness_MP_1 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 3.75, sd = 1, min_val = 1, max_val = 5, int = T),
          Smartness_MP_2 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 3, sd = 1, min_val = 1, max_val = 5, int = T),
-         Smartness_LP = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 3, sd = 1, min_val = 1, max_val = 5, int = T),
+         Smartness_LP = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 2.5, sd = 1, min_val = 1, max_val = 5, int = T),
          Stability_HP_1 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
          Stability_HP_2 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
          Stability_HP_3 = Sample_Mean(n = length(which(df_sim$Condition == -1)), mean = 4, sd = 1, min_val = 1, max_val = 7, int = T),
@@ -132,10 +132,10 @@ df_sim_1 <- df_sim %>%
          Attributions_LP_1 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 5, sd = 1, min_val = 1, max_val = 7, int = T),
          Attributions_LP_2 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 5, sd = 1, min_val = 1, max_val = 7, int = T),
          Attributions_LP_3 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 5, sd = 1, min_val = 1, max_val = 7, int = T),
-         Smartness_HP = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 4, sd = 1, min_val = 1, max_val = 5, int = T),
-         Smartness_MP_1 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 4, sd = 1, min_val = 1, max_val = 5, int = T),
-         Smartness_MP_2 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 4, sd = 1, min_val = 1, max_val = 5, int = T),
-         Smartness_LP = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 4, sd = 1, min_val = 1, max_val = 5, int = T),
+         Smartness_HP = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 4.5, sd = 1, min_val = 1, max_val = 5, int = T),
+         Smartness_MP_1 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 3.25, sd = 1, min_val = 1, max_val = 5, int = T),
+         Smartness_MP_2 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 3.25, sd = 1, min_val = 1, max_val = 5, int = T),
+         Smartness_LP = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 2, sd = 1, min_val = 1, max_val = 5, int = T),
          Stability_HP_1 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 5, sd = 1, min_val = 1, max_val = 7, int = T),
          Stability_HP_2 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 5, sd = 1, min_val = 1, max_val = 7, int = T),
          Stability_HP_3 = Sample_Mean(n = length(which(df_sim$Condition == 1)), mean = 5, sd = 1, min_val = 1, max_val = 7, int = T),
@@ -218,7 +218,7 @@ df_S_1 <- df_sim %>%
   pivot_longer(cols = starts_with("Smart"),
                names_to = "item",
                values_to = "Y") %>% 
-  mutate(Contrast = if_else(item == "Smartness_HP", -1, 1))
+  mutate(Contrast = if_else(item == "Smartness_MP_1", -1, 1))
 
 #---- Smartness 6.6 & 6.3 ----
 df_S_2 <- df_sim %>%  

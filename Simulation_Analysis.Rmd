@@ -56,18 +56,26 @@ model_list.C <- list()
 ```{r}
 
 # ---- Smartness comparison 7.8 & 7.5 ---- 
-model_list.C[["H1_Model.1"]] <- nlme::lme(
+model_list.C[["H1a_Model.1"]] <- nlme::lme(
   fixed = Y ~ Condition * Contrast,
-  random = ~ 1 + Contrast | Subject,
+  random = ~ 1 | Subject,
   data = df_S_1,
   method = "ML"
 )
 
 # ---- Smartness comparison 6.6 & 6.3 ----
-model_list.C[["H1_Model.2"]] <- nlme::lme(
+model_list.C[["H1a_Model.2"]] <- nlme::lme(
   fixed = Y ~ Condition * Contrast,
-  random = ~ 1 + Contrast | Subject,
+  random = ~ 1 | Subject,
   data = df_S_2,
+  method = "ML"
+)
+
+# ---- Smartness comparison 7.5 & 6.6 ----
+model_list.C[["H1b_Model.1"]] <- nlme::lme(
+  fixed = Y ~ Condition * Contrast,
+  random = ~ 1 | Subject,
+  data = df_S_3,
   method = "ML"
 )
 
@@ -80,6 +88,44 @@ model_list.C[["H1_Model.2"]] <- nlme::lme(
 tab_model(model_list.C[str_detect(names(model_list.C), "H1")],
           dv.labels = names(model_list.C[str_detect(names(model_list.C), "H1")]))
 
+```
+
+#### Plots
+```{r}
+df_S_1$Pred <- predict(model_list.C[["H1a_Model.1"]], level = 0)
+
+ggplot(df_S_1, aes(x = Condition, y = Pred,
+                   color = Contrast, group = Contrast)) +
+  stat_summary(fun = mean, geom = "line", size = 1) +
+  stat_summary(fun = mean, geom = "point", size = 2) +
+  labs(title = "Interaction Plot (H1a_Model.1): Contrast × Condition",
+       y = "Predicted Y",
+       x = "Condition") +
+  theme_bw()
+
+df_S_2$Pred <- predict(model_list.C[["H1a_Model.2"]], level = 0)
+
+ggplot(df_S_2, aes(x = Condition, y = Pred,
+                   color = Contrast, group = Contrast)) +
+  stat_summary(fun = mean, geom = "line", size = 1) +
+  stat_summary(fun = mean, geom = "point", size = 2) +
+  labs(title = "Interaction Plot (H1a_Model.2): Contrast × Condition",
+       y = "Predicted Y",
+       x = "Condition") +
+  theme_bw()
+
+
+# Predicted values (population level)
+df_S_3$Pred <- predict(model_list.C[["H1b_Model.1"]], level = 0)
+
+ggplot(df_S_3, aes(x = Condition, y = Pred,
+                   color = Contrast, group = Contrast)) +
+  stat_summary(fun = mean, geom = "line", size = 1) +
+  stat_summary(fun = mean, geom = "point", size = 2) +
+  labs(title = "Interaction Plot (H1b_Model.1): Contrast × Condition",
+       y = "Predicted Y",
+       x = "Condition") +
+  theme_bw()
 ```
 
 <br>

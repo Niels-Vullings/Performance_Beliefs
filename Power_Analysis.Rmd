@@ -223,6 +223,8 @@ Var_17 <- list(Subject = rand_cov_17,
 
 ```{r, eval=FALSE}
 
+# Note: To run power analyses, change to eval=TRUE
+
 #---- Confirmation before starting Simulations ----
 Sim_Confirmation()
 
