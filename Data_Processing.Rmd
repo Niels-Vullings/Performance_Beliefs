@@ -1,0 +1,235 @@
+---
+title: "Data processing"
+date: Last compiled on `r format(Sys.time(), '%B-%d-%Y')`
+output: html_document
+---
+
+```{=html}
+<style>
+body {
+text-align: justify}
+</style>
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Clear workspace
+
+```{r}
+rm(list = ls())
+```
+
+# Load libraries
+
+```{r}
+# install.packages(pacman)
+library(pacman)
+
+p_load(tidyverse,
+       haven) #Add additional packages
+
+```
+
+# Load Data
+```{r}
+
+df <- read_sav("~/PhD/Year 1/07 - Data/Sierksma, J. (Jellie)'s files - IPSOS/data/DUUJONG_eindbestand.sav")
+
+```
+
+#
+
+# Create Long-files
+
+## Perceived Similarity
+
+```{r}
+
+#---- Similarity ----
+df_PS_1 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, starts_with("Perceived_sim1")) %>% 
+  pivot_longer(cols = starts_with("Perceived"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Perceived_sim1_2", -1, 1))
+
+#---- Commonality ----
+df_PS_2 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, starts_with("Perceived_sim2")) %>% 
+  pivot_longer(cols = starts_with("Perceived"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Perceived_sim2_2", -1, 1))
+
+```
+
+## Attributions - Exploratory
+
+```{r}
+
+#---- ATTRI_1 ----
+df_A_1 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Attributions_HP_1, Attributions_LP_1) %>% 
+  pivot_longer(cols = starts_with("Attributions"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Attributions_LP_1", -1, 1))
+
+#---- ATTRI_2 - Exploratory ----
+df_A_2 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Attributions_HP_2, Attributions_LP_2) %>% 
+  pivot_longer(cols = starts_with("Attributions"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Attributions_LP_2", -1, 1))
+
+#---- ATTRI_3 ----
+df_A_3 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Attributions_HP_3, Attributions_LP_3) %>% 
+  pivot_longer(cols = starts_with("Attributions"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Attributions_LP_3", -1, 1))
+
+```
+
+## Perceived Smartness
+
+```{r}
+
+#---- Smartness 7.8 & 7.5 ----
+df_S_1 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Smartness_HP, Smartness_MP_1) %>% 
+  pivot_longer(cols = starts_with("Smart"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Smartness_MP_1", -1, 1))
+
+#---- Smartness 6.6 & 6.3 ----
+df_S_2 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Smartness_MP_2, Smartness_LP) %>% 
+  pivot_longer(cols = starts_with("Smart"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Smartness_LP", -1, 1))
+
+#---- Smartness 7.5 & 6.6 - Exploratory ----
+df_S_3 <- df_sim %>%
+  select(Subject, Gender, Condition, Set, Smartness_MP_1, Smartness_MP_2) %>%
+  pivot_longer(cols = starts_with("Smart"),
+               names_to = "item",
+               values_to = "Y") %>%
+  mutate(Contrast = if_else(item == "Smartness_MP_2", -1, 1))
+
+```
+
+## Stability - Exploratory
+
+```{r}
+
+#---- Stab_1 ----
+df_Stab_1 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Stability_HP_1, Stability_LP_1) %>% 
+  pivot_longer(cols = starts_with("Stability"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Y_rev = 8 - Y,
+         Contrast = if_else(item == "Stability_LP_1", -1, 1))
+
+#---- Stab_2 ----
+df_Stab_2 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Stability_HP_2, Stability_LP_2) %>% 
+  pivot_longer(cols = starts_with("Stability"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Y_rev = 8 - Y,
+         Contrast = if_else(item == "Stability_LP_2", -1, 1))
+
+#---- Stab_3 ----
+df_Stab_3 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Stability_HP_3, Stability_LP_3) %>% 
+  pivot_longer(cols = starts_with("Stability"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Y_rev = 8 - Y,
+         Contrast = if_else(item == "Stability_LP_3", -1, 1))
+
+#---- Stab_4 - Exploratory ----
+df_Stab_4 <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Stability_HP_4, Stability_LP_4) %>% 
+  pivot_longer(cols = starts_with("Stability"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Y_rev = 8 - Y,
+         Contrast = if_else(item == "Stability_LP_4", -1, 1))
+
+```
+
+## Perceived Closeness
+
+```{r}
+
+df_C <- df_sim %>%  
+  select(Subject, Gender, Condition, Set, Closeness_1, Closeness_2) %>% 
+  pivot_longer(cols = starts_with("Closeness"),
+               names_to = "item",
+               values_to = "Y") %>% 
+  mutate(Contrast = if_else(item == "Closeness_2", -1, 1))
+```
+
+# Reverse DVs for Lower Performance Stability
+
+```{r}
+
+df_sim <- df_sim %>% 
+  mutate(Stability_LP_1.R = 8 - Stability_LP_1,
+         Stability_LP_2.R = 8 - Stability_LP_2,
+         Stability_LP_3.R = 8 - Stability_LP_3,
+         Stability_LP_4.R = 8 - Stability_LP_4)
+
+```
+
+# Write outfiles
+
+## Wide dataset - Main df
+
+```{r}
+
+save(df_sim, file = "simulations/Simulation_data.RData")
+
+```
+
+## Long datasets
+
+```{r}
+
+#---- Perceived Similarity ----
+save(df_PS_1, file = "simulations/sim_df_PS_1.RData") # Similarity
+save(df_PS_2, file = "simulations/sim_df_PS_2.RData") # Commonality
+
+#---- Perceived Smartness ----
+save(df_S_1, file = "simulations/sim_df_S_1.RData") # HP_MP
+save(df_S_2, file = "simulations/sim_df_S_2.RData") # MP_LP
+save(df_S_3, file = "simulations/sim_df_S_3.RData") # MP_MP - Exploratory
+
+#---- Perceived Closeness ----
+save(df_C, file = "simulations/sim_df_C.RData") # Closeness
+
+#---- Attributions ----
+save(df_A_1, file = "simulations/sim_df_A_1.RData") # Intelligence
+save(df_A_2, file = "simulations/sim_df_A_2.RData") # Hard work - Exploratory
+save(df_A_3, file = "simulations/sim_df_A_3.RData") # Luck
+
+#---- Stability ----
+save(df_Stab_1, file = "simulations/df_Stab_1.RData") # Smart Parents
+save(df_Stab_2, file = "simulations/df_Stab_2.RData") # Early Development
+save(df_Stab_3, file = "simulations/df_Stab_3.RData") # Smart work
+save(df_Stab_4, file = "simulations/df_Stab_4.RData") # Financial succes - Exploratory
+
+```
+
+```{r}
+
+```

@@ -1,0 +1,74 @@
+---
+title: "Data Simulation"
+date: Last compiled on `r format(Sys.time(), '%B-%d-%Y')`
+output: html_document
+
+---
+
+```{=html}
+<style>
+body {
+text-align: justify}
+</style>
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Clear workspace
+
+```{r}
+rm(list = ls())
+```
+
+# Load libraries
+
+```{r}
+# install.packages(pacman)
+library(pacman)
+
+p_load(foreign,
+       tidyverse,
+       readxl,
+       lme4,
+       lmerTest) #Add additional packages
+
+```
+
+# Load data
+```{r}
+
+df <- read.spss("path_to_file.sav",
+                to.data.frame = T, use.value.labels = F)
+
+```
+
+# Control Checks
+```{r}
+
+df <- data.frame(id = 1:400,
+                 response_time = c(sample(c(16:20), 350, replace = T), sample(c(1:100), 50, replace = T))
+)
+
+df$z_scores <- (df$response_time-mean(df$response_time))/sd(df$response_time)
+
+Q1 <- quantile(df$response_time, 0.25)
+Q3 <- quantile(df$response_time, 0.75)
+IQR <- Q3 - Q1
+
+df$outlier_iqr <- df$response_time < (Q1 - 1.5*IQR) |
+                  df$response_time > (Q3 + 1.5*IQR)
+
+
+df <- df %>%
+  mutate(
+    med = median(response_time),
+    mad = mad(response_time),
+    robust_z = (response_time - med) / mad,
+    outlier_robust = abs(robust_z) > 3
+  )
+
+```
+
+

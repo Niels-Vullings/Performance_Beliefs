@@ -63,6 +63,12 @@ model_list.C[["H1a_Model.1"]] <- nlme::lme(
   method = "ML"
 )
 
+H1a_Model.1 <- lmerTest::lmer(
+  Y ~ Condition * Contrast + (1 | Subject),
+  data = df_S_1,
+  REML = FALSE
+)
+
 # ---- Smartness comparison 6.6 & 6.3 ----
 model_list.C[["H1a_Model.2"]] <- nlme::lme(
   fixed = Y ~ Condition * Contrast,
@@ -81,11 +87,17 @@ model_list.C[["H1b_Model.1"]] <- nlme::lme(
 
 ```
 
+### Checks for significance calculation
 ```{r}
 
 tab_model(model_list.C[str_detect(names(model_list.C), "H1")],
           dv.labels = names(model_list.C[str_detect(names(model_list.C), "H1")]))
 
+summary(model_list.C[["H1a_Model.1"]])
+summary(H1a_Model.1)
+
+
+drop1(H1a_Model.1, test = "Chisq")
 ```
 
 ## Interaction - Visualization & Decomposition
@@ -354,7 +366,9 @@ tab_model(model_list.C[str_detect(names(model_list.C), "H2")],
 
 # Model type 2) Linear Models
 
-## Attributions - High Performance
+## Hypothesis 3
+
+### Attributions
 
 ```{r}
 # ---- Internal - Smart ----
@@ -367,7 +381,7 @@ model_list.C[["H3b_Model.1"]] <- lm(Attributions_HP_3 ~ Condition, data = df_sim
 
 <br>
 
-## Stability - High Performance
+### Stability
 
 ```{r}
 # ---- Smart parents ----
@@ -392,7 +406,9 @@ tab_model(model_list.C[str_detect(names(model_list.C), "H3")],
 
 <br>
 
-## Attributions - Low Performance
+## Hypothesis 4
+
+### Attributions
 
 ```{r}
 # ---- Internal - Smart ----
@@ -405,7 +421,7 @@ model_list.C[["H4b_Model.1"]] <- lm(Attributions_LP_3 ~ Condition, data = df_sim
 
 <br>
 
-## Stability - Low Performance
+### Stability 
 
 ```{r}
 # ---- Smart parents ----

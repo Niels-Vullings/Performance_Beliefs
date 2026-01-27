@@ -1,0 +1,124 @@
+---
+title: "Study 1 - Exploration & Checks"
+output: html_document
+date: "2025-11-10"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Clear workspace
+```{r}
+rm(list = ls())
+```
+
+# Load packages
+```{r}
+
+library(pacman)
+
+p_load(tidyverse,
+       haven,
+       labelled,
+       DT)
+
+```
+
+# Load Data
+```{r}
+
+df <- read_sav("~/PhD/Year 1/07 - Data/Sierksma, J. (Jellie)'s files - IPSOS/data/DUUJONG_eindbestand.sav")
+
+```
+
+# Initial Data Inspection
+```{r}
+head(df)
+
+df %>% 
+  as_factor() %>%
+  count(Status)
+
+df_complete <- df %>% 
+  filter(Status == 1)
+
+df_incomplete <- df %>% 
+  filter(Status == 3)
+
+which(is.na(df_complete$toestemming) & is.na(df_complete$toestemming_jongeren))
+
+df_complete %>% 
+  as_factor() %>% 
+  count(A1_screening)
+
+df_complete %>% 
+  as_factor() %>% 
+  count(A1_6_anders) %>% 
+  filter(A1_6_anders != "")
+
+```
+
+# Assignment experimenten
+```{r}
+
+df_complete %>% 
+  count(C_random_set, C_stimulus_1, C_stimulus_2, C_stimulus_3,
+        D_random_set, 
+        E_random_set, E_stimulus_1, E_stimulus_2)
+
+df_complete %>% 
+  count(C_random_set, C_stimulus_1, C_stimulus_2, C_stimulus_3, 
+        E_random_set, E_stimulus_1, E_stimulus_2) 
+
+df_complete %>% 
+  count(D_random_set, 
+        E_random_set, E_stimulus_1, E_stimulus_2)
+
+```
+
+# Bruikbaarheid incomplete data
+```{r}
+
+df_incomplete %>% 
+  count(C_random_set, C_stimulus_1, C_stimulus_2, C_stimulus_3,
+        D_random_set, 
+        E_random_set, E_stimulus_1, E_stimulus_2) 
+
+df_incomplete %>% 
+  as_factor() %>% 
+  count(C6)
+
+df_incomplete %>% 
+  as_factor() %>% 
+  count(D14)
+
+df_incomplete %>% 
+  # as_factor() %>% 
+  count(E2_2)
+```
+
+# Full overview of usable samples
+```{r}
+labels_df <- data.frame(
+  variable = names(df),
+  label = sapply(df, var_label),
+  row.names = NULL,
+  stringsAsFactors = FALSE
+)
+
+label <- labels_df$label
+
+bla2 <- psych::describe(df) %>% 
+  select(vars,n)
+
+overview <- cbind(label,bla2)
+
+DT::datatable(overview)
+
+```
+
+
+
+
+
